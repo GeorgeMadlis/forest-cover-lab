@@ -1,0 +1,14 @@
+name: example_forest_definition
+baseline_dataset: "UMD/hansen/global_forest_change_2024_v1_12"
+forest_threshold_variable: "treecover2000"
+forest_threshold_value: 30
+minimum_mapping_area_ha: 0.5
+exclusion_masks:
+  - water
+  - urban
+nodata_policy: exclude
+temporal_interpretation: "year_2000_baseline_extent"
+notes: |
+  Example only. Replace with the project-specific definition for each AOI.
+  Threshold values may be adjusted per biome but must always be declared
+  in the run manifest.

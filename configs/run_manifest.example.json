@@ -1,0 +1,55 @@
+{
+  "run_id": "example-run-001",
+  "aoi_id": "example-aoi",
+  "geometry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "exchange_crs": "EPSG:4326",
+  "area_method": {
+    "type": "equal-area",
+    "crs": "EPSG:6933",
+    "unit": "hectares"
+  },
+  "forest_definition": {
+    "name": "example_forest_definition",
+    "baseline_dataset": "UMD/hansen/global_forest_change_2024_v1_12",
+    "forest_threshold_variable": "treecover2000",
+    "forest_threshold_value": 30,
+    "minimum_mapping_area_ha": 0.5,
+    "exclusion_masks": ["water", "urban"],
+    "nodata_policy": "exclude",
+    "temporal_interpretation": "year_2000_baseline_extent"
+  },
+  "data_provenance": [
+    {
+      "dataset_name": "Hansen Global Forest Change",
+      "dataset_version": "v1.12",
+      "source": "UMD/hansen/global_forest_change_2024_v1_12",
+      "access_time_utc": "2026-04-22T00:00:00Z",
+      "notes": "Annual change product anchored to year-2000 baseline"
+    }
+  ],
+  "algorithm": {
+    "name": "v1-baseline",
+    "version": "0.1.0"
+  },
+  "parameters": {
+    "canopy_threshold_pct": 30,
+    "min_mapping_area_ha": 0.5
+  },
+  "outputs": [
+    {
+      "path": "outputs/example-run-001/forest_mask.tif",
+      "artifact_type": "raster",
+      "description": "Baseline forest mask (uint8, nodata=255)"
+    },
+    {
+      "path": "outputs/example-run-001/area_summary.csv",
+      "artifact_type": "table",
+      "description": "Forest area in hectares for the AOI"
+    }
+  ],
+  "limitations": [
+    "Hansen treecover2000 anchored to year-2000 baseline",
+    "Annual loss product — not monthly ground truth",
+    "30 m Landsat resolution — not directly comparable to 10 m Sentinel without aggregation"
+  ]
+}

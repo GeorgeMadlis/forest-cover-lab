@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  basic-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dev dependencies
+        run: |
+          pip install pre-commit jsonschema
+
+      - name: Validate JSON schema files
+        run: python -m json.tool validate/run_manifest.schema.json > /dev/null
+
+      - name: Validate example run manifest against schema
+        run: |
+          python - <<'EOF'
+          import json, jsonschema, pathlib
+          schema = json.loads(pathlib.Path("validate/run_manifest.schema.json").read_text())
+          instance = json.loads(pathlib.Path("configs/run_manifest.example.json").read_text())
+          jsonschema.validate(instance, schema)
+          print("run_manifest.example.json validates OK")
+          EOF
+
+      - name: Check all required directories exist
+        run: |
+          for d in docs/adr research/publications research/packages specs fetch process validate report tests notebooks configs; do
+            if [ ! -d "$d" ]; then echo "Missing directory: $d"; exit 1; fi
+          done
+          echo "All required directories present"

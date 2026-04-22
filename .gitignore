@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.python-version
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Geospatial outputs
+data/
+outputs/
+artifacts/
+*.tif
+*.tiff
+*.vrt
+*.img
+*.gpkg
+*.fgb
+*.parquet
+*.feather
+*.shp
+*.dbf
+*.shx
+*.prj
+*.cpg
+*.geojson
+*.nc
+*.zarr
+*.csv.tmp
+
+# Logs
+*.log
+
+# Secrets
+.env
+.env.*
+secrets/

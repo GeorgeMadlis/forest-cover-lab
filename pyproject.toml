@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forest-cover-lab"
+version = "0.1.0"
+description = "Reproducible forest coverage estimation and research planning from raster satellite data."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Forest Cover Lab Maintainers" }
+]
+dependencies = [
+    "earthengine-api>=0.1.390",
+    "geemap>=0.32",
+    "gdal>=3.8",
+    "rasterio>=1.3",
+    "rioxarray>=0.15",
+    "xarray>=2024.1",
+    "geopandas>=0.14",
+    "shapely>=2.0",
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "jupyter>=1.0",
+    "ipywidgets>=8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff",
+    "black",
+    "nbstripout",
+    "pre-commit",
+    "jsonschema>=4.0",
+]
+
+[tool.setuptools]
+packages = []
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]

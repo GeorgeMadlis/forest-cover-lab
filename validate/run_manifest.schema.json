@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/forest-cover-lab/run_manifest.schema.json",
+  "title": "Forest Cover Lab Run Manifest",
+  "type": "object",
+  "required": [
+    "run_id",
+    "aoi_id",
+    "geometry_hash",
+    "exchange_crs",
+    "area_method",
+    "forest_definition",
+    "data_provenance",
+    "algorithm",
+    "parameters",
+    "outputs",
+    "limitations"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "description": "Unique identifier for this run (UUID v4 recommended)"
+    },
+    "aoi_id": {
+      "type": "string",
+      "description": "Stable identifier for the area of interest"
+    },
+    "geometry_hash": {
+      "type": "string",
+      "description": "SHA-256 hex digest of the canonical GeoJSON AOI geometry"
+    },
+    "exchange_crs": {
+      "type": "string",
+      "description": "CRS used for AOI exchange (must be EPSG:4326 per ADR 0003)"
+    },
+    "area_method": {
+      "type": "object",
+      "required": ["type", "unit"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["equal-area", "geodesic"]
+        },
+        "crs": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["hectares"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "forest_definition": {
+      "type": "object",
+      "required": [
+        "name",
+        "baseline_dataset",
+        "forest_threshold_variable",
+        "forest_threshold_value",
+        "minimum_mapping_area_ha",
+        "nodata_policy",
+        "temporal_interpretation"
+      ],
+      "properties": {
+        "name": { "type": "string" },
+        "baseline_dataset": { "type": "string" },
+        "forest_threshold_variable": { "type": "string" },
+        "forest_threshold_value": { "type": ["number", "integer", "string"] },
+        "minimum_mapping_area_ha": { "type": "number" },
+        "exclusion_masks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "nodata_policy": { "type": "string" },
+        "temporal_interpretation": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "data_provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dataset_name": { "type": "string" },
+          "dataset_version": { "type": "string" },
+          "source": { "type": "string" },
+          "access_time_utc": { "type": "string" },
+          "notes": { "type": "string" }
+        },
+        "required": ["dataset_name", "source"]
+      }
+    },
+    "algorithm": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "artifact_type": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["path", "artifact_type"]
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}
