@@ -1,0 +1,2 @@
+id,search_scope_id,repo_name,repo_url,organization,language,license,last_commit_year,problem_type,sensor_or_data,method_family,v1_fit,v2_fit,v3_fit,scientific_fidelity,code_quality,data_access_required,paper_doi,reverse_engineered,status,reviewer,review_date,notes
+CS-0001,SS-0001,Placeholder - add first codebase here,,,,,,,,,,,,,,,,no,to_review,,,Seed row - replace before use

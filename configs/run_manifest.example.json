@@ -20,10 +20,14 @@
   },
   "data_provenance": [
     {
+      "inventory_id": "DS-0001",
       "dataset_name": "Hansen Global Forest Change",
       "dataset_version": "v1.12",
+      "evidence_role": "core estimation input",
+      "domain": "forest cover",
       "source": "UMD/hansen/global_forest_change_2024_v1_12",
       "access_time_utc": "2026-04-22T00:00:00Z",
+      "forest_relevance": "Direct forest cover and annual loss baseline; weak supervision only for monthly tasks.",
       "notes": "Annual change product anchored to year-2000 baseline"
     }
   ],

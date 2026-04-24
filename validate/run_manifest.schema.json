@@ -82,13 +82,27 @@
       "items": {
         "type": "object",
         "properties": {
+          "inventory_id": { "type": "string" },
           "dataset_name": { "type": "string" },
           "dataset_version": { "type": "string" },
+          "evidence_role": {
+            "type": "string",
+            "enum": [
+              "core estimation input",
+              "auxiliary feature",
+              "validation reference",
+              "context/risk layer",
+              "exclusion mask",
+              "interpretation-only background"
+            ]
+          },
+          "domain": { "type": "string" },
           "source": { "type": "string" },
           "access_time_utc": { "type": "string" },
+          "forest_relevance": { "type": "string" },
           "notes": { "type": "string" }
         },
-        "required": ["dataset_name", "source"]
+        "required": ["dataset_name", "source", "evidence_role"]
       }
     },
     "algorithm": {

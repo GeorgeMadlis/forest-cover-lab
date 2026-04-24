@@ -14,6 +14,7 @@ Required before reporting any area statistics. See `tests/`.
 | `test_datamask_applied` | Pixels with `datamask != 1` are excluded from the forest mask |
 | `test_manifest_present` | Every run output directory contains `run_manifest.json` |
 | `test_manifest_schema` | The manifest validates against `validate/run_manifest.schema.json` |
+| `test_data_source_roles` | Every manifest data source declares an evidence role and separates context products from core inputs |
 
 ### 2. Small-AOI integration test
 
@@ -36,6 +37,8 @@ Examples:
 - national authoritative forest inventory layers
 - Global Forest Watch annual loss overlay (reference / visual QA only)
 - manually reviewed orthophoto samples (≥ 30 random points per stratum)
+- context products from `research/data_sources/` only when their `evidence_role` and
+  `forest_relevance` justify the comparison
 
 ### 4. Temporal plausibility review (v2 / v3)
 
@@ -50,3 +53,8 @@ Monthly outputs require a documented review design:
 > Annual agreement with annual forest-loss products **does not** prove monthly correctness.
 
 This caveat must appear in every monthly report and in every v3 run manifest's `limitations` field.
+
+Context products require the same caution: agreement with biodiversity, flood, integrity,
+energy, ocean/coastal, climate, or land-pressure layers may support interpretation, but it
+does not validate forest-cover truth unless the product has been admitted as a documented
+validation reference.

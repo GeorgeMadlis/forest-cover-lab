@@ -6,9 +6,12 @@ Project-level documentation for Forest Cover Lab.
 
 | Path | Purpose |
 |---|---|
+| `architecture.md` | Current architecture assessment and target structure |
 | `adr/` | Architecture Decision Records — durable technical and methodological decisions |
 
 ## Rules
 
 - Substantive decisions belong in `adr/` as numbered ADRs, not in free-form notes.
-- This top-level `docs/` directory may host high-level guides and indexes once the project grows beyond the planning milestone.
+- `architecture.md` may describe gaps and target structure, but it does not replace ADRs.
+- This top-level `docs/` directory may host high-level guides and indexes once the project
+  grows beyond the planning milestone.
