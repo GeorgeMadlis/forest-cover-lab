@@ -9,6 +9,10 @@ The primary mission is forest cover estimation. Adjacent Earth-observation domai
 handled as context evidence when they support forest interpretation, validation, uncertainty,
 or risk assessment.
 
+Downstream repos consume this research by stable references: data-source IDs, ADRs, specs,
+schemas, validation plans, and reporting contracts. The downstream contract is documented in
+`docs/downstream_repos.md`.
+
 ---
 
 ## Tracks
@@ -71,3 +75,5 @@ not datasets or external research implementations.
 - Decisions arising from research tracks must be recorded in an ADR — not in README files.
 - Context products must have a clear forest-cover relevance statement before they influence
   specs, reports, or validation.
+- Downstream repos should cite the source IDs and contracts they consume instead of copying
+  this research into repo-specific prose.

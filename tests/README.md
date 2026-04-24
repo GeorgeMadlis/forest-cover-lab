@@ -1,6 +1,10 @@
 # Tests
 
-Unit and integration tests for Forest Cover Lab.
+Unit and integration tests for Forest Cover Lab contracts.
+
+Tests here verify shared schemas, examples, governance expectations, and reference behavior.
+Pipeline-specific tests belong in downstream repos, while still referencing this repo's
+contracts.
 
 ## Planned minimum tests (Phase 2)
 

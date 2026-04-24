@@ -10,6 +10,7 @@ the repository structure.
 
 Contributions are welcome for:
 
+- downstream repo contracts and compatibility notes
 - literature review and evidence synthesis (papers, reports, and blogs)
 - data source and adjacent context product suitability analysis
 - external codebase discovery and reverse engineering
@@ -76,6 +77,7 @@ Any contribution affecting outputs or interpretation must document:
 
 - the target phase: v1, v2, or v3
 - data source(s)
+- downstream repo(s) affected, if any
 - forest-definition assumptions
 - evidence role and forest relevance for any non-forest context products
 - CRS and area method
@@ -93,6 +95,7 @@ A PR should generally do one of these:
 - add or review one data source (or a batch from the same provider)
 - add or review one code source entry
 - produce one reverse engineering artifact
+- update downstream repo contract guidance
 - refine one spec
 - add one coherent unit of implementation
 - improve validation or reporting contracts

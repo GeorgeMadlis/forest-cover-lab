@@ -28,3 +28,16 @@ adjacent Earth-observation context products.
 **Open findings:** None.
 
 **Reviewer:** Codex architecture pass
+
+---
+
+## 2026-04-24 — Downstream repository role clarification
+
+**Trigger:** Structural change — made Forest Cover Lab's role explicit as a governance,
+explanation, and reusable data-source evidence repo for narrower downstream repositories.
+
+**Checklist result:** Pass after revision.
+
+**Open findings:** None.
+
+**Reviewer:** Codex architecture pass

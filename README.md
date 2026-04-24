@@ -1,11 +1,17 @@
 # Forest Cover Lab
 
-Forest Cover Lab is a reproducible repository for estimating forest coverage from raster satellite data, with a phased roadmap toward monthly forest-cover estimation and disturbance monitoring.
+Forest Cover Lab is the governance, research, and evidence registry for forest-cover work
+across a family of narrower repositories. It defines scientific contracts, explains the
+reasoning behind them, and collects reusable data-source assessments for downstream
+implementation repos.
 
 ## Purpose
 
 This repository is designed to support:
 
+- governance of downstream forest-cover repositories
+- explanation of scientific assumptions, evidence, and non-claims
+- a reusable registry of data sources and context products
 - a transparent **big-picture forest coverage baseline**
 - a structured research process for **monthly forest-cover estimation**
 - parallel evaluation of:
@@ -14,6 +20,10 @@ This repository is designed to support:
   - **external source code and reverse-engineered reasoning**
   - **software packages and platforms**
 - reproducible reporting with explicit provenance, assumptions, and limitations
+
+Downstream repos such as `sentinel-monthly-forest-cover` and `gedi-validation-lab` should
+consume contracts from this repo instead of redefining their own forest definitions,
+data-source semantics, validation rules, or reporting disclaimers.
 
 ## ⚠️ Critical Warning
 
@@ -75,6 +85,9 @@ workstreams, and architecture drift control.
 The current architecture assessment is documented in
 [`docs/architecture.md`](docs/architecture.md).
 
+Guidance for downstream implementation repos is documented in
+[`docs/downstream_repos.md`](docs/downstream_repos.md).
+
 ---
 
 ## Scientific constraints
@@ -127,6 +140,8 @@ forest-state labels.
 governance/          Canonical principles, drift checklist, audit log
 docs/                Architecture assessment and ADRs
 docs/adr/            Architecture Decision Records — per-decision governance
+docs/downstream_repos.md
+                     Contract for narrower implementation repos
 research/
   methodology/       Search scopes, research protocol, practitioner sources (P1)
   publications/      Literature and practitioner source inventory (P1)
@@ -134,13 +149,13 @@ research/
   code_sources/      External codebase discovery and reverse engineering (P3, P4)
   packages/          Implementation tooling for this repo's pipeline
 specs/               Formal algorithm specifications (v1, v2, v3)
-fetch/               Data acquisition code
-process/             Raster processing and modeling code
+fetch/               Reference data acquisition code for contract validation
+process/             Reference processing/modeling code for contract validation
 validate/            Validation specs and tests
 report/              Reporting contracts and evidence artifacts
 configs/             Example configuration files
-tests/               Unit and integration tests
-notebooks/           Exploratory notebooks only
+tests/               Shared contract and reference behavior tests
+notebooks/           Exploratory notebooks for evidence and contract design
 ```
 
 ## Expected workflow
@@ -190,6 +205,10 @@ Key artifacts: `research/data_sources/inventory.csv`,
 `research/data_sources/suitability_rubric.md`,
 `research/data_sources/context_products.md`
 
+Data-source entries are reusable across downstream repos. For example, Sentinel-1
+(`DS-0003`) and Sentinel-2 (`DS-0002`) can support `sentinel-monthly-forest-cover`, while
+GEDI (`DS-0006`) can support `gedi-validation-lab` as a validation reference.
+
 ### D. Code discovery and reverse engineering (P3 + P4)
 
 Catalogues external codebases independently of publications (P3). Selected codebases receive
@@ -216,6 +235,7 @@ The planning milestone is complete when:
 * the repository scaffold exists
 * `governance/principles.md` is written and referenced from this README
 * `docs/architecture.md` records the current architecture assessment
+* `docs/downstream_repos.md` defines how narrower repos consume this repo's contracts
 * the ADRs for platform, forest definition, area computation, and monthly target are written
 * the publications inventory exists with scoring fields and `venue_type` column
 * the methodology track includes a search-scope registry

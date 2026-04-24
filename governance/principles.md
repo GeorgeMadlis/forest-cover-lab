@@ -1,8 +1,9 @@
 # Principles
 
-These six principles are the canonical reference for all decisions in Forest Cover Lab.
-Any structural change to the repository must be reviewed against these principles using
-`drift_checklist.md`. Divergence is a defect, not natural evolution.
+These six principles are the canonical reference for all decisions in Forest Cover Lab and
+for downstream repositories that choose to depend on it. Any structural change to this
+repository must be reviewed against these principles using `drift_checklist.md`.
+Divergence is a defect, not natural evolution.
 
 ## Mission boundary
 
@@ -14,6 +15,10 @@ products, fire products, land-use layers, and climate reanalysis data.
 
 Adjacent products must be recorded as context evidence, not allowed to dilute the primary
 forest-cover objective.
+
+This repository governs, explains, and collects reusable data-source evidence. Narrower
+implementation repos should consume these contracts by reference, not fork the scientific
+definitions silently.
 
 ---
 
@@ -53,6 +58,11 @@ renewable energy, environmental integrity, flood, fire, climate, and land-use pr
 
 **Evidence roles:** core estimation input, auxiliary feature, validation reference,
 context/risk layer, exclusion mask, or interpretation-only background.
+
+Downstream repos should reference stable source IDs from `research/data_sources/inventory.csv`
+when using shared sources. A source such as Sentinel-2 may be a core estimation input in one
+repo and an auxiliary or validation input in another, but the provenance and suitability
+assessment live here.
 
 **Governing files:** `research/data_sources/`
 
@@ -106,6 +116,7 @@ Dependencies between tracks are explicit and declared. Each track's README state
 - what it produces as output
 - which other tracks it optionally consumes
 - what downstream artifacts it can influence
+- which downstream repositories or contracts can consume the result
 
 Cross-references between tracks are allowed and encouraged, but never required for entry.
 

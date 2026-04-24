@@ -1,6 +1,10 @@
 # Process
 
-Raster processing and modeling code.
+Reference raster processing and modeling code.
+
+Forest Cover Lab may host minimal reference implementations that test whether specs,
+schemas, and reporting contracts are coherent. Narrow product pipelines should live in
+downstream repos and cite the contracts they consume.
 
 ## Responsibilities
 
@@ -22,5 +26,5 @@ Raster processing and modeling code.
 | Script | Purpose |
 |---|---|
 | `v1_forest_mask.py` | Apply threshold + MMU + datamask to Hansen GFC; export COG |
-| `v2_monthly_indicator.py` | Compute monthly forest indicators from S1/S2 composites |
-| `v3_latent_monthly.py` | Train and infer the v3 weak-supervision monthly model |
+| `v2_monthly_indicator.py` | Reference monthly indicator implementation from S1/S2 composites |
+| `v3_latent_monthly.py` | Reference weak-supervision experiment, not a production model |

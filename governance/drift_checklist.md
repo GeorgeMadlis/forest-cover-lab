@@ -11,6 +11,9 @@ the change that introduced the divergence.
 ## Mission boundary
 
 - [ ] Does the repository still state forest cover estimation as the primary mission?
+- [ ] Does the repository still state that it governs, explains, and collects reusable
+      data-source evidence for downstream repos rather than implementing every narrow
+      pipeline itself?
 - [ ] Are adjacent EO products recorded as context, validation, auxiliary, exclusion, or
       interpretation evidence rather than as a competing mission?
 
@@ -94,6 +97,8 @@ the change that introduced the divergence.
 - [ ] Does `governance/principles.md` exist and contain all six principles?
 - [ ] Does `README.md` reference `governance/` as the canonical principle source?
 - [ ] Does `docs/architecture.md` exist and reflect the current architecture assessment?
+- [ ] Does `docs/downstream_repos.md` exist and define how narrower repos consume this
+      repo's contracts?
 - [ ] Has this checklist been run and recorded in `audit_log.md` within the last quarter?
 - [ ] Does `audit_log.md` contain an entry for the most recent structural change?
 - [ ] Are all open findings from the most recent audit either resolved or tracked?

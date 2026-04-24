@@ -5,12 +5,13 @@ decision record; durable choices still belong in `docs/adr/`.
 
 ## Architecture intent
 
-Forest Cover Lab is a research-and-implementation repository for forest cover estimation
-from satellite data. The architecture must support two parallel jobs:
+Forest Cover Lab is a governance, research, and evidence registry for forest-cover work
+from satellite data. The architecture must support three parallel jobs:
 
-1. Produce reproducible forest-cover estimates with explicit assumptions.
-2. Build an auditable research base that explains why datasets, methods, codebases, and
+1. Govern downstream implementation repositories through shared scientific contracts.
+2. Explain why datasets, methods, codebases, and
    scientific claims were accepted, rejected, or deferred.
+3. Collect reusable data-source assessments that downstream repos can consume by stable ID.
 
 Adjacent Earth-observation domains are intentionally in scope as context. Biodiversity,
 ocean/coastal, renewable energy, environmental integrity, flood, fire, climate, and land-use
@@ -27,6 +28,8 @@ second mission that distracts from forest cover estimation.
   log instead of leaving architecture rules implicit.
 - The code-discovery and reverse-engineering tracks correctly treat external source code as
   scientific evidence, not only as reusable software.
+- The data-source inventory can act as a shared registry for narrow repos such as
+  `sentinel-monthly-forest-cover` and `gedi-validation-lab`.
 
 ## Main gaps found
 
@@ -43,6 +46,7 @@ second mission that distracts from forest cover estimation.
   notes.
 - There was no single architecture assessment document tying the six principles to the
   repository layout.
+- Downstream repository expectations were implicit rather than documented as a contract.
 
 ## Target architecture
 
@@ -56,6 +60,7 @@ second mission that distracts from forest cover estimation.
 | Specifications | P5 | `specs/` | Phase-specific algorithm contracts |
 | Decisions | P5, P6 | `docs/adr/` | Durable accepted or proposed decisions |
 | Validation and reporting | P5, P6 | `validate/`, `report/` | Make claims testable, bounded, and reproducible |
+| Downstream contracts | P5, P6 | `docs/downstream_repos.md` | Define how narrower repos consume this repo |
 | Drift control | P6 | `governance/` | Keep the repo aligned with the mission and principles |
 
 ## Architectural rules
@@ -66,8 +71,9 @@ second mission that distracts from forest cover estimation.
 - Every inventory row should reference a search scope where practical.
 - Every material claim should be traceable from report/spec/ADR back to evidence in
   `research/`.
+- Downstream repos should reference this repo by commit or release and cite the data-source
+  IDs, ADRs, schemas, and reporting contracts they consume.
 - Tooling comparisons stay in `research/packages/`; datasets and products stay in
   `research/data_sources/`; external implementations stay in `research/code_sources/`.
 - Reverse-engineering artifacts must explain scientific reasoning, assumptions, limitations,
   and paper-to-code divergence, not just list files and functions.
-

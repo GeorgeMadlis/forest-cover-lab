@@ -1,6 +1,10 @@
 # Fetch
 
-Data acquisition code and configuration.
+Reference data acquisition code and configuration.
+
+Forest Cover Lab may contain small reference fetchers used to validate contracts. Production
+or product-specific acquisition pipelines should live in downstream repos such as
+`sentinel-monthly-forest-cover`.
 
 ## Responsibilities
 
@@ -19,5 +23,5 @@ Data acquisition code and configuration.
 | Script | Purpose |
 |---|---|
 | `fetch_hansen_v1.py` | Download/export Hansen GFC tiles for an AOI |
-| `fetch_sentinel2_monthly.py` | Build monthly S2 composites for an AOI (v2) |
-| `fetch_sentinel1_monthly.py` | Build monthly S1 composites for an AOI (v2) |
+| `fetch_sentinel2_monthly.py` | Reference S2 fetcher for validating v2 contracts |
+| `fetch_sentinel1_monthly.py` | Reference S1 fetcher for validating v2 contracts |

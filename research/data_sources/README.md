@@ -24,7 +24,8 @@ Optionally consumes:
 - `context_products.md` — guidance for biodiversity, oceans, energy, integrity, floods,
   and other adjacent products
 - `sources_notes.md` — qualitative notes per data source
-- Findings feed ADRs in `docs/adr/` and phase specifications in `specs/`
+- Findings feed ADRs in `docs/adr/`, phase specifications in `specs/`, and downstream
+  repository contracts in `docs/downstream_repos.md`
 
 ---
 
@@ -81,6 +82,9 @@ forest-cover mission.
 
 - Data source evaluation is independent of package/tool evaluation in `research/packages/`.
   A data source is what you pull from; a package is what you run it through.
+- Data-source IDs are stable references for downstream repos. Reuse an existing ID such as
+  `DS-0002` or `DS-0003` instead of re-describing Sentinel sources in each implementation
+  repo.
 - Every entry must declare license and access method — a source with unclear licensing
   must be flagged, not silently included.
 - In situ data must be classified as validation resources, not training labels, unless
