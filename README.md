@@ -264,4 +264,4 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) before adding methods, packages, 
 
 ## License
 
-TBD.
+Apache License 2.0. See [LICENSE](LICENSE).
