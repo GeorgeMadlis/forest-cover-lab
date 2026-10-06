@@ -14,8 +14,9 @@ Monitor these sources when conducting literature research or data source surveys
 **Google Earth Engine Developer Blog**
 - URL: https://medium.com/google-earth
 - Covers: new datasets hosted on GEE, API changes, example workflows, quota policy updates
-- Priority: **high** — GEE is the v1 default platform
-- Note: monitor for quota policy changes affecting ADR 0001
+- Priority: **high** — GEE remains an optional reference/research backend (ADR 0005; it was the
+  historical v1 default under superseded ADR 0001)
+- Note: monitor for quota or terms changes affecting optional GEE reference use
 
 ---
 

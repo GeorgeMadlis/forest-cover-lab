@@ -74,7 +74,7 @@ This v2 spec must not produce or imply:
 
 ## References
 
-- ADR 0001 — Default Platform
+- ADR 0001 — Default Platform (superseded by ADR 0005)
 - ADR 0002 — Forest Definition
 - ADR 0003 — Area Computation Policy
 - ADR 0004 — Monthly Target Definition

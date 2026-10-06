@@ -1,7 +1,7 @@
 {
   "algorithm": {
-    "name": "v1-baseline",
-    "version": "0.1.0"
+    "name": "sentinel-forest-disturbance-candidates",
+    "version": "example-implementation-version"
   },
   "aoi_id": "example-aoi",
   "area_method": {
@@ -11,15 +11,26 @@
   },
   "data_provenance": [
     {
-      "access_time_utc": "2026-04-22T00:00:00Z",
+      "access_time_utc": "2026-09-01T00:00:00Z",
+      "dataset_name": "Sentinel-2 MSI L2A",
+      "dataset_version": "declare-collection-edition-and-calibration",
+      "domain": "forest cover",
+      "evidence_role": "core estimation input",
+      "forest_relevance": "High-resolution optical signal for forest state and disturbance confirmation.",
+      "inventory_id": "DS-0002",
+      "notes": "Selected scene IDs belong in the run's live-catalogue inventory, not in this manifest's semantic block.",
+      "source": "live STAC query recorded in run evidence"
+    },
+    {
+      "access_time_utc": "2026-09-01T00:00:00Z",
       "dataset_name": "Hansen Global Forest Change",
       "dataset_version": "v1.12",
       "domain": "forest cover",
-      "evidence_role": "core estimation input",
+      "evidence_role": "exclusion mask",
       "forest_relevance": "Direct forest cover and annual loss baseline; weak supervision only for monthly tasks.",
       "inventory_id": "DS-0001",
-      "notes": "Annual change product anchored to year-2000 baseline",
-      "source": "UMD/hansen/global_forest_change_2024_v1_12"
+      "notes": "Externally transformed baseline forest mask used only for gating.",
+      "source": "approved local baseline raster"
     }
   ],
   "exchange_crs": "EPSG:4326",
@@ -34,48 +45,55 @@
     "minimum_mapping_area_ha": 0.5,
     "name": "example_forest_definition",
     "nodata_policy": "exclude",
-    "temporal_interpretation": "year_2000_baseline_extent"
+    "temporal_interpretation": "declared baseline reference year"
   },
   "geometry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
   "limitations": [
-    "Hansen treecover2000 anchored to year-2000 baseline",
-    "Annual loss product — not monthly ground truth",
-    "30 m Landsat resolution — not directly comparable to 10 m Sentinel without aggregation",
-    "Semantic provenance example only: candidate method and partial workflow mapping; not a completed or validated monthly run."
+    "Hansen annual loss is not monthly ground truth; the baseline only gates candidates.",
+    "Single-window optical anomalies do not prove loss or its cause.",
+    "Semantic provenance example only: candidate method and partial workflow mapping; not a completed or validated seasonal run."
   ],
   "outputs": [
     {
       "artifact_type": "raster",
-      "description": "Baseline forest mask (uint8, nodata=255)",
-      "path": "outputs/example-run-001/forest_mask.tif"
+      "description": "Provisional optical disturbance candidates (float32, nodata=-9999)",
+      "path": "outputs/example-run-001/w0000/optical_candidate.tif"
     },
     {
       "artifact_type": "table",
-      "description": "Forest area in hectares for the AOI",
-      "path": "outputs/example-run-001/area_summary.csv"
+      "description": "Per-window candidate area in hectares",
+      "path": "outputs/example-run-001/loss_area_summary.json"
     }
   ],
   "parameters": {
-    "canopy_threshold_pct": 30,
-    "min_mapping_area_ha": 0.5
+    "fusion_mode": "optical_only",
+    "temporal_mode": "matched-season",
+    "threshold": -0.2
   },
   "run_id": "example-run-001",
   "semantic_provenance": {
     "ai_planner_involved": true,
     "concept_ids": [
-      "application:annual-forest-loss-screening",
-      "observation:forest-baseline"
+      "application:seasonal-forest-change-monitoring",
+      "claim:monthly-non-truth",
+      "observation:forest-baseline",
+      "observation:optical-vegetation-state"
     ],
     "dataset_ids": [
-      "DS-0001"
+      "DS-0001",
+      "DS-0002"
     ],
     "knowledge_snapshot": {
-      "forest_cover_lab_revision": "fd2723b6db31cc8054f2221d98aabed323911043",
-      "graph_revision": "b313d2659a25f4d6c633f210c4ed7ce9565a5a95c1a021e800169784e382d7aa"
+      "forest_cover_lab_revision": "c0f21c7c9f94af669aeb8a8a6656814a998e1bec",
+      "graph_revision": "ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49"
     },
     "methods": [
       {
-        "id": "method:annual-baseline-loss-comparison",
+        "id": "method:matched-season-interannual-comparison",
+        "version": "1.0"
+      },
+      {
+        "id": "method:ndvi-anomaly",
         "version": "1.0"
       }
     ],
@@ -89,7 +107,7 @@
     ],
     "workflow": {
       "id": "workflow:sentinel-monthly-forest-cover",
-      "version": "example-partial-baseline-only"
+      "version": "example-partial-optical-only"
     }
   }
 }

@@ -28,8 +28,16 @@ commit and timestamps; a Forest Cover Lab commit/tag is recorded separately. Reo
 relations does not alter edge order, although any source-file byte change alters its snapshot
 hash. SHA-256 identifies a snapshot; it is not evidence of scientific validation.
 
-Downstream descriptor validation checks schema, typed reference resolution, local validation
-and reporting contracts and snapshot freshness. It validates a declaration, not installed
+Generation also rejects cyclic `USES_METHOD` composition and two dataset records for the
+same canonical inventory product.
+
+Downstream descriptor validation (JSON or YAML) checks schema, typed reference resolution,
+local validation and reporting contracts and snapshot freshness. Every declared method,
+observation, dataset, tool, capability and validation must be registered on the workflow
+record (IMPLEMENTS, REQUIRES_OBSERVATION, CONSUMES, USES_TOOL, REQUIRES_CAPABILITY,
+REQUIRES_VALIDATION; candidate or validated), and every declared capability must be offered
+(CAN) by a declared tool. `validate_provenance` likewise requires run methods and tools to be
+registered on the run's workflow record. It validates a declaration, not installed
 software, executed tests or method equivalence. Proposed examples remain proposed. Consumers
 must explicitly gate candidate nodes/edges; the build does not promote them.
 

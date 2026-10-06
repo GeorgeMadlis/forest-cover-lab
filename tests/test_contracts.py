@@ -148,3 +148,40 @@ def test_existing_nonclaims_preserved():
         "They have not been validated as month-resolved truth."
         in (ROOT / "report/reporting_contract.md").read_text()
     )
+
+
+def test_descriptor_must_be_registered_on_workflow():
+    descriptor = example("downstream.sentinel-monthly.example.json")
+    descriptor["implemented_method_ids"].append("method:annual-baseline-loss-comparison")
+    with pytest.raises(build.KnowledgeError, match="not registered as IMPLEMENTS"):
+        build.validate_descriptor(descriptor, build.generate(ROOT))
+
+
+def test_descriptor_capabilities_need_declared_tool():
+    descriptor = example("downstream.sentinel-monthly.example.json")
+    descriptor["tool_ids"].remove("tool:xarray")
+    with pytest.raises(build.KnowledgeError, match="not provided by declared tool_ids"):
+        build.validate_descriptor(descriptor, build.generate(ROOT))
+
+
+def test_provenance_method_must_be_implemented_by_workflow():
+    manifest = example("run_manifest.semantic.example.json")
+    manifest["semantic_provenance"]["methods"] = [
+        {"id": "method:annual-baseline-loss-comparison", "version": "1.0"}
+    ]
+    with pytest.raises(build.KnowledgeError, match="not registered as IMPLEMENTS"):
+        build.validate_provenance(manifest, build.generate(ROOT))
+
+
+def test_cli_accepts_yaml_descriptor(tmp_path):
+    import yaml
+
+    path = tmp_path / "workflow.yaml"
+    path.write_text(yaml.safe_dump(example("downstream.sentinel-monthly.example.json")))
+    result = subprocess.run(
+        [sys.executable, str(ROOT / "graph/build.py"), "--check", "--descriptor", str(path)],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0, result.stderr

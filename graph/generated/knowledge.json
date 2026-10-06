@@ -334,6 +334,7 @@
       "type": "ADDRESSED_BY"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -343,6 +344,7 @@
       "type": "CONSUMES"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -352,7 +354,17 @@
       "type": "CONSUMES"
     },
     {
-      "scope": "Intended partial implementation; confirm against pinned downstream code.",
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "method:matched-season-interannual-comparison",
+      "type": "IMPLEMENTS"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -362,7 +374,17 @@
       "type": "IMPLEMENTS"
     },
     {
-      "scope": "Intended partial implementation; confirm against pinned downstream code.",
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "method:moving-window-comparison",
+      "type": "IMPLEMENTS"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -372,7 +394,7 @@
       "type": "IMPLEMENTS"
     },
     {
-      "scope": "Intended partial implementation; confirm against pinned downstream code.",
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -382,7 +404,7 @@
       "type": "IMPLEMENTS"
     },
     {
-      "scope": "Intended partial implementation; confirm against pinned downstream code.",
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0. Persistence periods above one are rejected.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -392,6 +414,107 @@
       "type": "IMPLEMENTS"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:coordinate-transformation",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:geometry-predicates",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:labeled-array-aggregation",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:metadata-filtering",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:raster-mask",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:raster-read",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:reprojection",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:spatial-search",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:temporal-search",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:windowed-io",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -401,6 +524,7 @@
       "type": "REQUIRES_OBSERVATION"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -410,6 +534,7 @@
       "type": "REQUIRES_OBSERVATION"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -419,6 +544,7 @@
       "type": "REQUIRES_OBSERVATION"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -428,6 +554,7 @@
       "type": "REQUIRES_OBSERVATION"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -437,6 +564,7 @@
       "type": "REQUIRES_OBSERVATION"
     },
     {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -446,6 +574,7 @@
       "type": "REQUIRES_OBSERVATION"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -455,6 +584,17 @@
       "type": "REQUIRES_VALIDATION"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "tool:pyproj",
+      "type": "USES_TOOL"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -464,6 +604,17 @@
       "type": "USES_TOOL"
     },
     {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "tool:shapely",
+      "type": "USES_TOOL"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -473,6 +624,7 @@
       "type": "USES_TOOL"
     },
     {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0. Temporal aggregation uses NumPy arrays.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
         "docs/downstream_repos.md"
@@ -484,9 +636,9 @@
   ],
   "input_hashes": {
     "docs/adr/0005-semantic-architecture-and-backends.md": "b3922961a6aede7c4849c30eeddaa275a1a3f13622026ef8294b883f22153d29",
-    "docs/downstream_repos.md": "0babf58145bc52f30ab74fb182cb2b991616e4e78f50b396a7684f482badfe8e",
-    "graph/README.md": "c2bd0bb21ae69cccc47d9c88263710117b86f597204350b3a87a1139904e0401",
-    "graph/build.py": "6d05724ec2c9d1d0c87d1c94099e809fe26a88abccffb5cc94f1e112cef831ff",
+    "docs/downstream_repos.md": "253cdad4f7440b1fe41ef857863e510581ee26c7d350f2fef27d52c691582471",
+    "graph/README.md": "3632b1a08a564b244631e2393da2b6e1f365fa289299a4fb88b40423cac48602",
+    "graph/build.py": "b5ae1fd08adfe3211d624000a3db2c829beacb7fc5618dac376b1d1cc6dd9f16",
     "graph/ontology.yaml": "77647ac9fdd671a8ee662b1c3913335c27e90ae4fb9d6ed5d67ef61f73f56d7a",
     "graph/relation_types.yaml": "46e1f4e1012d80c4ba0b0292f10f6c616c3f904d6594cb7061eed56e1735ae31",
     "graph/schemas/concept.schema.json": "cfd32a06ad52614e742585ca096c0429a2395c6fa19223f552775d40c6eda4cd",
@@ -559,12 +711,12 @@
     "knowledge/tools/tool-stac-client.md": "4b8addca1cfd83788b14ec07b2b75a6d7d50b8b42dcd4797e41ce7b50440ff81",
     "knowledge/tools/tool-xarray.md": "d5558d813d8bf2c0776e2a910612464528574d704494d2d052d20d352ed3302d",
     "knowledge/validation/validation-forest-evidence.md": "81ab3c2db172f804128f809a6bc7fe60392948664effa1ff99f898cfa5c41311",
-    "knowledge/workflows/workflow-sentinel-monthly-forest-cover.md": "9f9c2499b5e8e987bfd6965f79223faba13299ce01c5254f75ee9ebb7107b18f",
+    "knowledge/workflows/workflow-sentinel-monthly-forest-cover.md": "9152f6254c8baf30ef2643d5d312045e27b5e425441910287f0601a2bfbe9fd1",
     "report/reporting_contract.md": "b429136f1fe0a88de1f418a68394c38918bfe4d95a94d423dadc9c0a11dd187a",
     "research/data_sources/inventory.csv": "2721b958bc8ff6c3fd5d62568a05b2e005a6948e3949f333ab7055cba0bc0789",
     "research/data_sources/sources_notes.md": "cd0cbb8cd7bae4164ae581ca3b58d4d1da7a3bfabe4e0a0ee75cea4089851ac6",
-    "specs/v1_forest_baseline.md": "933829719debb07a92f8aaa36f69dce49fd3240ff4bafeccd1c8cacb2141630d",
-    "specs/v2_monthly_confirmation.md": "b0c0e726b5dd5d3f83c4402c95e63afa5174f7ceb60dfc67aa5f1295bc320d10",
+    "specs/v1_forest_baseline.md": "c1abdf986b9627ce5542b3715fbbed1ac4be4048bf578affeec653e6127fa03d",
+    "specs/v2_monthly_confirmation.md": "e9c7e91a927720065c0dea4b81a4c0194caba07ebd58c8c88e1c287629ccff82",
     "validate/validation_plan.md": "9443dfc8b96bc5dcf290f9fce3749d1011a5b61a16340cdb358d02c1de02055d"
   },
   "nodes": [
@@ -1543,7 +1695,7 @@
       "version": "1.0"
     },
     {
-      "context": "# sentinel-monthly-forest-cover\n\nProposed downstream contract example. IMPLEMENTS edges describe intended partial implementation, not an audited scientific equivalence claim. The implementation must pin its own version, declare divergences and demonstrate validation.",
+      "context": "# sentinel-monthly-forest-cover\n\nExecutable downstream workflow (an implementation, not a scientific method). It may implement\nseveral methods partially; IMPLEMENTS edges are candidate registrations, not audited scientific\nequivalence. Each edge scope distinguishes relationships declared by the pinned implementation\ndescriptor from proposed target-contract relationships it does not yet implement. Downstream\ndescriptors and run manifests are validated against these registered relationships, so a new\nimplementation relationship must be proposed here first. The implementation pins its own\nversion, declares divergences and must demonstrate validation.",
       "id": "workflow:sentinel-monthly-forest-cover",
       "path": "knowledge/workflows/workflow-sentinel-monthly-forest-cover.md",
       "review_after": "2027-04-06",
@@ -1554,7 +1706,7 @@
       "title": "sentinel-monthly-forest-cover",
       "type": "workflow",
       "updated": "2026-10-06",
-      "version": "1.0"
+      "version": "1.1"
     }
   ],
   "relationships": [
@@ -2567,6 +2719,6 @@
       "type": "CAN"
     }
   ],
-  "revision": "b313d2659a25f4d6c633f210c4ed7ce9565a5a95c1a021e800169784e382d7aa",
+  "revision": "ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49",
   "schema_version": "1.0"
 }

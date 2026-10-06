@@ -81,7 +81,10 @@ A downstream implementation should declare a descriptor validated by
 A method is a scientific procedure, not a workflow. A method may have multiple implementations;
 a workflow may implement only part of a method. IMPLEMENTS does not certify equivalence.
 Dataset selection proceeds through observations; CONSUMES records concrete implementation
-inputs and does not replace scientific observation semantics. Declaration validation proves
+inputs and does not replace scientific observation semantics. A descriptor cannot declare a
+relationship that the workflow record in `knowledge/workflows/` does not register; propose
+new implementation relationships there first (as candidates). Edge scopes distinguish what a
+pinned implementation declares from proposed target contracts it does not yet implement. Declaration validation proves
 reference integrity, not execution correctness. Audited status requires independent code and
 validation review; it is not assigned automatically by the validator.
 

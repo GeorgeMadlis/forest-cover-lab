@@ -157,3 +157,33 @@ def test_graph_boundaries_and_candidate_partition():
         e["source"] in ids and e["target"] in ids
         for e in graph["relationships"] + graph["candidate_relationships"]
     )
+
+
+def test_method_composition_must_be_acyclic(repo):
+    edit_record(
+        repo,
+        lambda d: d["relations"].append(
+            {
+                "type": "USES_METHOD",
+                "target": "method:matched-season-interannual-comparison",
+                "status": "candidate",
+                "sources": ["docs/adr/0005-semantic-architecture-and-backends.md"],
+            }
+        ),
+        "method:moving-window-comparison",
+    )
+    with pytest.raises(build.KnowledgeError, match="Cyclic USES_METHOD"):
+        build.generate(repo)
+
+
+def test_duplicate_dataset_entity(repo):
+    inventory = repo / "research/data_sources/inventory.csv"
+    rows = inventory.read_text().splitlines()
+    original = next(row for row in rows if row.startswith("DS-0002,"))
+    inventory.write_text("\n".join(rows + [original.replace("DS-0002", "DS-0099", 1)]) + "\n")
+    path = repo / "knowledge/datasets/DS-0002.md"
+    path.with_name("DS-0099.md").write_text(
+        path.read_text().replace("id: DS-0002", "id: DS-0099")
+    )
+    with pytest.raises(build.KnowledgeError, match="Duplicate dataset entity"):
+        build.generate(repo)

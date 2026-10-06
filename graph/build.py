@@ -121,6 +121,37 @@ def canonical_bytes(value):
     ).encode()
 
 
+def check_acyclic(edges, relation):
+    """Method composition must not be circular (validated or candidate)."""
+    graph = {}
+    for edge in edges:
+        if edge["type"] == relation:
+            graph.setdefault(edge["source"], []).append(edge["target"])
+    state = {}
+
+    def visit(node, path):
+        if state.get(node) == "done":
+            return
+        if state.get(node) == "active":
+            raise KnowledgeError(f"Cyclic {relation}: {' -> '.join(path + [node])}")
+        state[node] = "active"
+        for target in graph.get(node, []):
+            visit(target, path + [node])
+        state[node] = "done"
+
+    for node in sorted(graph):
+        visit(node, [])
+
+
+def workflow_targets(graph, workflow_id):
+    """All targets declared on a workflow record, by relation type and any status."""
+    targets = {}
+    for edge in graph["relationships"] + graph["candidate_relationships"]:
+        if edge["source"] == workflow_id:
+            targets.setdefault(edge["type"], set()).add(edge["target"])
+    return targets
+
+
 def generate(root=ROOT):
     root = Path(root)
     schema = json.loads((root / "graph/schemas/concept.schema.json").read_text())
@@ -186,6 +217,15 @@ def generate(root=ROOT):
             validate_sources(edge["sources"], root)
             edges.append({"source": identifier, **edge})
     edges.sort(key=lambda e: (e["source"], e["type"], e["target"]))
+    titles = {}
+    for identifier, node in nodes.items():
+        if node["type"] == "dataset":
+            if node["title"] in titles:
+                raise KnowledgeError(
+                    f"Duplicate dataset entity: {identifier} and {titles[node['title']]}"
+                )
+            titles[node["title"]] = identifier
+    check_acyclic(edges, "USES_METHOD")
     # Include cited local contracts and graph rules/schemas in the snapshot digest.
     # Exclude run outputs, timestamps, and the current Git commit (avoids self-reference).
     sources = {source for node in nodes.values() for source in node["sources"]}
@@ -233,6 +273,34 @@ def validate_descriptor(descriptor, graph, root=ROOT):
         for identifier in ids:
             if identifier not in nodes or nodes[identifier]["type"] != kind:
                 raise KnowledgeError(f"Unresolved or mistyped {field}: {identifier}")
+    # A downstream declaration may not exceed what the canonical workflow record
+    # registers; new implementation relationships are proposed here first.
+    declared = workflow_targets(graph, descriptor["workflow_id"])
+    backing = {
+        "implemented_method_ids": "IMPLEMENTS",
+        "observation_ids": "REQUIRES_OBSERVATION",
+        "dataset_ids": "CONSUMES",
+        "tool_ids": "USES_TOOL",
+        "capability_ids": "REQUIRES_CAPABILITY",
+        "validation_ids": "REQUIRES_VALIDATION",
+    }
+    for field, relation in backing.items():
+        missing = sorted(set(descriptor[field]) - declared.get(relation, set()))
+        if missing:
+            raise KnowledgeError(
+                f"{field} not registered as {relation} on "
+                f"{descriptor['workflow_id']}: {', '.join(missing)}"
+            )
+    provided = {
+        edge["target"]
+        for edge in graph["relationships"] + graph["candidate_relationships"]
+        if edge["type"] == "CAN" and edge["source"] in descriptor["tool_ids"]
+    }
+    unprovided = sorted(set(descriptor["capability_ids"]) - provided)
+    if unprovided:
+        raise KnowledgeError(
+            f"capability_ids not provided by declared tool_ids: {', '.join(unprovided)}"
+        )
     validate_sources(descriptor["validation_contracts"], Path(root))
     validate_sources(descriptor["reporting_contracts"], Path(root))
     snapshot = descriptor["knowledge_snapshot"]
@@ -262,6 +330,13 @@ def validate_provenance(manifest, graph, root=ROOT):
     workflow = nodes.get(provenance["workflow"]["id"])
     if workflow is None or workflow["type"] != "workflow":
         raise KnowledgeError("Unresolved workflow implementation")
+    declared = workflow_targets(graph, workflow["id"])
+    for field, relation in [("methods", "IMPLEMENTS"), ("tools", "USES_TOOL")]:
+        for item in provenance[field]:
+            if item["id"] not in declared.get(relation, set()):
+                raise KnowledgeError(
+                    f"{item['id']} is not registered as {relation} on {workflow['id']}"
+                )
     for identifier in provenance["concept_ids"]:
         if identifier not in nodes:
             raise KnowledgeError(f"Unresolved concept: {identifier}")
@@ -280,7 +355,7 @@ def main():
         "--check", action="store_true", help="Fail if generated JSON differs"
     )
     parser.add_argument(
-        "--descriptor", type=Path, help="Validate a downstream descriptor"
+        "--descriptor", type=Path, help="Validate a downstream JSON/YAML descriptor"
     )
     args = parser.parse_args()
     try:
@@ -294,7 +369,8 @@ def main():
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(output)
         if args.descriptor:
-            validate_descriptor(json.loads(args.descriptor.read_text()), graph)
+            # Descriptors may be JSON or YAML; YAML parsing is strict and JSON-compatible.
+            validate_descriptor(load_yaml(args.descriptor.read_text()), graph)
     except (KnowledgeError, OSError, ValueError) as exc:
         parser.exit(1, f"{exc}\n")
     print(
