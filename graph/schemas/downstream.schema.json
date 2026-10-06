@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_ids": {
+      "items": {
+        "pattern": "^capability:",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "dataset_ids": {
+      "items": {
+        "pattern": "^DS-[0-9]{4}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "divergences": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "implementation_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "implemented_method_ids": {
+      "items": {
+        "pattern": "^method:",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "knowledge_snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "forest_cover_lab_revision": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "graph_revision": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "forest_cover_lab_revision",
+        "graph_revision"
+      ],
+      "type": "object"
+    },
+    "observation_ids": {
+      "items": {
+        "pattern": "^observation:",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "reporting_contracts": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "declared",
+        "audited"
+      ]
+    },
+    "tool_ids": {
+      "items": {
+        "pattern": "^tool:",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "validation_contracts": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "validation_ids": {
+      "items": {
+        "pattern": "^validation:",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "workflow_id": {
+      "pattern": "^workflow:",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "status",
+    "workflow_id",
+    "implementation_version",
+    "knowledge_snapshot",
+    "implemented_method_ids",
+    "observation_ids",
+    "dataset_ids",
+    "tool_ids",
+    "capability_ids",
+    "validation_ids",
+    "divergences",
+    "validation_contracts",
+    "reporting_contracts"
+  ],
+  "type": "object"
+}

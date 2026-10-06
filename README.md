@@ -147,7 +147,9 @@ research/
   publications/      Literature and practitioner source inventory (P1)
   data_sources/      Satellite, in situ, fusion, and context product suitability (P2)
   code_sources/      External codebase discovery and reverse engineering (P3, P4)
-  packages/          Implementation tooling for this repo's pipeline
+  packages/          Reusable tooling assessments and backend policy
+knowledge/           Contextual concepts and candidate/validated relationships
+graph/               Ontology, schemas, local generator and derived JSON
 specs/               Formal algorithm specifications (v1, v2, v3)
 fetch/               Reference data acquisition code for contract validation
 process/             Reference processing/modeling code for contract validation
@@ -221,9 +223,9 @@ Key artifacts: `research/code_sources/inventory.csv`,
 
 ### E. Implementation tooling (supporting)
 
-Compares software packages and platforms for this repo's own processing pipeline.
-Scope limited to tools for running the pipeline — not datasets, not external research
-implementations.
+Compares software packages and platforms for downstream and reference implementations.
+Scope covers reusable processing/discovery capabilities and optional reference backends;
+dataset suitability and external scientific code assessments remain separate tracks.
 
 Key artifacts: `research/packages/packages_matrix.csv`,
 `research/packages/platform_decision.md`
@@ -265,3 +267,37 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) before adding methods, packages, 
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
+
+## Semantic discovery and implementation boundary
+
+Forest Cover Lab = scientific/governance/semantic authority.
+The [OKF-oriented corpus](knowledge/README.md) = contextual human- and agent-readable knowledge.
+The [generated KG](graph/README.md) = machine-queryable typed relationships.
+Downstream repos = executable implementations. STAC/GeoParquet/provider catalogues = live
+observation discovery. Run manifests and evidence = execution provenance.
+
+Discovery follows application → scientific question → method → observation requirements →
+measurements → candidate datasets → access mechanisms → processing capabilities → executable
+workflow → validation requirements → evidence/result. The observation layer allows dataset
+substitution without redefining the application; compatibility still requires validation.
+The KG describes capabilities and relationships, not the complete EO observation archive.
+Individual Sentinel scenes and run results stay outside the corpus.
+
+[ADR 0005](docs/adr/0005-semantic-architecture-and-backends.md) separates methods from backends:
+regional/country-scale production prefers open/local/cloud-neutral tooling and must not require
+GEE. GEE is optional for examples, research or suitable large/global analyses. Existing GEE
+acquisition routes in phase specs are reference implementations. All scientific non-claims remain.
+Seasonal comparisons and intended downstream mappings are candidates pending review, not
+validated algorithms. See [promotion governance](governance/knowledge_promotion.md).
+
+Local checks (no EO downloads or backend required):
+
+```sh
+python -m pip install -e '.[dev]'
+python graph/build.py --check
+python -m pytest
+```
+
+Core dependencies are PyYAML and jsonschema. Optional `reference` and `gee` extras are for
+reference implementation work. Semantic provenance is a backward-compatible optional block;
+see [its contract](validate/semantic_provenance.md).

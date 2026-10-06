@@ -1,0 +1,20 @@
+description: Dataset families and scientific contracts only; scenes belong to live
+  catalogues; runs and results belong to evidence bundles.
+excluded_entities:
+- scene
+- run
+- result
+schema_version: '1.0'
+types:
+  access: access
+  application: application
+  capability: capability
+  claim: claim
+  dataset: DS
+  measurement: measurement
+  method: method
+  observation: observation
+  question: question
+  tool: tool
+  validation: validation
+  workflow: workflow

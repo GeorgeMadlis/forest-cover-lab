@@ -77,3 +77,38 @@ second mission that distracts from forest cover estimation.
   `research/data_sources/`; external implementations stay in `research/code_sources/`.
 - Reverse-engineering artifacts must explain scientific reasoning, assumptions, limitations,
   and paper-to-code divergence, not just list files and functions.
+
+## Semantic architecture (ADR 0005)
+
+The semantic/scientific plane is the human-maintained `knowledge/` corpus plus existing
+specs, governance and evidence assessments. `graph/` contains ontology, typed relationships,
+schemas and a deterministic generator; `graph/generated/knowledge.json` is derived.
+The executable software plane belongs to downstream repositories. Live observation
+catalogues (STAC, GeoParquet, provider services) resolve scenes at runtime. The provenance
+plane records planning, selected inputs, versions, parameters, limitations and results in
+run manifests and evidence bundles. These four planes have separate authorities.
+
+The conceptual flow is:
+
+```text
+Application → Scientific question → Method → Observation requirements
+→ Measurements/variables → Candidate datasets → Access mechanisms
+→ Processing/tool capabilities → Executable workflow → Validation → Evidence/result
+```
+
+This is a discovery sequence, not an assertion that every record forms a complete linear
+path. Datasets satisfy observation requirements subject to scale, geography, quality and
+semantic compatibility. Capabilities describe software operations; workflows implement
+methods partially or fully and must declare divergence. Run-specific evidence/results are
+outside the graph. `knowledge/README.md` defines each concept layer and its directory.
+
+Candidate and validated edges are separate output collections. AI-generated proposals cannot
+become canonical through deterministic checks alone or a single run. Contract transcriptions
+have explicit attribution; seasonal method decisions remain candidates requiring review.
+The revision hashes corpus, cited local contracts and graph rules; Git commits/tags are pinned
+separately. Review-after deadlines are consumer checks, not nondeterministic build behavior.
+
+Production methods must not require GEE. ADR 0005 supersedes ADR 0001's platform default;
+GEE acquisition in existing phase specs is a reference route, preserving scientific rules.
+The repo needs only lightweight local validation dependencies, with optional backend extras.
+No graph service, execution engine or observation archive is introduced.

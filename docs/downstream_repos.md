@@ -65,3 +65,38 @@ Before a downstream repo claims compatibility with Forest Cover Lab:
 - [ ] It preserves monthly weak-supervision non-claims.
 - [ ] It links any divergence back to an ADR, issue, or documented finding in this repo.
 
+
+## Semantic implementation descriptor (1.0)
+
+A downstream implementation should declare a descriptor validated by
+`graph/schemas/downstream.schema.json` and `graph/build.py --descriptor <file>`. Required fields:
+
+- workflow ID/version and declaration status (`proposed`, `declared`, or `audited`)
+- implemented scientific method IDs; observation requirements consumed
+- dataset IDs, selected tool IDs and required execution capabilities
+- Forest Cover Lab commit/tag and generated graph revision
+- divergences (an explicit array, including partial method coverage)
+- validation IDs and validation/reporting contract paths
+
+A method is a scientific procedure, not a workflow. A method may have multiple implementations;
+a workflow may implement only part of a method. IMPLEMENTS does not certify equivalence.
+Dataset selection proceeds through observations; CONSUMES records concrete implementation
+inputs and does not replace scientific observation semantics. Declaration validation proves
+reference integrity, not execution correctness. Audited status requires independent code and
+validation review; it is not assigned automatically by the validator.
+
+### First concrete example: sentinel-monthly-forest-cover
+
+`configs/downstream.sentinel-monthly.example.json` is a **proposed** descriptor for NDVI anomaly,
+S1 backscatter confirmation, monthly compositing and temporal persistence with DS-0002 and
+DS-0003. It declares forest baseline, optical/SAR state, persistence, change and confirmation
+observations, intended capabilities and open tools, validation and reporting contracts, and
+partial coverage/divergence. It is a target contract, not a claim that current downstream code
+has been audited or already implements every capability. The workflow corpus record and its
+implementation edges remain candidates pending a pinned-code review.
+
+Each run should additionally record the compatible semantic provenance extension described
+in `validate/semantic_provenance.md`. AI planning must record a planning identifier; neither
+its plan nor its run may silently change authoritative knowledge. Consume validated relations
+by default and expose candidate recommendations as proposals requiring review. Preserve all
+forest-definition, area, uncertainty and monthly weak-supervision non-claims.

@@ -1,5 +1,9 @@
 # v3 Weak Supervision Monthly Specification
 
+> Backend scope: GEE/EE acquisition steps below describe optional reference implementations.
+> Under ADR 0005 production scientific methods must not require GEE. Equivalent open/local
+> implementations must preserve all scientific rules, label semantics and non-claims.
+
 ## Goal
 
 Research a latent monthly forest-state and/or monthly disturbance probability model trained under coarse (annual) supervision, using Sentinel-1/2 monthly feature stacks as inputs.

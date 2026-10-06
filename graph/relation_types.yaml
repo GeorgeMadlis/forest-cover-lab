@@ -1,0 +1,84 @@
+ACCESSED_VIA:
+  source_types:
+  - dataset
+  target_types:
+  - access
+ADDRESSED_BY:
+  source_types:
+  - question
+  target_types:
+  - method
+ASKS:
+  source_types:
+  - application
+  target_types:
+  - question
+BOUNDED_BY:
+  source_types:
+  - application
+  - method
+  - workflow
+  target_types:
+  - claim
+CAN:
+  source_types:
+  - tool
+  target_types:
+  - capability
+CAN_BE_OBSERVED_BY:
+  source_types:
+  - observation
+  target_types:
+  - dataset
+CONSUMES:
+  source_types:
+  - workflow
+  target_types:
+  - dataset
+IMPLEMENTS:
+  source_types:
+  - workflow
+  target_types:
+  - method
+MEASURED_AS:
+  source_types:
+  - observation
+  target_types:
+  - measurement
+PROVIDES:
+  source_types:
+  - dataset
+  target_types:
+  - measurement
+REQUIRES_CAPABILITY:
+  source_types:
+  - method
+  - access
+  - workflow
+  target_types:
+  - capability
+REQUIRES_OBSERVATION:
+  source_types:
+  - application
+  - method
+  - workflow
+  target_types:
+  - observation
+REQUIRES_VALIDATION:
+  source_types:
+  - application
+  - method
+  - workflow
+  target_types:
+  - validation
+USES_METHOD:
+  source_types:
+  - application
+  - method
+  target_types:
+  - method
+USES_TOOL:
+  source_types:
+  - workflow
+  target_types:
+  - tool

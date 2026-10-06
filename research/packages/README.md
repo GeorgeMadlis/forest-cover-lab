@@ -42,3 +42,7 @@ Use qualitative levels consistently:
 3. Add a qualitative note section to `packages_notes.md`.
 4. Set `status = reviewed` and `recommended_role` to `default`, `fallback`, `research-only`, `candidate`, or `reject`.
 5. Update `platform_decision.md` if the recommendation set changes.
+
+Current execution policy is ADR 0005. Reusable, documented tool operations are indexed in
+`knowledge/tools/` and `knowledge/capabilities/`; these do not add runtime dependencies.
+The matrix retains assessments but GEE/geemap roles are optional research/reference.

@@ -11,30 +11,16 @@ requires-python = ">=3.10"
 authors = [
   { name = "Forest Cover Lab Maintainers" }
 ]
-dependencies = [
-    "earthengine-api>=0.1.390",
-    "geemap>=0.32",
-    "gdal>=3.8",
-    "rasterio>=1.3",
-    "rioxarray>=0.15",
-    "xarray>=2024.1",
-    "geopandas>=0.14",
-    "shapely>=2.0",
-    "numpy>=1.26",
-    "pandas>=2.1",
-    "jupyter>=1.0",
-    "ipywidgets>=8.0",
-]
+dependencies = ["PyYAML>=6.0", "jsonschema>=4.0"]
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
-    "ruff",
-    "black",
-    "nbstripout",
-    "pre-commit",
-    "jsonschema>=4.0",
+reference = [
+    "gdal>=3.8", "rasterio>=1.3", "rioxarray>=0.15", "xarray>=2024.1",
+    "geopandas>=0.14", "shapely>=2.0", "numpy>=1.26", "pandas>=2.1",
+    "jupyter>=1.0", "ipywidgets>=8.0",
 ]
+gee = ["earthengine-api>=0.1.390", "geemap>=0.32"]
+dev = ["pytest>=7.0", "ruff", "black", "nbstripout", "pre-commit"]
 
 [tool.setuptools]
 packages = []

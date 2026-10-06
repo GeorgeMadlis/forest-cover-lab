@@ -8,11 +8,12 @@ This document recommends:
 
 ## Decision status
 
-Proposed (pending full review of fallback candidates).
+Superseded by ADR 0005 on 2026-10-06. The stacks below are historical reference choices.
+Current production policy is open/local/cloud-neutral and does not require GEE.
 
 ---
 
-## Default stack
+## Historical default stack
 
 **Earth Engine + geemap (cloud) + GDAL + Rasterio + rioxarray (local)**
 
@@ -31,7 +32,7 @@ Proposed (pending full review of fallback candidates).
 
 ---
 
-## Fallback stack
+## Historical fallback stack
 
 **SEPAL (cloud) or sentinelhub-py + GDAL/Rasterio (local)**
 

@@ -17,7 +17,7 @@ jobs:
 
       - name: Install dev dependencies
         run: |
-          pip install pre-commit jsonschema
+          pip install -e ".[dev]"
 
       - name: Validate JSON schema files
         run: python -m json.tool validate/run_manifest.schema.json > /dev/null
@@ -38,3 +38,9 @@ jobs:
             if [ ! -d "$d" ]; then echo "Missing directory: $d"; exit 1; fi
           done
           echo "All required directories present"
+
+      - name: Check semantic graph and descriptors
+        run: python graph/build.py --check --descriptor configs/downstream.sentinel-monthly.example.json
+
+      - name: Run local contract tests
+        run: python -m pytest

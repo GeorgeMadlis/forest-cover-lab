@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "pattern": "^(DS-[0-9]{4}|[a-z]+:[a-z0-9]+(?:-[a-z0-9]+)*)$",
+      "type": "string"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "relations": {
+      "items": {
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "validated"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "review"
+              ]
+            }
+          }
+        ],
+        "properties": {
+          "review": {
+            "additionalProperties": false,
+            "properties": {
+              "basis": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "by": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "date": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "by",
+              "date",
+              "basis"
+            ],
+            "type": "object"
+          },
+          "scope": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "validated"
+            ]
+          },
+          "target": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "target",
+          "status",
+          "sources"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "review_after": {
+      "format": "date",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "active",
+        "deprecated"
+      ]
+    },
+    "title": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "application",
+        "question",
+        "method",
+        "observation",
+        "measurement",
+        "dataset",
+        "access",
+        "tool",
+        "capability",
+        "workflow",
+        "validation",
+        "claim"
+      ]
+    },
+    "updated": {
+      "format": "date",
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "title",
+    "version",
+    "status",
+    "updated",
+    "review_after",
+    "sources",
+    "relations"
+  ],
+  "type": "object"
+}

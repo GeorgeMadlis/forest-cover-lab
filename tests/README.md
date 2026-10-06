@@ -21,3 +21,10 @@ contracts.
 - `pytest` is the test runner.
 - Tests must not require network access by default; integration tests may use cached fixtures under `tests/fixtures/`.
 - Tests must run in < 5 minutes total locally (excluding the small-AOI integration test, which has a 10-minute budget).
+
+## Implemented local checks
+
+`test_knowledge.py` and `test_contracts.py` verify the semantic corpus, deterministic graph,
+downstream descriptors and backward-compatible provenance. `python -m pytest` runs all
+available tests offline. The phase-specific geometry, raster and integration tests listed
+above remain planned; they are not claimed as executed scientific validation.

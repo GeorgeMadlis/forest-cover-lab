@@ -41,3 +41,22 @@ explanation, and reusable data-source evidence repo for narrower downstream repo
 **Open findings:** None.
 
 **Reviewer:** Codex architecture pass
+
+---
+
+## 2026-10-06 — Semantic architecture and backend separation
+
+**Trigger:** Added OKF-oriented corpus, local derived graph, typed contracts and provenance.
+
+**Checklist result:** Pass. Mission and adjacent-context boundary preserved; research tracks,
+search scopes, suitability fields, code discovery and reverse-engineering template retained.
+Independent tracks remain enterable; governance references and downstream contracts updated.
+Stable DS IDs, inventory semantics, scientific rules and all monthly non-claims preserved.
+Candidate method/implementation relationships remain separate from contract transcriptions.
+Execution software, live scene catalogues and run evidence remain separate authorities.
+ADR 0005 records task-supplied backend policy; no new scientific performance claim added.
+
+**Open findings:** Seasonal decision rules and downstream mapping require future scientific/
+code review; retained explicitly as candidates rather than authoritative claims.
+
+**Reviewer:** Codex contract/architecture review (not empirical scientific validation).

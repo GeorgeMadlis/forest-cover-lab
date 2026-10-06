@@ -1,0 +1,95 @@
+{
+  "algorithm": {
+    "name": "v1-baseline",
+    "version": "0.1.0"
+  },
+  "aoi_id": "example-aoi",
+  "area_method": {
+    "crs": "EPSG:6933",
+    "type": "equal-area",
+    "unit": "hectares"
+  },
+  "data_provenance": [
+    {
+      "access_time_utc": "2026-04-22T00:00:00Z",
+      "dataset_name": "Hansen Global Forest Change",
+      "dataset_version": "v1.12",
+      "domain": "forest cover",
+      "evidence_role": "core estimation input",
+      "forest_relevance": "Direct forest cover and annual loss baseline; weak supervision only for monthly tasks.",
+      "inventory_id": "DS-0001",
+      "notes": "Annual change product anchored to year-2000 baseline",
+      "source": "UMD/hansen/global_forest_change_2024_v1_12"
+    }
+  ],
+  "exchange_crs": "EPSG:4326",
+  "forest_definition": {
+    "baseline_dataset": "UMD/hansen/global_forest_change_2024_v1_12",
+    "exclusion_masks": [
+      "water",
+      "urban"
+    ],
+    "forest_threshold_value": 30,
+    "forest_threshold_variable": "treecover2000",
+    "minimum_mapping_area_ha": 0.5,
+    "name": "example_forest_definition",
+    "nodata_policy": "exclude",
+    "temporal_interpretation": "year_2000_baseline_extent"
+  },
+  "geometry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "limitations": [
+    "Hansen treecover2000 anchored to year-2000 baseline",
+    "Annual loss product — not monthly ground truth",
+    "30 m Landsat resolution — not directly comparable to 10 m Sentinel without aggregation",
+    "Semantic provenance example only: candidate method and partial workflow mapping; not a completed or validated monthly run."
+  ],
+  "outputs": [
+    {
+      "artifact_type": "raster",
+      "description": "Baseline forest mask (uint8, nodata=255)",
+      "path": "outputs/example-run-001/forest_mask.tif"
+    },
+    {
+      "artifact_type": "table",
+      "description": "Forest area in hectares for the AOI",
+      "path": "outputs/example-run-001/area_summary.csv"
+    }
+  ],
+  "parameters": {
+    "canopy_threshold_pct": 30,
+    "min_mapping_area_ha": 0.5
+  },
+  "run_id": "example-run-001",
+  "semantic_provenance": {
+    "ai_planner_involved": true,
+    "concept_ids": [
+      "application:annual-forest-loss-screening",
+      "observation:forest-baseline"
+    ],
+    "dataset_ids": [
+      "DS-0001"
+    ],
+    "knowledge_snapshot": {
+      "forest_cover_lab_revision": "fd2723b6db31cc8054f2221d98aabed323911043",
+      "graph_revision": "b313d2659a25f4d6c633f210c4ed7ce9565a5a95c1a021e800169784e382d7aa"
+    },
+    "methods": [
+      {
+        "id": "method:annual-baseline-loss-comparison",
+        "version": "1.0"
+      }
+    ],
+    "planning_record_id": "plan:example-001",
+    "schema_version": "1.0",
+    "tools": [
+      {
+        "id": "tool:rasterio",
+        "version": "example-installed-version"
+      }
+    ],
+    "workflow": {
+      "id": "workflow:sentinel-monthly-forest-cover",
+      "version": "example-partial-baseline-only"
+    }
+  }
+}

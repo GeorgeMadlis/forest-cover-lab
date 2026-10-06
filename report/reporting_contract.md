@@ -43,3 +43,11 @@ Every monthly report must include this verbatim:
 > Monthly latent predictions are research outputs. Annual consistency with
 > Hansen does not prove monthly correctness. External triangulation is required
 > for any operational use.
+
+## Semantic provenance when supplied
+
+Include the complete `semantic_provenance` block when present: method versions, pinned
+Forest Cover Lab revision and graph hash, relevant concept and dataset IDs, selected tools/
+backend versions, workflow implementation version and AI planning record identifier.
+Monthly monitoring products must not be presented as legal deforestation ground truth.
+This extension does not replace any required disclaimer or validation requirement.

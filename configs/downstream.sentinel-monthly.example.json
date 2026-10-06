@@ -1,0 +1,54 @@
+{
+  "capability_ids": [
+    "capability:spatial-search",
+    "capability:temporal-search",
+    "capability:raster-read",
+    "capability:reprojection",
+    "capability:labeled-array-aggregation"
+  ],
+  "dataset_ids": [
+    "DS-0002",
+    "DS-0003"
+  ],
+  "divergences": [
+    "Proposed partial method mapping; validate against pinned implementation code before declaring compatibility.",
+    "NDVI anomaly and seasonal decisions have no canonical validated thresholds.",
+    "Declared tool capabilities are intended production requirements; current backend availability is not audited."
+  ],
+  "implementation_version": "proposed-contract-1.0",
+  "implemented_method_ids": [
+    "method:ndvi-anomaly",
+    "method:s1-backscatter-confirmation",
+    "method:monthly-compositing",
+    "method:temporal-persistence"
+  ],
+  "knowledge_snapshot": {
+    "forest_cover_lab_revision": "fd2723b6db31cc8054f2221d98aabed323911043",
+    "graph_revision": "b313d2659a25f4d6c633f210c4ed7ce9565a5a95c1a021e800169784e382d7aa"
+  },
+  "observation_ids": [
+    "observation:forest-baseline",
+    "observation:optical-vegetation-state",
+    "observation:sar-backscatter-state",
+    "observation:temporal-persistence",
+    "observation:forest-cover-change",
+    "observation:disturbance-confirmation"
+  ],
+  "reporting_contracts": [
+    "report/reporting_contract.md"
+  ],
+  "schema_version": "1.0",
+  "status": "proposed",
+  "tool_ids": [
+    "tool:stac-client",
+    "tool:rasterio",
+    "tool:xarray"
+  ],
+  "validation_contracts": [
+    "validate/validation_plan.md"
+  ],
+  "validation_ids": [
+    "validation:forest-evidence"
+  ],
+  "workflow_id": "workflow:sentinel-monthly-forest-cover"
+}

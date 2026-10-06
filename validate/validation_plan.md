@@ -58,3 +58,11 @@ Context products require the same caution: agreement with biodiversity, flood, i
 energy, ocean/coastal, climate, or land-pressure layers may support interpretation, but it
 does not validate forest-cover truth unless the product has been admitted as a documented
 validation reference.
+
+## Local semantic contract checks
+
+Run `python -m pytest` and `python graph/build.py --check` before publishing a semantic
+snapshot. Tests check parsing, IDs, typed relations, unresolved references, deterministic
+regeneration, downstream descriptors and legacy/extended provenance compatibility.
+These checks establish contract integrity, not empirical scientific accuracy. See
+`validate/semantic_provenance.md` for snapshot-aware run checks.

@@ -1,5 +1,9 @@
 # v2 Monthly Confirmation Specification
 
+> Backend scope: GEE/EE acquisition steps below describe optional reference implementations.
+> Under ADR 0005 production scientific methods must not require GEE. Equivalent open/local
+> implementations must preserve all scientific rules, label semantics and non-claims.
+
 ## Goal
 
 Produce monthly forest-related summaries using monthly Sentinel-1 SAR and Sentinel-2 optical composites, with confirmation logic to reduce false positives.

@@ -1,11 +1,11 @@
 # ADR 0001: Default Platform
 
-- **Status:** Proposed
+- **Status:** Superseded (platform policy)
 - **Date:** 2026-04-22
 - **Deciders:** Forest Cover Lab maintainers
 - **Technical area:** platform
 - **Supersedes:** None
-- **Superseded by:** None
+- **Superseded by:** ADR 0005
 
 ## Context
 
@@ -97,3 +97,10 @@ Premature for the planning milestone; too complex before v1 is validated.
 - `research/packages/packages_matrix.csv`
 - `research/packages/platform_decision.md`
 - `specs/v1_forest_baseline.md`
+
+## Supersession notice — 2026-10-06
+
+ADR 0005 supersedes this record's default platform policy. Its GEE-centered stack is a
+historical reference/prototyping choice. Production methods must not depend on GEE;
+regional/country-scale execution prefers open/local/cloud-neutral tooling. Original
+reasoning is retained here for traceability, not as the current default.
