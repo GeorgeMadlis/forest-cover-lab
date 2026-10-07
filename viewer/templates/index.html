@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Graph Viewer</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <main class="workspace">
+    <aside class="panel left" aria-label="Filters and layout">
+      <h2>Find</h2>
+      <input id="search" class="field" type="search" placeholder="ID or title, Enter to focus"
+             aria-label="Search concepts">
+      <p class="hint" id="search-result"></p>
+
+      <h2>Layout</h2>
+      <div class="row">
+        <select id="layout" aria-label="Layout">
+          <option value="force">Force-directed</option>
+          <option value="columns">Columns by type</option>
+          <option value="concentric">Concentric by degree</option>
+          <option value="hierarchy">Hierarchy</option>
+        </select>
+        <button type="button" id="relayout">Re-run</button>
+        <button type="button" id="fit">Fit</button>
+      </div>
+      <div class="row">
+        <label class="check" for="edge-labels">
+          <input type="checkbox" id="edge-labels"> Relation labels on all edges
+        </label>
+      </div>
+      <div class="row">
+        <label for="depth">Focus depth</label>
+        <select id="depth">
+          <option value="1">1 hop</option>
+          <option value="2">2 hops</option>
+          <option value="3">3 hops</option>
+        </select>
+      </div>
+
+      <h2>Relationship status</h2>
+      <div id="status-filters"></div>
+      <label class="check" for="hide-orphans">
+        <input type="checkbox" id="hide-orphans"> Hide concepts with no visible edge
+      </label>
+
+      <h2>Concept types</h2>
+      <div id="type-filters"></div>
+
+      <h2>Relation types</h2>
+      <div id="relation-filters"></div>
+    </aside>
+
+    <div id="cy" role="img" aria-label="Knowledge graph; use the Catalogue page for a table view"></div>
+
+    <aside class="panel right details" id="details" aria-live="polite">
+      <p class="empty">Select a concept or relationship to see its record.</p>
+      <p class="hint">Click empty space to clear the focus. Colour shows the layer and shape
+        shows the concept type; dashed edges are candidate relationships, which are not
+        validated knowledge.</p>
+    </aside>
+  </main>
+  <div class="tooltip" id="tooltip" hidden></div>
+
+  <script src="data.js"></script>
+  <script src="vendor/cytoscape.min.js"></script>
+  <script src="common.js"></script>
+  <script src="graph.js"></script>
+</body>
+</html>

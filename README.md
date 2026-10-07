@@ -150,6 +150,7 @@ research/
   packages/          Reusable tooling assessments and backend policy
 knowledge/           Contextual concepts and candidate/validated relationships
 graph/               Ontology, schemas, local generator and derived JSON
+viewer/              Offline HTML viewer bundle exporter for the derived graph
 specs/               Formal algorithm specifications (v1, v2, v3)
 fetch/               Reference data acquisition code for contract validation
 process/             Reference processing/modeling code for contract validation
@@ -297,6 +298,9 @@ python -m pip install -e '.[dev]'
 python graph/build.py --check
 python -m pytest
 ```
+
+To browse the graph, `python viewer/export.py` writes an offline HTML bundle and zip under
+`outputs/` (open `index.html` from disk; see [viewer/README.md](viewer/README.md)).
 
 Core dependencies are PyYAML and jsonschema. Optional `reference` and `gee` extras are for
 reference implementation work. Semantic provenance is a backward-compatible optional block;

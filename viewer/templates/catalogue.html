@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Graph Catalogue</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <main class="page">
+    <div class="tiles" id="tiles"></div>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-concepts" aria-selected="true">Concepts</button>
+      <button type="button" role="tab" id="tab-relationships" aria-selected="false">Relationships</button>
+    </div>
+    <div class="toolbar">
+      <input type="search" id="filter-text" placeholder="Filter by ID, title or text" aria-label="Filter rows">
+      <select id="filter-type" aria-label="Filter by type"></select>
+      <select id="filter-status" aria-label="Filter by status"></select>
+    </div>
+    <p class="result-count" id="result-count"></p>
+    <div class="table-wrap">
+      <table id="table"></table>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="common.js"></script>
+  <script src="catalogue.js"></script>
+</body>
+</html>
