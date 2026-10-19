@@ -86,3 +86,35 @@ Seasonal decision thresholds remain unvalidated. No canonical forest definition,
 observation semantics, non-claim or validation policy was changed.
 
 **Reviewer:** Claude cross-repository contract audit (not empirical scientific validation).
+
+---
+
+## 2026-10-19 — GeoFM and workflow-harness architecture assessment
+
+**Trigger:** Extended the architecture assessment with current GeoFM integration status,
+eight-family suitability comparison, six-step scientific/evaluation plan, and workflow versus
+agentic harnessing. Added SS-0002, a primary-source evidence review, publication/code
+discovery records and candidate HLS/annual TESSERA feature entries.
+
+**Checklist result:** Mission and all P1–P6 boundaries retained. Primary evidence and access
+limits are explicit; technical documentation/preprints are not relabelled as peer-reviewed
+studies. Inputs, auxiliary features and independent references remain distinct. Code discovery
+does not claim P4 reverse engineering. Existing independent tracks remain enterable.
+Execution/GPU dependencies and runs stay downstream; model adoption and typed contract
+extensions remain proposals requiring their own reviewed changes/ADRs. No method or graph
+relationship is promoted and no empirical accuracy or legal conclusion is asserted.
+
+**Open findings / follow-up:** AOI/time/target and operational objectives are unspecified;
+local reference labels, checkpoint/code/license audits, model metadata contracts and empirical
+benchmarks are still needed for adoption. PUB-0012 remains pending full-text review. New
+DS-0014/0015 and CS-0002–0010 remain candidates/discovery records. Earlier seasonal-method
+and workflow-equivalence findings remain open. These are research gaps, not implemented
+capabilities. Local consistency-check results are recorded below after verification.
+
+**Verification:** 55 local tests passed. `graph/build.py --check --descriptor
+configs/downstream.sentinel-monthly.example.json` passed after regenerating the inventory
+snapshot and refreshing example hashes. Graph concept and relationship counts are unchanged.
+CSV row structure, unique IDs, new review-score totals and 19 local Markdown links checked;
+`git diff --check` passed. No model training/inference or scientific accuracy test was run.
+
+**Reviewer:** Codex architecture/evidence review (not empirical scientific validation).
