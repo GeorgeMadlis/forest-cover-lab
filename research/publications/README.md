@@ -17,6 +17,8 @@ Optionally consumes:
 - `publications_inventory.csv` — master record of all reviewed sources
 - `shortlist.md` — high-scoring sources selected for implementation reference
 - `methods_landscape.md` — thematic synthesis that feeds ADRs in `docs/adr/`
+- `geofm_architecture_review_2026.md` — SS-0002 primary-source review and evidence limits
+  for GeoFM/local-model evaluation and workflow harnessing
 
 ---
 

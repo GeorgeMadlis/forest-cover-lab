@@ -84,6 +84,8 @@ workstreams, and architecture drift control.
 
 The current architecture assessment is documented in
 [`docs/architecture.md`](docs/architecture.md).
+It includes the current GeoFM integration status, an eight-family comparison, a six-step
+local evaluation plan, and a recommendation on reproducible harnesses and bounded agents.
 
 Guidance for downstream implementation repos is documented in
 [`docs/downstream_repos.md`](docs/downstream_repos.md).

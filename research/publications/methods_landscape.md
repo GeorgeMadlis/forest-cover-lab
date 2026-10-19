@@ -48,6 +48,18 @@ Examples of expected systems:
 - `eo-learn` reference pipelines
 - Sentinel Hub batch workflows
 
+## GeoFM representations with local task models (SS-0002, 2026-10-19)
+
+PUB-0003–PUB-0010 assess eight pretrained representation families as candidates for
+v2/v3 experiments; none is integrated or locally validated. A foundation encoder plus
+a locally trained spatial/temporal head is a distinct method from annual weak supervision
+or deterministic anomaly confirmation. Feature fusion and prediction stacking are optional
+experiments requiring independent blocked evaluation, not default architectural layers.
+PUB-0011 supplies a transfer-evaluation reference. PUB-0012 is a pending full-text review
+of land-change sampling/area guidance. See the
+[evidence review](geofm_architecture_review_2026.md) and
+[architecture assessment](../../docs/architecture.md).
+
 ## Notes
 
 Populate each bucket with reviewed papers from `publications_inventory.csv`.

@@ -6,7 +6,7 @@ Project-level documentation for Forest Cover Lab.
 
 | Path | Purpose |
 |---|---|
-| `architecture.md` | Current architecture assessment and target structure |
+| `architecture.md` | Current architecture, GeoFM candidates, six-step evaluation and harness/agent assessment |
 | `downstream_repos.md` | Contract for narrower implementation and validation repositories |
 | `adr/` | Architecture Decision Records — durable technical and methodological decisions |
 

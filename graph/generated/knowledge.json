@@ -713,7 +713,7 @@
     "knowledge/validation/validation-forest-evidence.md": "81ab3c2db172f804128f809a6bc7fe60392948664effa1ff99f898cfa5c41311",
     "knowledge/workflows/workflow-sentinel-monthly-forest-cover.md": "9152f6254c8baf30ef2643d5d312045e27b5e425441910287f0601a2bfbe9fd1",
     "report/reporting_contract.md": "b429136f1fe0a88de1f418a68394c38918bfe4d95a94d423dadc9c0a11dd187a",
-    "research/data_sources/inventory.csv": "2721b958bc8ff6c3fd5d62568a05b2e005a6948e3949f333ab7055cba0bc0789",
+    "research/data_sources/inventory.csv": "d517d9ad00c4b08af5ad24283a8764abbae6c07a18134c25b17ae14ad4814681",
     "research/data_sources/sources_notes.md": "cd0cbb8cd7bae4164ae581ca3b58d4d1da7a3bfabe4e0a0ee75cea4089851ac6",
     "specs/v1_forest_baseline.md": "c1abdf986b9627ce5542b3715fbbed1ac4be4048bf578affeec653e6127fa03d",
     "specs/v2_monthly_confirmation.md": "e9c7e91a927720065c0dea4b81a4c0194caba07ebd58c8c88e1c287629ccff82",
@@ -2719,6 +2719,6 @@
       "type": "CAN"
     }
   ],
-  "revision": "ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49",
+  "revision": "3e6dc320bd9f59a483d605d100614005eaa1beb35139edcd1d7d37f04914380a",
   "schema_version": "1.0"
 }

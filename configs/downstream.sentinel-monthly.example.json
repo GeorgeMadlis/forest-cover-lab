@@ -23,8 +23,8 @@
     "method:temporal-persistence"
   ],
   "knowledge_snapshot": {
-    "forest_cover_lab_revision": "c0f21c7c9f94af669aeb8a8a6656814a998e1bec",
-    "graph_revision": "ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49"
+    "forest_cover_lab_revision": "b4fecb87034e57a7a95b3b5a0632be97b774963b",
+    "graph_revision": "3e6dc320bd9f59a483d605d100614005eaa1beb35139edcd1d7d37f04914380a"
   },
   "observation_ids": [
     "observation:forest-baseline",
