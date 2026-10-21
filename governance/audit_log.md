@@ -167,3 +167,27 @@ candidate relationships; revision unchanged), `python -m pytest` (55 passed) and
 `git diff --check` passed.
 
 **Reviewer:** Claude documentation change (not empirical scientific validation).
+
+---
+
+## 2026-10-21 — Overview diagram sync rule and generator
+
+**Trigger:** Changed agent-facing instructions (`AGENTS.md`: new "README and overview
+diagram" section) and the drift checklist (new P6 item); added the diagram generator
+`docs/img/build_overview_diagram.py` and `tests/test_overview_diagram.py`.
+
+**Checklist result:** Pass. Mission boundary and P1–P6 unchanged. The SVG is now generated
+from a committed script with deterministic text metrics; its rendered content is unchanged.
+The new test fails when the SVG is stale, a cited source is missing, a non-superseded ADR is
+not cited or the roadmap differs from `specs/v*_*.md`. No concept, relationship, threshold,
+non-claim, schema or validation policy changed; the generated graph is not affected.
+
+**Open findings:** Changes in scope that do not touch ADRs, specs or cited files (e.g. a
+revised problem statement) still rely on the AGENTS.md rule and this checklist item rather
+than an automated check. Earlier open findings remain open.
+
+**Verification:** `python graph/build.py --check` (revision unchanged), `python -m pytest`
+(61 passed), `python docs/img/build_overview_diagram.py --check`, ruff and black clean on
+the new files.
+
+**Reviewer:** Claude documentation/tooling change (not empirical scientific validation).
