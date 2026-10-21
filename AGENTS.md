@@ -70,6 +70,31 @@ instruction), run `governance/drift_checklist.md` and append an entry to
 `governance/audit_log.md` (append-only; trigger, checklist result, open findings, reviewer,
 verification). Drift is a defect: fix it in the same change or record it as an open finding.
 
+## README and overview diagram
+
+`README.md` and its overview diagram (`docs/img/problems-and-approaches.svg`) must reflect
+the repository's current scope. Whenever a change affects the scope, phases, ADRs, binding
+constraints, problems addressed or other significant details, update both in the same
+change:
+
+1. Edit the content section of `docs/img/build_overview_diagram.py` (never hand-edit the
+   SVG) and run `python docs/img/build_overview_diagram.py`.
+2. Update the README text, and `GLOSSARY.md` for any new abbreviation.
+3. Commit the script, the regenerated SVG and the README together.
+
+`tests/test_overview_diagram.py` fails if the SVG is stale, a cited source is missing, a
+non-superseded ADR is not cited or the roadmap differs from the phase specs in `specs/`.
+
+## Agent registry
+
+`docs/agents.md` lists the agents that work in this repository, their attributes and every
+file that defines them. Update it in the same change whenever you add, remove or rename an
+agent definition file (`AGENTS.md`, `CLAUDE.md`, `.claude/`, `.codex/`, `.mcp.json`,
+Copilot instructions, skills), add or drop a file reference in this file, adopt a new
+agent, or an agent's status or attributes change. `tests/test_agent_registry.py` fails when
+the registry misses an agent named here, an agent definition file or a path referenced
+here, or lists a path that no longer exists.
+
 ## Conventions
 
 - Conventional Commits: `feat:`, `fix:`, `docs:`, `chore:`, `research:`.

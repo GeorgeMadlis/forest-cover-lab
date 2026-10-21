@@ -31,6 +31,7 @@ Two abbreviations have more than one meaning in this repo — read them from con
 | QA | Quality assurance — e.g. per-month QA thumbnails or quality masks. |
 | TBD | To be decided — a placeholder for a file or value not yet defined. |
 | PR | Pull request. |
+| CI | Continuous integration — the GitHub Actions checks in `.github/workflows/ci.yml`. |
 
 ## Geospatial reference systems and formats
 
@@ -104,6 +105,7 @@ Two abbreviations have more than one meaning in this repo — read them from con
 | SEPAL | FAO's System for Earth Observation Data Access, Processing and Analysis for Land Monitoring. |
 | SNAP | ESA's Sentinel Application Platform. |
 | OTB | Orfeo ToolBox — open-source remote-sensing processing library. |
+| MCP | Model Context Protocol — the standard by which coding agents connect to external tools and data (see `docs/agents.md`). |
 | API | Application programming interface. |
 | HTML / URL | Web page markup / web address. |
 | CC BY / MIT | Open licences: Creative Commons Attribution and the MIT software licence. |

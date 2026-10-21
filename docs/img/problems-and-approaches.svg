@@ -1,169 +1,169 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1568" viewBox="0 0 1280 1568" role="img" aria-labelledby="t d">
 <title id="t">Forest Cover Lab: problems and approaches</title>
-<desc id="d">Seven problems in forest-cover estimation (annual labels vs monthly truth, ambiguous forest definition, projection-dependent area, noisy monthly signal, unknown model value, platform lock-in, knowledge drift) mapped to the repository approaches that address them, plus the v1-v3 roadmap.</desc>
+<desc id="d">7 problems in forest-cover estimation (Annual labels are not monthly truth; “Forest” is ambiguous; Area depends on projection; Monthly signal is noisy; Model value is unknown locally; Platform lock-in; Knowledge and repos drift) mapped to the repository approaches that address them, plus the v1, v2, v3 roadmap.</desc>
 <rect width="1280" height="1568" fill="#FFFFFF"/>
-<text x="48" y="78" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#1E4D3A">Forest Cover Lab — problems and how the repo addresses them</text>
-<text x="48" y="106" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" fill="#5B665F">Governance, research and evidence registry for forest-cover estimation from satellite data. Executable workflows live in downstream repos.</text>
+<text x="48.0" y="78.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#1E4D3A">Forest Cover Lab — problems and how the repo addresses them</text>
+<text x="48.0" y="106.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" fill="#5B665F">Governance, research and evidence registry for forest-cover estimation from satellite data. Executable workflows live in downstream repos.</text>
 <rect x="48" y="130" width="1184" height="44" rx="8" fill="#FFF6DD" stroke="#E2C26B"/>
 <text x="66" y="158" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" fill="#6B4E00"><tspan font-weight="700">⚠ Binding constraint:</tspan> Hansen annual loss ≠ monthly ground truth. Monthly forest cover is never reported as verified when derived from annual weak labels.</text>
-<text x="48" y="204" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#B4532A">PROBLEM</text>
-<text x="542" y="204" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#2F6B4F">APPROACH IN THIS REPO</text>
-<rect x="48" y="218" width="430" height="152.5" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
-<rect x="48" y="218" width="5" height="152.5" rx="2" fill="#B4532A"/>
-<circle cx="77" cy="245" r="12" fill="#B4532A"/>
-<text x="77" y="250" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">1</text>
-<text x="100" y="251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Annual labels are not monthly truth</text>
-<text x="66" y="279.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Hansen lossyear says a pixel was lost in a year, not in</text>
-<text x="66" y="298.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">which month. Training and scoring monthly models on</text>
-<text x="66" y="318.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">it leaks labels and overclaims accuracy.</text>
-<line x1="488" y1="294.2" x2="528" y2="294.2" stroke="#5B665F" stroke-width="2"/>
-<path d="M526,288.2 L536,294.2 L526,300.2 Z" fill="#5B665F"/>
-<rect x="542" y="218" width="690" height="152.5" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
-<rect x="542" y="218" width="5" height="152.5" rx="2" fill="#2F6B4F"/>
-<text x="560" y="251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Separate targets + weak supervision</text>
-<text x="560" y="279.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Monthly coverage, monthly disturbance probability and annual supervision are distinct</text>
-<text x="560" y="298.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">concepts. v3 treats monthly state as latent, pools monthly events to the annual bag (e.g.</text>
-<text x="560" y="318.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">noisy-OR) and reports agreement as consistency, not accuracy.</text>
-<rect x="560" y="332.5" width="79.4" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="569" y="348.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0004</text>
-<rect x="647.359375" y="332.5" width="72.0" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="656.359375" y="348.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">specs/v3</text>
-<rect x="727.32375" y="332.5" width="167.2" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="736.32375" y="348.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">claim:monthly-non-truth</text>
+<text x="48.0" y="204.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#B4532A" letter-spacing="1.5">PROBLEM</text>
+<text x="542.0" y="204.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2F6B4F" letter-spacing="1.5">APPROACH IN THIS REPO</text>
+<rect x="48" y="218.0" width="430" height="152.5" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
+<rect x="48" y="218.0" width="5" height="152.5" rx="2" fill="#B4532A"/>
+<rect x="542" y="218.0" width="690" height="152.5" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
+<rect x="542" y="218.0" width="5" height="152.5" rx="2" fill="#2F6B4F"/>
+<circle cx="77" cy="245.0" r="12" fill="#B4532A"/>
+<text x="77.0" y="250.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="100.0" y="251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Annual labels are not monthly truth</text>
+<text x="66.0" y="279.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Hansen lossyear says a pixel was lost in a year, not in</text>
+<text x="66.0" y="298.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">which month. Training and scoring monthly models on</text>
+<text x="66.0" y="318.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">it leaks labels and overclaims accuracy.</text>
+<line x1="488.0" y1="294.2" x2="526.0" y2="294.2" stroke="#5B665F" stroke-width="2"/>
+<path d="M524.0,288.2 L534.0,294.2 L524.0,300.2 Z" fill="#5B665F"/>
+<text x="560.0" y="251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Separate targets + weak supervision</text>
+<text x="560.0" y="279.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Monthly coverage, monthly disturbance probability and annual supervision are distinct</text>
+<text x="560.0" y="298.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">concepts. v3 treats monthly state as latent, pools monthly events to the annual bag (e.g.</text>
+<text x="560.0" y="318.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">noisy-OR) and reports agreement as consistency, not accuracy.</text>
+<rect x="560.0" y="332.5" width="79.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="348.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0004</text>
+<rect x="647.3" y="332.5" width="71.9" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="656.3" y="348.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">specs/v3</text>
+<rect x="727.3" y="332.5" width="167.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="736.3" y="348.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">claim:monthly-non-truth</text>
 <rect x="48" y="386.5" width="430" height="133.0" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
 <rect x="48" y="386.5" width="5" height="133.0" rx="2" fill="#B4532A"/>
-<circle cx="77" cy="413.5" r="12" fill="#B4532A"/>
-<text x="77" y="418.5" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">2</text>
-<text x="100" y="419.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">“Forest” is ambiguous</text>
-<text x="66" y="447.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Area numbers are meaningless when the threshold,</text>
-<text x="66" y="467.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">minimum mapping area, exclusions and nodata</text>
-<text x="66" y="486.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">handling are left implicit or hardcoded.</text>
-<line x1="488" y1="453.0" x2="528" y2="453.0" stroke="#5B665F" stroke-width="2"/>
-<path d="M526,447.0 L536,453.0 L526,459.0 Z" fill="#5B665F"/>
 <rect x="542" y="386.5" width="690" height="133.0" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
 <rect x="542" y="386.5" width="5" height="133.0" rx="2" fill="#2F6B4F"/>
-<text x="560" y="419.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Explicit, versioned forest definition</text>
-<text x="560" y="447.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Every run declares dataset, threshold variable and value, minimum mapping area,</text>
-<text x="560" y="467.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">exclusions, nodata policy and temporal interpretation; defaults live in config, never in code.</text>
-<rect x="560" y="481.5" width="79.4" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="569" y="497.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0002</text>
-<rect x="647.359375" y="481.5" width="170.6" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="656.359375" y="497.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">configs/v1_defaults.yaml</text>
+<circle cx="77" cy="413.5" r="12" fill="#B4532A"/>
+<text x="77.0" y="418.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="100.0" y="419.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">“Forest” is ambiguous</text>
+<text x="66.0" y="447.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Area numbers are meaningless when the threshold,</text>
+<text x="66.0" y="467.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">minimum mapping area, exclusions and nodata</text>
+<text x="66.0" y="486.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">handling are left implicit or hardcoded.</text>
+<line x1="488.0" y1="453.0" x2="526.0" y2="453.0" stroke="#5B665F" stroke-width="2"/>
+<path d="M524.0,447.0 L534.0,453.0 L524.0,459.0 Z" fill="#5B665F"/>
+<text x="560.0" y="419.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Explicit, versioned forest definition</text>
+<text x="560.0" y="447.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Every run declares dataset, threshold variable and value, minimum mapping area,</text>
+<text x="560.0" y="467.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">exclusions, nodata policy and temporal interpretation; defaults live in config, never in code.</text>
+<rect x="560.0" y="481.5" width="79.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="497.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0002</text>
+<rect x="647.3" y="481.5" width="170.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="656.3" y="497.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">configs/v1_defaults.yaml</text>
 <rect x="48" y="535.5" width="430" height="133.0" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
 <rect x="48" y="535.5" width="5" height="133.0" rx="2" fill="#B4532A"/>
-<circle cx="77" cy="562.5" r="12" fill="#B4532A"/>
-<text x="77" y="567.5" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">3</text>
-<text x="100" y="568.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Area depends on projection</text>
-<text x="66" y="596.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Pixel counts in EPSG:4326 or a conformal CRS distort</text>
-<text x="66" y="616.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">hectares, especially away from the equator.</text>
-<line x1="488" y1="602.0" x2="528" y2="602.0" stroke="#5B665F" stroke-width="2"/>
-<path d="M526,596.0 L536,602.0 L526,608.0 Z" fill="#5B665F"/>
 <rect x="542" y="535.5" width="690" height="133.0" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
 <rect x="542" y="535.5" width="5" height="133.0" rx="2" fill="#2F6B4F"/>
-<text x="560" y="568.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Exchange vs. area CRS policy</text>
-<text x="560" y="596.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Exchange geometries in EPSG:4326; compute area in an equal-area CRS (EPSG:6933</text>
-<text x="560" y="616.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">globally) or geodesically; always report hectares and the method used.</text>
-<rect x="560" y="630.5" width="79.4" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="569" y="646.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0003</text>
+<circle cx="77" cy="562.5" r="12" fill="#B4532A"/>
+<text x="77.0" y="567.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="100.0" y="568.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Area depends on projection</text>
+<text x="66.0" y="596.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Pixel counts in EPSG:4326 or a conformal CRS distort</text>
+<text x="66.0" y="616.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">hectares, especially away from the equator.</text>
+<line x1="488.0" y1="602.0" x2="526.0" y2="602.0" stroke="#5B665F" stroke-width="2"/>
+<path d="M524.0,596.0 L534.0,602.0 L524.0,608.0 Z" fill="#5B665F"/>
+<text x="560.0" y="568.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Exchange vs. area CRS policy</text>
+<text x="560.0" y="596.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Exchange geometries in EPSG:4326; compute area in an equal-area CRS (EPSG:6933</text>
+<text x="560.0" y="616.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">globally) or geodesically; always report hectares and the method used.</text>
+<rect x="560.0" y="630.5" width="79.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="646.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0003</text>
 <rect x="48" y="684.5" width="430" height="152.5" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
 <rect x="48" y="684.5" width="5" height="152.5" rx="2" fill="#B4532A"/>
-<circle cx="77" cy="711.5" r="12" fill="#B4532A"/>
-<text x="77" y="716.5" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">4</text>
-<text x="100" y="717.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Monthly signal is noisy</text>
-<text x="66" y="745.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Clouds, seasonal browning and single-month anomalies</text>
-<text x="66" y="765.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">trigger false alerts; optical and SAR evidence can</text>
-<text x="66" y="784.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">disagree.</text>
-<line x1="488" y1="760.8" x2="528" y2="760.8" stroke="#5B665F" stroke-width="2"/>
-<path d="M526,754.8 L536,760.8 L526,766.8 Z" fill="#5B665F"/>
 <rect x="542" y="684.5" width="690" height="152.5" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
 <rect x="542" y="684.5" width="5" height="152.5" rx="2" fill="#2F6B4F"/>
-<text x="560" y="717.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Composite, confirm, persist</text>
-<text x="560" y="745.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Cloud-masked monthly S2 and S1 composites; NDVI/NDMI anomalies confirmed by SAR</text>
-<text x="560" y="765.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">backscatter; an N-consecutive-month persistence rule; per-pixel optical/SAR disagreement</text>
-<text x="560" y="784.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">flags.</text>
-<rect x="560" y="799.0" width="72.0" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="569" y="814.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">specs/v2</text>
-<rect x="639.964375" y="799.0" width="183.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="648.964375" y="814.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">workflow: sentinel-monthly</text>
+<circle cx="77" cy="711.5" r="12" fill="#B4532A"/>
+<text x="77.0" y="716.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="100.0" y="717.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Monthly signal is noisy</text>
+<text x="66.0" y="745.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Clouds, seasonal browning and single-month anomalies</text>
+<text x="66.0" y="765.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">trigger false alerts; optical and SAR evidence can</text>
+<text x="66.0" y="784.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">disagree.</text>
+<line x1="488.0" y1="760.8" x2="526.0" y2="760.8" stroke="#5B665F" stroke-width="2"/>
+<path d="M524.0,754.8 L534.0,760.8 L524.0,766.8 Z" fill="#5B665F"/>
+<text x="560.0" y="717.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Composite, confirm, persist</text>
+<text x="560.0" y="745.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Cloud-masked monthly S2 and S1 composites; NDVI/NDMI anomalies confirmed by SAR</text>
+<text x="560.0" y="765.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">backscatter; an N-consecutive-month persistence rule; per-pixel optical/SAR disagreement</text>
+<text x="560.0" y="784.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">flags.</text>
+<rect x="560.0" y="799.0" width="71.9" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="814.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">specs/v2</text>
+<rect x="639.9" y="799.0" width="184.2" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="648.9" y="814.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">workflow: sentinel-monthly</text>
 <rect x="48" y="853.0" width="430" height="152.5" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
 <rect x="48" y="853.0" width="5" height="152.5" rx="2" fill="#B4532A"/>
-<circle cx="77" cy="880.0" r="12" fill="#B4532A"/>
-<text x="77" y="885.0" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">5</text>
-<text x="100" y="886.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Model value is unknown locally</text>
-<text x="66" y="914.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Eight GeoFM families look promising, but none is</text>
-<text x="66" y="933.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">integrated or benchmarked; published scores do not</text>
-<text x="66" y="953.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">transfer to a local forest-loss task.</text>
-<line x1="488" y1="929.2" x2="528" y2="929.2" stroke="#5B665F" stroke-width="2"/>
-<path d="M526,923.2 L536,929.2 L526,935.2 Z" fill="#5B665F"/>
 <rect x="542" y="853.0" width="690" height="152.5" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
 <rect x="542" y="853.0" width="5" height="152.5" rx="2" fill="#2F6B4F"/>
-<text x="560" y="886.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Harnessed experiments before agents</text>
-<text x="560" y="914.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Compare B0 (current rules), B1 (raw-feature model) and F1–F4 (frozen encoder, adaptation,</text>
-<text x="560" y="933.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">fusion, stacking) on independent, spatially and temporally blocked reference samples with</text>
-<text x="560" y="953.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">predeclared metrics.</text>
-<rect x="560" y="967.5" width="148.2" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="569" y="983.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">docs/architecture.md</text>
-<rect x="716.1615625" y="967.5" width="69.1" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="725.1615625" y="983.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">SS-0002</text>
+<circle cx="77" cy="880.0" r="12" fill="#B4532A"/>
+<text x="77.0" y="885.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+<text x="100.0" y="886.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Model value is unknown locally</text>
+<text x="66.0" y="914.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Eight GeoFM families look promising, but none is</text>
+<text x="66.0" y="933.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">integrated or benchmarked; published scores do not</text>
+<text x="66.0" y="953.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">transfer to a local forest-loss task.</text>
+<line x1="488.0" y1="929.2" x2="526.0" y2="929.2" stroke="#5B665F" stroke-width="2"/>
+<path d="M524.0,923.2 L534.0,929.2 L524.0,935.2 Z" fill="#5B665F"/>
+<text x="560.0" y="886.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Harnessed experiments before agents</text>
+<text x="560.0" y="914.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Compare B0 (current rules), B1 (raw-feature model) and F1–F4 (frozen encoder, adaptation,</text>
+<text x="560.0" y="933.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">fusion, stacking) on independent, spatially and temporally blocked reference samples with</text>
+<text x="560.0" y="953.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">predeclared metrics.</text>
+<rect x="560.0" y="967.5" width="148.7" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="983.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">docs/architecture.md</text>
+<rect x="716.7" y="967.5" width="69.1" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="725.7" y="983.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">SS-0002</text>
 <rect x="48" y="1021.5" width="430" height="133.0" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
 <rect x="48" y="1021.5" width="5" height="133.0" rx="2" fill="#B4532A"/>
-<circle cx="77" cy="1048.5" r="12" fill="#B4532A"/>
-<text x="77" y="1053.5" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">6</text>
-<text x="100" y="1054.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Platform lock-in</text>
-<text x="66" y="1082.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Production methods tied to Google Earth Engine cannot</text>
-<text x="66" y="1102.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">be reproduced or run independently at regional or</text>
-<text x="66" y="1121.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">country scale.</text>
-<line x1="488" y1="1088.0" x2="528" y2="1088.0" stroke="#5B665F" stroke-width="2"/>
-<path d="M526,1082.0 L536,1088.0 L526,1094.0 Z" fill="#5B665F"/>
 <rect x="542" y="1021.5" width="690" height="133.0" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
 <rect x="542" y="1021.5" width="5" height="133.0" rx="2" fill="#2F6B4F"/>
-<text x="560" y="1054.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Methods separated from backends</text>
-<text x="560" y="1082.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Open, local, cloud-neutral tooling for production (STAC, GDAL/rasterio, xarray, DuckDB); GEE</text>
-<text x="560" y="1102.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">remains an optional reference or research route.</text>
-<rect x="560" y="1116.5" width="79.4" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="569" y="1132.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0005</text>
+<circle cx="77" cy="1048.5" r="12" fill="#B4532A"/>
+<text x="77.0" y="1053.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">6</text>
+<text x="100.0" y="1054.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Platform lock-in</text>
+<text x="66.0" y="1082.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Production methods tied to Google Earth Engine cannot</text>
+<text x="66.0" y="1102.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">be reproduced or run independently at regional or</text>
+<text x="66.0" y="1121.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">country scale.</text>
+<line x1="488.0" y1="1088.0" x2="526.0" y2="1088.0" stroke="#5B665F" stroke-width="2"/>
+<path d="M524.0,1082.0 L534.0,1088.0 L524.0,1094.0 Z" fill="#5B665F"/>
+<text x="560.0" y="1054.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Methods separated from backends</text>
+<text x="560.0" y="1082.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Open, local, cloud-neutral tooling for production (STAC, GDAL/rasterio, xarray, DuckDB); GEE</text>
+<text x="560.0" y="1102.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">remains an optional reference or research route.</text>
+<rect x="560.0" y="1116.5" width="79.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="1132.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0005</text>
 <rect x="48" y="1170.5" width="430" height="152.5" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
 <rect x="48" y="1170.5" width="5" height="152.5" rx="2" fill="#B4532A"/>
-<circle cx="77" cy="1197.5" r="12" fill="#B4532A"/>
-<text x="77" y="1202.5" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">7</text>
-<text x="100" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Knowledge and repos drift</text>
-<text x="66" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Evidence gets scattered, downstream repos redefine</text>
-<text x="66" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">contracts, and agents can turn a proposal or a</text>
-<text x="66" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">successful run into “validated” science.</text>
-<line x1="488" y1="1246.8" x2="528" y2="1246.8" stroke="#5B665F" stroke-width="2"/>
-<path d="M526,1240.8 L536,1246.8 L526,1252.8 Z" fill="#5B665F"/>
 <rect x="542" y="1170.5" width="690" height="152.5" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
 <rect x="542" y="1170.5" width="5" height="152.5" rx="2" fill="#2F6B4F"/>
-<text x="560" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Governed corpus, graph and provenance</text>
-<text x="560" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Knowledge corpus + deterministic graph; agent output enters as candidate and needs</text>
-<text x="560" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">human review to promote; run manifests with semantic provenance; drift checklist and audit</text>
-<text x="560" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">log; downstream repos pin contracts.</text>
-<rect x="560" y="1285.0" width="54.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="569" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">P1–P6</text>
-<rect x="622.465" y="1285.0" width="146.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="631.465" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">knowledge/ + graph/</text>
-<rect x="777.0009375" y="1285.0" width="98.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="786.0009375" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">run_manifest</text>
+<circle cx="77" cy="1197.5" r="12" fill="#B4532A"/>
+<text x="77.0" y="1202.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">7</text>
+<text x="100.0" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Knowledge and repos drift</text>
+<text x="66.0" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Evidence gets scattered, downstream repos redefine</text>
+<text x="66.0" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">contracts, and agents can turn a proposal or a</text>
+<text x="66.0" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">successful run into “validated” science.</text>
+<line x1="488.0" y1="1246.8" x2="526.0" y2="1246.8" stroke="#5B665F" stroke-width="2"/>
+<path d="M524.0,1240.8 L534.0,1246.8 L524.0,1252.8 Z" fill="#5B665F"/>
+<text x="560.0" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Governed corpus, graph and provenance</text>
+<text x="560.0" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Knowledge corpus + deterministic graph; agent output enters as candidate and needs</text>
+<text x="560.0" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">human review to promote; run manifests with semantic provenance; drift checklist and audit</text>
+<text x="560.0" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">log; downstream repos pin contracts.</text>
+<rect x="560.0" y="1285.0" width="54.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">P1–P6</text>
+<rect x="622.5" y="1285.0" width="146.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="631.5" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">knowledge/ + graph/</text>
+<rect x="776.9" y="1285.0" width="98.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="785.9" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">run_manifest</text>
 <line x1="48" y1="1357.0" x2="1232" y2="1357.0" stroke="#D5DDD8"/>
-<text x="48" y="1387.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#1E4D3A">PHASED ROADMAP</text>
+<text x="48.0" y="1387.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E4D3A" letter-spacing="1.5">PHASED ROADMAP</text>
 <rect x="48.0" y="1403.0" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="1.5"/>
 <rect x="48.0" y="1403.0" width="368.0" height="5" rx="2" fill="#2F6B4F"/>
 <text x="66.0" y="1437.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#2F6B4F">v1 · Evidence-first baseline</text>
 <text x="66.0" y="1463.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Established forest products + explicit forest</text>
 <text x="66.0" y="1482.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">definition; area in hectares.</text>
-<line x1="424.0" y1="1451.5" x2="444.0" y2="1451.5" stroke="#5B665F" stroke-width="2"/>
-<path d="M442.0,1445.5 L452.0,1451.5 L442.0,1457.5 Z" fill="#5B665F"/>
+<line x1="424.0" y1="1451.5" x2="442.0" y2="1451.5" stroke="#5B665F" stroke-width="2"/>
+<path d="M440.0,1445.5 L450.0,1451.5 L440.0,1457.5 Z" fill="#5B665F"/>
 <rect x="456.0" y="1403.0" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#3E7F9C" stroke-width="1.5"/>
 <rect x="456.0" y="1403.0" width="368.0" height="5" rx="2" fill="#3E7F9C"/>
 <text x="474.0" y="1437.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#3E7F9C">v2 · Monthly confirmation</text>
 <text x="474.0" y="1463.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">S1/S2 monthly composites, SAR confirmation,</text>
 <text x="474.0" y="1482.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">temporal persistence.</text>
-<line x1="832.0" y1="1451.5" x2="852.0" y2="1451.5" stroke="#5B665F" stroke-width="2"/>
-<path d="M850.0,1445.5 L860.0,1451.5 L850.0,1457.5 Z" fill="#5B665F"/>
+<line x1="832.0" y1="1451.5" x2="850.0" y2="1451.5" stroke="#5B665F" stroke-width="2"/>
+<path d="M848.0,1445.5 L858.0,1451.5 L848.0,1457.5 Z" fill="#5B665F"/>
 <rect x="864.0" y="1403.0" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#7A5AA6" stroke-width="1.5"/>
 <rect x="864.0" y="1403.0" width="368.0" height="5" rx="2" fill="#7A5AA6"/>
 <text x="882.0" y="1437.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#7A5AA6">v3 · Weakly supervised monthly</text>
 <text x="882.0" y="1463.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Latent monthly state / disturbance under</text>
 <text x="882.0" y="1482.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">annual supervision, with uncertainty.</text>
-<text x="48" y="1534.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#5B665F">GeoFM uplift, local accuracy and model rankings are currently not measured; candidate methods stay candidates until human review promotes them.</text>
+<text x="48.0" y="1534.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#5B665F">GeoFM uplift, local accuracy and model rankings are currently not measured; candidate methods stay candidates until human review promotes them.</text>
 </svg>
