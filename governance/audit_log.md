@@ -118,3 +118,28 @@ CSV row structure, unique IDs, new review-score totals and 19 local Markdown lin
 `git diff --check` passed. No model training/inference or scientific accuracy test was run.
 
 **Reviewer:** Codex architecture/evidence review (not empirical scientific validation).
+
+---
+
+## 2026-10-21 — Agent instruction files and downstream pin check
+
+**Trigger:** Added agent-facing instructions (`AGENTS.md`, imported by `CLAUDE.md`) and a
+README pointer to them. A companion change in `sentinel-monthly-forest-cover` re-pins its
+descriptor to this repo's `71f5481` / graph `3e6dc320…914380a`.
+
+**Checklist result:** Pass. Mission boundary and P1–P6 unchanged; the new file restates
+existing rules (ADRs 0002–0005, knowledge promotion, drift control, stable IDs) and points to
+their canonical sources instead of redefining them. No concept, relationship, threshold,
+non-claim, schema or validation policy changed; the generated graph is not affected.
+
+**Open findings:** Before this change the downstream descriptor pinned `f3895e4` / graph
+`ef90b703…` and `graph/build.py --check --descriptor` failed with a stale graph revision.
+The intervening commits only added DS-0014/DS-0015 inventory rows plus viewer and GeoFM
+documents, so no semantics consumed by the workflow changed; resolved by the companion
+re-pin. Earlier open findings (candidate IMPLEMENTS edges, unvalidated seasonal thresholds,
+GeoFM follow-ups) remain open.
+
+**Verification:** `python graph/build.py --check` (68 concepts; 72 validated and 67
+candidate relationships; revision unchanged) and `python -m pytest` (55 passed).
+
+**Reviewer:** Claude repository-sync change (not empirical scientific validation).

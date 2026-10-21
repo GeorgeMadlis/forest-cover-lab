@@ -90,6 +90,9 @@ local evaluation plan, and a recommendation on reproducible harnesses and bounde
 Guidance for downstream implementation repos is documented in
 [`docs/downstream_repos.md`](docs/downstream_repos.md).
 
+Instructions for coding and research agents (Claude Code, Codex, Copilot) are in
+[`AGENTS.md`](AGENTS.md); `CLAUDE.md` imports it.
+
 ---
 
 ## Scientific constraints
