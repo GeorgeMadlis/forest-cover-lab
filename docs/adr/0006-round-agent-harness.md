@@ -11,8 +11,10 @@
 Research assistants need bounded responsibilities and evidence of what actually ran.
 The existing architecture recommends deterministic workflows with an optional bounded
 planner. A client name, generated role or passing schema is no scientific authority.
-These local checkouts had no standing agent entrypoints or registry tests; the supplied
-overlay assumed they existed. This proposal adds them without changing accepted ADRs.
+The initial local checkouts had no standing agent entrypoints or registry tests; the
+supplied overlay assumed they existed. Upstream added those files before publication;
+the reconciled implementation preserves their scientific, diagram and registry rules.
+This proposal extends those contracts without changing accepted ADRs.
 
 ## Decision proposed
 

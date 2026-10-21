@@ -106,15 +106,19 @@ by their respective round manifests.
 
 ## Repository-wide rule dependencies
 
-These contracts exist in this checkout and remain authoritative. The overlay's references
-to a glossary and generated overview SVG/test were omitted because those files do not exist.
-There is no governed overview-diagram generator in this checkout.
+These contracts exist in the reconciled checkout and remain authoritative. The glossary,
+governed overview generator and its tests were added upstream after the initial local
+integration and are now preserved and indexed here.
 
 - `CONTRIBUTING.md`
 - `governance/principles.md`
 - `docs/architecture.md`
 - `docs/adr/`
 - `docs/adr/0006-round-agent-harness.md`
+- `GLOSSARY.md`
+- `docs/img/build_overview_diagram.py`
+- `docs/img/problems-and-approaches.svg`
+- `tests/test_overview_diagram.py`
 - `configs/v1_defaults.yaml`
 - `configs/downstream.sentinel-monthly.example.json`
 - `validate/run_manifest.schema.json`

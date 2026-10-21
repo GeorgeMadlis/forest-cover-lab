@@ -121,6 +121,103 @@ CSV row structure, unique IDs, new review-score totals and 19 local Markdown lin
 
 ---
 
+## 2026-10-21 — Agent instruction files and downstream pin check
+
+**Trigger:** Added agent-facing instructions (`AGENTS.md`, imported by `CLAUDE.md`) and a
+README pointer to them. A companion change in `sentinel-monthly-forest-cover` re-pins its
+descriptor to this repo's `71f5481` / graph `3e6dc320…914380a`.
+
+**Checklist result:** Pass. Mission boundary and P1–P6 unchanged; the new file restates
+existing rules (ADRs 0002–0005, knowledge promotion, drift control, stable IDs) and points to
+their canonical sources instead of redefining them. No concept, relationship, threshold,
+non-claim, schema or validation policy changed; the generated graph is not affected.
+
+**Open findings:** Before this change the downstream descriptor pinned `f3895e4` / graph
+`ef90b703…` and `graph/build.py --check --descriptor` failed with a stale graph revision.
+The intervening commits only added DS-0014/DS-0015 inventory rows plus viewer and GeoFM
+documents, so no semantics consumed by the workflow changed; resolved by the companion
+re-pin. Earlier open findings (candidate IMPLEMENTS edges, unvalidated seasonal thresholds,
+GeoFM follow-ups) remain open.
+
+**Verification:** `python graph/build.py --check` (68 concepts; 72 validated and 67
+candidate relationships; revision unchanged) and `python -m pytest` (55 passed).
+
+**Reviewer:** Claude repository-sync change (not empirical scientific validation).
+
+---
+
+## 2026-10-21 — README overview diagram and glossary
+
+**Trigger:** Added a new directory `docs/img/` with an overview diagram
+(`problems-and-approaches.svg`) embedded in `README.md` after the Critical Warning, and a
+root-level `GLOSSARY.md` explaining abbreviations; README repository-structure block and a
+glossary pointer updated.
+
+**Checklist result:** Pass. Mission boundary and P1–P6 unchanged. The diagram and glossary
+summarise existing ADRs 0002–0005, the v2/v3 specs, `docs/architecture.md` and governance
+rules and point back to them; they introduce no new concept, relationship, threshold,
+non-claim, schema or validation policy. The Critical Warning text is unchanged and is also
+restated in the diagram. GeoFM uplift and local accuracy remain stated as not measured.
+
+**Open findings:** None new. Earlier open findings (candidate IMPLEMENTS edges, unvalidated
+seasonal thresholds, GeoFM follow-ups) remain open.
+
+**Verification:** `python graph/build.py --check` (68 concepts; 72 validated and 67
+candidate relationships; revision unchanged), `python -m pytest` (55 passed) and
+`git diff --check` passed.
+
+**Reviewer:** Claude documentation change (not empirical scientific validation).
+
+---
+
+## 2026-10-21 — Overview diagram sync rule and generator
+
+**Trigger:** Changed agent-facing instructions (`AGENTS.md`: new "README and overview
+diagram" section) and the drift checklist (new P6 item); added the diagram generator
+`docs/img/build_overview_diagram.py` and `tests/test_overview_diagram.py`.
+
+**Checklist result:** Pass. Mission boundary and P1–P6 unchanged. The SVG is now generated
+from a committed script with deterministic text metrics; its rendered content is unchanged.
+The new test fails when the SVG is stale, a cited source is missing, a non-superseded ADR is
+not cited or the roadmap differs from `specs/v*_*.md`. No concept, relationship, threshold,
+non-claim, schema or validation policy changed; the generated graph is not affected.
+
+**Open findings:** Changes in scope that do not touch ADRs, specs or cited files (e.g. a
+revised problem statement) still rely on the AGENTS.md rule and this checklist item rather
+than an automated check. Earlier open findings remain open.
+
+**Verification:** `python graph/build.py --check` (revision unchanged), `python -m pytest`
+(61 passed), `python docs/img/build_overview_diagram.py --check`, ruff and black clean on
+the new files.
+
+**Reviewer:** Claude documentation/tooling change (not empirical scientific validation).
+
+---
+
+## 2026-10-21 — Agent registry
+
+**Trigger:** Added `docs/agents.md`, a registry of the agents working in this repository
+(Claude Code, Codex, Copilot; a proposed bounded planner), their attributes and every file
+that defines them; added `tests/test_agent_registry.py`; changed agent-facing instructions
+(`AGENTS.md`: new "Agent registry" section). README, `docs/README.md` and `GLOSSARY.md`
+(CI, MCP) updated with pointers and abbreviations.
+
+**Checklist result:** Pass. Mission boundary and P1–P6 unchanged. The registry describes
+existing configuration only: all three agents share `AGENTS.md`, and no subagents, skills,
+tool permissions, MCP servers, hooks or model pins are defined in the repository. The
+proposed planner agent stays proposed. No concept, relationship, threshold, non-claim,
+schema or validation policy changed; the generated graph is not affected.
+
+**Open findings:** Agent status changes that leave files untouched (e.g. Copilot first used)
+rely on the AGENTS.md rule rather than an automated check. Earlier open findings remain open.
+
+**Verification:** `python graph/build.py --check` (revision unchanged), `python -m pytest`
+(65 passed); the registry test was confirmed to fail on an unlisted `.claude/agents/` file.
+
+**Reviewer:** Claude documentation/tooling change (not empirical scientific validation).
+
+---
+
 ## 2026-10-21 — Round-bound agent harness integration
 
 **Trigger:** Added standing client instructions, portable roles, schema/templates,
@@ -175,3 +272,41 @@ preserved and excluded from this change.
 
 **Reviewer:** Codex structural/contract review; no human approval or scientific validation
 is asserted. Detailed scope/deviations: docs/agent_harness_integration.md.
+
+---
+
+## 2026-10-21 — Publication reconciliation with current main
+
+**Trigger:** Operator authorized commit, push and merge after the initial implementation.
+Fetching revealed upstream main `713154028ef7689162c6694e78ff906e081023ac` had added standing instructions,
+registry tests, glossary, governed overview generator and its sync rule. Merged that history
+into the feature branch and reconciled conflicts without losing either set of audit entries.
+Initial-checkout observations above remain historical; the previously absent files now exist.
+
+**Checklist result:** Mission and P1–P6 preserved. All upstream scientific, stable-ID,
+backend, graph-regeneration, diagram-sync and convention rules remain in AGENTS.md.
+Current host documentation names ChatGPT, Claude, Claude Code and Codex; historical
+append-only audit entries retain original names/descriptions. Registry checks retain all
+upstream client formats (including .mcp.json, local instructions, skills, prompts and
+chatmodes) and reject stale indexed standing paths, while round runtime files self-inventory.
+ADR 0006 triggers the governed overview rule: updated generator content with the eighth
+problem, regenerated SVG and updated README together. No glossary abbreviation was added.
+No scientific corpus, graph input, inventory, phase semantics or promotion status changed.
+
+**Actual verification:** `.venv/bin/python -m pytest`: 111 passed in 4.36 s.
+`.venv/bin/python docs/img/build_overview_diagram.py` regenerated the SVG;
+`.venv/bin/python docs/img/build_overview_diagram.py --check`: PASS.
+`.venv/bin/python graph/build.py --check --descriptor
+configs/downstream.sentinel-monthly.example.json`: PASS, 68 concepts, 72 validated and
+67 candidate relationships, graph revision unchanged (`3e6dc320…914380a`).
+`.venv/bin/python agent_harness/scripts/validate_round.py --root .`: PASS, two planned
+examples. `git diff --check`: PASS. Hosted checks are pending publication at this point.
+The manual drift review preserves independent research tracks and source/tool separation.
+
+**Open findings / review:** Publication/merge is operator-authorized; this does not authorize
+scientific promotion or assert human empirical validation. ADR 0006 remains proposed.
+Earlier scientific, workflow-equivalence and evidence-authenticity limits remain open.
+Unrelated local edits remain excluded. This record supersedes the initial integration's
+missing-overview limitation; the upstream diagram contract is now enforced.
+
+**Reviewer:** Codex integration/architecture checks; no scientific approval asserted.

@@ -32,6 +32,13 @@ data-source semantics, validation rules, or reporting disclaimers.
 
 This constraint applies to all phases of this repository.
 
+## Overview: problems and approaches
+
+![Forest Cover Lab: eight problems in forest-cover estimation mapped to the ADRs, specs and governance mechanisms that address them, plus the v1–v3 roadmap](docs/img/problems-and-approaches.svg)
+
+Abbreviations used here and throughout the repository are explained in
+[`GLOSSARY.md`](GLOSSARY.md).
+
 ## Scope
 
 The repository is intentionally organized in phases.
@@ -89,6 +96,10 @@ local evaluation plan, and a recommendation on reproducible harnesses and bounde
 
 Guidance for downstream implementation repos is documented in
 [`docs/downstream_repos.md`](docs/downstream_repos.md).
+
+Instructions for coding and research agents (ChatGPT, Claude, Claude Code, Codex) are in
+[`AGENTS.md`](AGENTS.md); `CLAUDE.md` imports it. The agents, their attributes and every
+file that defines them are listed in [`docs/agents.md`](docs/agents.md).
 
 ---
 
@@ -152,6 +163,7 @@ governance/          Canonical principles, drift checklist, audit log
 agent_harness/       Reusable logical roles, round schema, templates and planning examples
 docs/                Architecture assessment, agent policy and ADRs
 docs/adr/            Architecture Decision Records — per-decision governance
+docs/img/            Figures embedded in the README (overview diagram)
 docs/downstream_repos.md
                      Contract for narrower implementation repos
 research/

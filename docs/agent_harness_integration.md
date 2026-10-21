@@ -24,14 +24,20 @@ findings, downloads, real agent rounds or human approvals were invented.
 - tests/test_agent_registry.py and tests/test_agent_harness.py: standing discovery,
   schema, local round discovery and isolated synthetic provenance/path tests.
 - .github/workflows/ci.yml: explicit local round CLI check.
+- docs/img/build_overview_diagram.py and problems-and-approaches.svg: generated overview
+  includes proposed ADR 0006 after reconciling current upstream governance.
 - governance/audit_log.md and this report: actual review results and deviations.
 
 ## Reconciliation with the package
 
-The assumed existing agent files/registry and glossary/overview generator did not exist.
-Added the entrypoints and tests; indexed only actual contracts. No existing instructions
-were overwritten and no named unused client needed removal. Defensive detection of other
-client files remains tested, while per-round runtime files stay out of the stable registry.
+The initial local checkout lacked the assumed agent files/registry and glossary/overview
+generator. Upstream main subsequently added them before publication. Those changes have
+now been reconciled: standing instructions retain upstream scientific, diagram-sync and
+registry rules, and unused named client references are removed from current documentation.
+Append-only historical audit entries retain their original descriptions. Defensive
+detection of all upstream client formats remains tested, including MCP configuration,
+local instructions, skills, prompt/chatmode files and other clients' configuration. Round
+runtime files stay out of the stable registry, while indexed standing paths must exist.
 Both illustrative examples, assignments and all seven role contracts retain their supplied
 planning content. The package README and IMPLEMENTATION_PROMPT.md are integration inputs,
 not replacement repository instructions; neither was copied over the project README.
@@ -46,7 +52,8 @@ adapter and pinned CI checkout validate its own reviews using these shared contr
 
 ## Validation and limits
 
-See the appended governance audit for exact commands/results: 104 Lab tests pass, graph
+See the appended governance audit for exact commands/results: initial 104 tests passed; after upstream reconciliation 111 Lab
+tests pass, and graph
 and descriptor checks pass unchanged, both planning examples validate. Tests use isolated,
 explicitly synthetic completed records; those are not real rounds or findings. Sentinel
 records its own tests and the pre-existing graph-pin repair in its architecture audit.
@@ -56,8 +63,10 @@ The CLI checks declarations, not repository object existence, evidence digest au
 actual host loads, scientific independence, human identity or append-only history. Hosted
 reasoning/search replay remains limited. Human review is pending; no scheduler, model
 inference, automatic orchestration, new scientific capability or knowledge promotion occurs.
-There is no existing governed SVG overview to regenerate; docs/agents.md contains a small
-Mermaid architecture diagram. Earlier research/scientific gaps remain unresolved.
+The upstream governed overview generator now includes an eighth problem and the proposed
+ADR 0006; its SVG was regenerated through the generator and README updated together.
+docs/agents.md also contains a small Mermaid diagram. Earlier scientific gaps remain open.
 
 Pre-existing pyproject.toml and untracked research/workspace edits are excluded from the
-commit. No push, merge or modification of canonical scientific sources is authorized here.
+commit. Publication and merge were subsequently authorized by the operator. Canonical
+scientific sources and candidate findings remain outside that publication change.

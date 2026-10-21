@@ -23,11 +23,11 @@ def standing_files(root):
             continue
         for filename in files:
             path = rel / filename
-            if (filename in {'AGENTS.md', 'CLAUDE.md', 'GEMINI.md', '.cursorrules', '.windsurfrules'}
+            if (filename in {'AGENTS.md', 'CLAUDE.md', 'CLAUDE.local.md', 'GEMINI.md', 'SKILL.md', '.mcp.json', '.cursorrules', '.windsurfrules'}
                 or filename.endswith(('.instructions.md', '.agent.md'))
                 or path.as_posix() == '.github/copilot-instructions.md'
                 or any(part in {'.codex', '.claude', '.cursor'} for part in path.parts)
-                or path.parts[:2] == ('.github', 'agents')):
+                or path.parts[:2] in {('.github', folder) for folder in ('agents', 'instructions', 'prompts', 'chatmodes')}):
                 yield path.as_posix()
 
 
@@ -59,15 +59,21 @@ def test_existing_agent_instruction_files_are_indexed():
 def test_existing_rule_dependencies_still_registered():
     for span in set(re.findall(r'`([^`\n]+)`', (ROOT / 'AGENTS.md').read_text())):
         for token in span.split():
-            if (ROOT / token).exists() and token not in {'.', './'}:
+            if (ROOT / token).exists() and (ROOT / token).resolve().is_relative_to(ROOT) and token not in {'.', './'}:
                 assert f'`{token}`' in DOC, token
 
 
 def test_defensive_discovery_keeps_unused_clients_and_excludes_rounds(tmp_path):
-    standing = ['.github/copilot-instructions.md', '.github/instructions/python.instructions.md', '.codex/skills/tool/agents/openai.yaml', '.claude/agents/new.md', '.cursor/rules/project.mdc', 'nested/AGENTS.md']
+    standing = ['.github/copilot-instructions.md', '.github/instructions/python.instructions.md', '.github/instructions/config.yaml', '.github/prompts/task.prompt.md', '.github/chatmodes/task.md', '.codex/skills/tool/agents/openai.yaml', '.claude/agents/new.md', '.cursor/rules/project.mdc', 'nested/AGENTS.md', 'CLAUDE.local.md', 'extra/SKILL.md', '.mcp.json']
     runtime = ['research/inquiries/q/rounds/r/AGENTS.md', 'reviews/i/rounds/r/.claude/agents/task.md', 'agent_harness/examples/task/round-1/CLAUDE.md']
     for name in standing + runtime:
         path = tmp_path / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.touch()
     assert set(standing_files(tmp_path)) == set(standing)
+
+
+def test_indexed_standing_paths_exist():
+    index = DOC.split('## Standing file index', 1)[1].split('## Architecture at a glance', 1)[0]
+    for name in re.findall(r'^- `([^`\n]+)`', index, flags=re.M):
+        assert (ROOT / name).exists(), f'stale standing contract: {name}'
