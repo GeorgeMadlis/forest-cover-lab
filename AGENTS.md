@@ -85,6 +85,16 @@ change:
 `tests/test_overview_diagram.py` fails if the SVG is stale, a cited source is missing, a
 non-superseded ADR is not cited or the roadmap differs from the phase specs in `specs/`.
 
+## Agent registry
+
+`docs/agents.md` lists the agents that work in this repository, their attributes and every
+file that defines them. Update it in the same change whenever you add, remove or rename an
+agent definition file (`AGENTS.md`, `CLAUDE.md`, `.claude/`, `.codex/`, `.mcp.json`,
+Copilot instructions, skills), add or drop a file reference in this file, adopt a new
+agent, or an agent's status or attributes change. `tests/test_agent_registry.py` fails when
+the registry misses an agent named here, an agent definition file or a path referenced
+here, or lists a path that no longer exists.
+
 ## Conventions
 
 - Conventional Commits: `feat:`, `fix:`, `docs:`, `chore:`, `research:`.
