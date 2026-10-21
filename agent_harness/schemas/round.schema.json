@@ -1,0 +1,362 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Forest Cover Lab research round and subagent harness record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "round_id",
+    "kind",
+    "status",
+    "created_utc",
+    "question",
+    "frame",
+    "repos",
+    "instances",
+    "human_review"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "round_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "kind": {
+      "enum": [
+        "research",
+        "execution",
+        "comparison"
+      ]
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "active",
+        "reviewed",
+        "superseded"
+      ]
+    },
+    "created_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 10
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aoi_ref",
+        "period",
+        "measurement",
+        "competing_hypotheses"
+      ],
+      "properties": {
+        "aoi_ref": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "measurement": {
+          "type": "string"
+        },
+        "competing_hypotheses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "repos": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "forest_cover_lab",
+        "sentinel_monthly_forest_cover",
+        "lab_graph_revision"
+      ],
+      "properties": {
+        "forest_cover_lab": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sentinel_monthly_forest_cover": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lab_graph_revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "instances": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/instance"
+      }
+    },
+    "human_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "reviewer",
+        "decision",
+        "basis"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "accepted",
+            "rejected",
+            "needs_more_evidence"
+          ]
+        },
+        "reviewer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "file_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "path_or_identifier",
+        "revision",
+        "sha256",
+        "capture_status"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "path_or_identifier": {
+          "type": "string"
+        },
+        "revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "capture_status": {
+          "enum": [
+            "selected",
+            "captured",
+            "not_captured"
+          ]
+        }
+      }
+    },
+    "instance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "role",
+        "host_planned",
+        "selection_status",
+        "assignment",
+        "harness_sources",
+        "actual_executions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string"
+        },
+        "host_planned": {
+          "enum": [
+            "chatgpt",
+            "claude",
+            "claude-code",
+            "codex",
+            "unassigned"
+          ]
+        },
+        "selection_status": {
+          "enum": [
+            "planned",
+            "started",
+            "completed",
+            "blocked",
+            "not_used"
+          ]
+        },
+        "assignment": {
+          "type": "string"
+        },
+        "harness_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/file_reference"
+          }
+        },
+        "actual_executions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/execution"
+          }
+        },
+        "role_scope": {
+          "enum": [
+            "standing",
+            "round_only"
+          ],
+          "default": "standing"
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attempt_id",
+        "host",
+        "started_utc",
+        "ended_utc",
+        "status",
+        "model_if_known",
+        "loaded_harness",
+        "prompt_ref",
+        "tool_access",
+        "source_refs",
+        "output_refs",
+        "checks",
+        "limitations"
+      ],
+      "properties": {
+        "attempt_id": {
+          "type": "string"
+        },
+        "host": {
+          "enum": [
+            "chatgpt",
+            "claude",
+            "claude-code",
+            "codex"
+          ]
+        },
+        "started_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ended_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "status": {
+          "enum": [
+            "running",
+            "completed",
+            "failed",
+            "blocked"
+          ]
+        },
+        "model_if_known": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "loaded_harness": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/file_reference"
+          },
+          "minItems": 1
+        },
+        "prompt_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tool_access": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "output_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "output_hashes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    }
+  }
+}

@@ -28,3 +28,8 @@ contracts.
 downstream descriptors and backward-compatible provenance. `python -m pytest` runs all
 available tests offline. The phase-specific geometry, raster and integration tests listed
 above remain planned; they are not claimed as executed scientific validation.
+
+`test_agent_registry.py` checks standing definitions, reusable roles and repository-rule
+dependencies (including defensive discovery of additional client files).
+`test_agent_harness.py` checks local examples/inquiries plus isolated synthetic completed
+records and downstream path semantics; it does not traverse a different checkout.

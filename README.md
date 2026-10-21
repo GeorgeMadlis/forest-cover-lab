@@ -92,6 +92,15 @@ Guidance for downstream implementation repos is documented in
 
 ---
 
+## Agent roles and execution records
+
+ChatGPT, Claude, Claude Code and Codex are hosts/clients; specialist roles are portable
+responsibilities. See [AGENTS.md](AGENTS.md), [standing policy](docs/agents.md) and
+[agent_harness/](agent_harness/README.md). The architecture is proposed in
+[ADR 0006](docs/adr/0006-round-agent-harness.md), pending operator review. Task-specific
+rounds inventory selected roles and actual executions without editing standing policy.
+Lab keeps research inquiry records; operational Sentinel evidence stays downstream.
+
 ## Scientific constraints
 
 ### Forest definition must be explicit
@@ -140,7 +149,8 @@ forest-state labels.
 
 ```text
 governance/          Canonical principles, drift checklist, audit log
-docs/                Architecture assessment and ADRs
+agent_harness/       Reusable logical roles, round schema, templates and planning examples
+docs/                Architecture assessment, agent policy and ADRs
 docs/adr/            Architecture Decision Records — per-decision governance
 docs/downstream_repos.md
                      Contract for narrower implementation repos

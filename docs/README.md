@@ -8,6 +8,7 @@ Project-level documentation for Forest Cover Lab.
 |---|---|
 | `architecture.md` | Current architecture, GeoFM candidates, six-step evaluation and harness/agent assessment |
 | `downstream_repos.md` | Contract for narrower implementation and validation repositories |
+| `agents.md` | Standing host/role policy and contract index; per-round files are inventoried locally |
 | `adr/` | Architecture Decision Records — durable technical and methodological decisions |
 
 ## Rules
