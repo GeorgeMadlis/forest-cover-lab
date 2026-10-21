@@ -1,0 +1,114 @@
+# ILLUSTRATIVE PLANNING EXAMPLE — NO AGENT HAS BEEN RUN; NO FINDINGS ARE ASSERTED
+schema_version: '1.0'
+round_id: example-road-widening-round-0001
+kind: comparison
+status: planned
+created_utc: '2026-10-21T00:00:00Z'
+question: Did a georeferenced Sentinel anomaly represent a newly built road, widening/reopening
+  of a pre-existing road, non-road clearing or a sensor/seasonal artifact?
+frame:
+  aoi_ref: 'UNSET: AOI must be pinned to investigated imagery before execution'
+  period: 'UNSET: use actual acquisition dates and window intervals'
+  measurement: Road/linear feature change and geometry; prior forest is a separate
+    hypothesis, not assumed
+  competing_hypotheses:
+  - new alignment
+  - widened pre-existing road
+  - reopened/maintained corridor
+  - unrelated clearing or seasonal artifact
+  - misregistration or cloud/SAR confounder
+repos:
+  forest_cover_lab: null
+  sentinel_monthly_forest_cover: null
+  lab_graph_revision: null
+instances:
+- id: eo-01
+  role: agent_harness/roles/remote-sensing-quantification.md
+  host_planned: codex
+  selection_status: planned
+  assignment: assignments/eo-01.md
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/remote-sensing-quantification.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/eo-01.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  actual_executions: []
+- id: geo-01
+  role: agent_harness/roles/national-geospatial-evidence.md
+  host_planned: claude-code
+  selection_status: planned
+  assignment: assignments/geo-01.md
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/national-geospatial-evidence.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/geo-01.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  actual_executions: []
+- id: works-01
+  role: agent_harness/roles/official-infrastructure-records.md
+  host_planned: claude
+  selection_status: planned
+  assignment: assignments/works-01.md
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/official-infrastructure-records.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/works-01.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  actual_executions: []
+- id: sources-01
+  role: agent_harness/roles/literature-and-media.md
+  host_planned: chatgpt
+  selection_status: planned
+  assignment: assignments/sources-01.md
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/literature-and-media.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/sources-01.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  actual_executions: []
+- id: critic-01
+  role: agent_harness/roles/independent-challenge.md
+  host_planned: claude
+  selection_status: planned
+  assignment: assignments/critic-01.md
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/independent-challenge.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/critic-01.md
+    revision: null
+    sha256: null
+    capture_status: selected
+  actual_executions: []
+human_review:
+  status: pending
+  reviewer: null
+  decision: null
+  basis: null

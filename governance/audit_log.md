@@ -215,3 +215,98 @@ rely on the AGENTS.md rule rather than an automated check. Earlier open findings
 (65 passed); the registry test was confirmed to fail on an unlisted `.claude/agents/` file.
 
 **Reviewer:** Claude documentation/tooling change (not empirical scientific validation).
+
+---
+
+## 2026-10-21 — Round-bound agent harness integration
+
+**Trigger:** Added standing client instructions, portable roles, schema/templates,
+planning-only examples, local round validation and registry/provenance tests. ADR 0006
+is Proposed; operator human review remains pending. Baseline Lab commit:
+`71f54816d148a8b011a3917e731361768447205f`.
+
+**Checklist review:** Mission and P1–P6 retained. Forest-cover estimation and downstream
+scientific authority remain explicit. P1 search protocol, scopes and source-type distinction
+are unchanged; no search/inventory entries added. P2 data roles, phase suitability and
+separate tool assessment remain unchanged. P3 discovery scopes and independent code
+catalogue remain intact. P4 template and analysis placeholder remain intact; no reverse
+engineering is claimed. P5 all four track READMEs retain input/output declarations and
+independent entry. P6 architecture/docs/downstream boundary are updated or retained; this
+entry records the structural change and carries earlier open research findings forward.
+No scientific contract, source inventory, concept, relation, generated graph or threshold
+was changed. Operational data and results stay downstream. No candidate was promoted.
+
+**Actual checks:** `.venv/bin/python -m pytest`: baseline 55 passed; final 104 passed
+in 4.20 s. `.venv/bin/python graph/build.py --check --descriptor
+configs/downstream.sentinel-monthly.example.json`: PASS, 68 concepts, 72 validated and
+67 candidate relationships, unchanged graph revision
+`3e6dc320bd9f59a483d605d100614005eaa1beb35139edcd1d7d37f04914380a`.
+`.venv/bin/python agent_harness/scripts/validate_round.py --root .`: PASS, two planning
+examples, no real inquiry rounds. `.venv/bin/python -m compileall -q agent_harness
+tests/test_agent_harness.py tests/test_agent_registry.py` and `git diff --check`: PASS.
+A local Python drift probe checked required governance/protocol/template files, all four
+track README input/output declarations, required inventory fields and CSV row structure
+(15 data, 10 code, 12 publication rows): PASS. Manual checklist review covered mission,
+source/tool separation and independent entry semantics. These checks establish record
+and architectural consistency, not empirical scientific validity.
+
+**Reconciliation / deviations:** AGENTS.md, CLAUDE.md, docs/agents.md and the registry test
+were absent in the actual checkout, so they were added rather than replacing prior files.
+No named unused client was found in standing documentation; defensive discovery for
+additional instruction formats is retained and regression-tested. Nonexistent overlay
+references (GLOSSARY.md, overview SVG/generator and its test) were removed from the index;
+there is no governed README overview generator to run. A small Mermaid diagram documents
+the harness instead. Strengthened the proposed validator with both-repo pins, graph digest,
+mandatory loaded contracts, output_hashes, explicit round-only roles, bounded paths,
+status consistency and strict YAML. Schema remains the new, unreleased 1.0 contract.
+Black/Ruff are not installed in the existing environment; their optional formatter hooks
+were not run. CI's existing pytest/graph checks plus explicit round CLI remain enabled.
+
+**Open findings:** Human review of ADR 0006/policy remains pending. Declaration validation
+cannot prove actual model loads, independence, digest authenticity or scientific accuracy;
+review pinned content/evidence and append-only history separately. No orchestration or
+scientific evaluation was introduced. Earlier seasonal/workflow/GeoFM research gaps remain
+open. Sentinel baseline had four stale-graph errors, to be repaired and recorded downstream.
+Unrelated local pyproject.toml license metadata and untracked research/workspace files are
+preserved and excluded from this change.
+
+**Reviewer:** Codex structural/contract review; no human approval or scientific validation
+is asserted. Detailed scope/deviations: docs/agent_harness_integration.md.
+
+---
+
+## 2026-10-21 — Publication reconciliation with current main
+
+**Trigger:** Operator authorized commit, push and merge after the initial implementation.
+Fetching revealed upstream main `713154028ef7689162c6694e78ff906e081023ac` had added standing instructions,
+registry tests, glossary, governed overview generator and its sync rule. Merged that history
+into the feature branch and reconciled conflicts without losing either set of audit entries.
+Initial-checkout observations above remain historical; the previously absent files now exist.
+
+**Checklist result:** Mission and P1–P6 preserved. All upstream scientific, stable-ID,
+backend, graph-regeneration, diagram-sync and convention rules remain in AGENTS.md.
+Current host documentation names ChatGPT, Claude, Claude Code and Codex; historical
+append-only audit entries retain original names/descriptions. Registry checks retain all
+upstream client formats (including .mcp.json, local instructions, skills, prompts and
+chatmodes) and reject stale indexed standing paths, while round runtime files self-inventory.
+ADR 0006 triggers the governed overview rule: updated generator content with the eighth
+problem, regenerated SVG and updated README together. No glossary abbreviation was added.
+No scientific corpus, graph input, inventory, phase semantics or promotion status changed.
+
+**Actual verification:** `.venv/bin/python -m pytest`: 111 passed in 4.36 s.
+`.venv/bin/python docs/img/build_overview_diagram.py` regenerated the SVG;
+`.venv/bin/python docs/img/build_overview_diagram.py --check`: PASS.
+`.venv/bin/python graph/build.py --check --descriptor
+configs/downstream.sentinel-monthly.example.json`: PASS, 68 concepts, 72 validated and
+67 candidate relationships, graph revision unchanged (`3e6dc320…914380a`).
+`.venv/bin/python agent_harness/scripts/validate_round.py --root .`: PASS, two planned
+examples. `git diff --check`: PASS. Hosted checks are pending publication at this point.
+The manual drift review preserves independent research tracks and source/tool separation.
+
+**Open findings / review:** Publication/merge is operator-authorized; this does not authorize
+scientific promotion or assert human empirical validation. ADR 0006 remains proposed.
+Earlier scientific, workflow-equivalence and evidence-authenticity limits remain open.
+Unrelated local edits remain excluded. This record supersedes the initial integration's
+missing-overview limitation; the upstream diagram contract is now enforced.
+
+**Reviewer:** Codex integration/architecture checks; no scientific approval asserted.

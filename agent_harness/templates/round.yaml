@@ -1,0 +1,28 @@
+schema_version: "1.0"
+round_id: "ROUND-PLACEHOLDER"
+kind: research
+status: planned  # planned | active | reviewed | superseded
+created_utc: "2026-10-21T00:00:00Z"  # replace when copied
+question: "REPLACE: explicitly testable question, not a desired conclusion"
+frame:
+  aoi_ref: "REPLACE: path or immutable geometry ID"
+  period: "REPLACE: acquisition/measurement period"
+  measurement: "REPLACE: forest definition, quantity, units and denominator"
+  competing_hypotheses: ["REPLACE: alternative"]
+repos:
+  forest_cover_lab: null  # full commit SHA once run
+  sentinel_monthly_forest_cover: null
+  lab_graph_revision: null
+instances:
+  - id: specialist-01
+    role: "agent_harness/roles/remote-sensing-quantification.md"
+    host_planned: codex
+    selection_status: planned
+    assignment: "assignments/specialist-01.md"
+    harness_sources: []  # selected files, NOT observed loads
+    actual_executions: [] # append execution attempts with observed loaded_harness
+human_review:
+  status: pending
+  reviewer: null
+  decision: null
+  basis: null

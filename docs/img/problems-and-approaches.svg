@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1568" viewBox="0 0 1280 1568" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1736" viewBox="0 0 1280 1736" role="img" aria-labelledby="t d">
 <title id="t">Forest Cover Lab: problems and approaches</title>
-<desc id="d">7 problems in forest-cover estimation (Annual labels are not monthly truth; “Forest” is ambiguous; Area depends on projection; Monthly signal is noisy; Model value is unknown locally; Platform lock-in; Knowledge and repos drift) mapped to the repository approaches that address them, plus the v1, v2, v3 roadmap.</desc>
-<rect width="1280" height="1568" fill="#FFFFFF"/>
+<desc id="d">8 problems in forest-cover estimation (Annual labels are not monthly truth; “Forest” is ambiguous; Area depends on projection; Monthly signal is noisy; Model value is unknown locally; Platform lock-in; Agent plans are not observed execution; Knowledge and repos drift) mapped to the repository approaches that address them, plus the v1, v2, v3 roadmap.</desc>
+<rect width="1280" height="1736" fill="#FFFFFF"/>
 <text x="48.0" y="78.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#1E4D3A">Forest Cover Lab — problems and how the repo addresses them</text>
 <text x="48.0" y="106.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" fill="#5B665F">Governance, research and evidence registry for forest-cover estimation from satellite data. Executable workflows live in downstream repos.</text>
 <rect x="48" y="130" width="1184" height="44" rx="8" fill="#FFF6DD" stroke="#E2C26B"/>
@@ -128,42 +128,65 @@
 <rect x="542" y="1170.5" width="5" height="152.5" rx="2" fill="#2F6B4F"/>
 <circle cx="77" cy="1197.5" r="12" fill="#B4532A"/>
 <text x="77.0" y="1202.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">7</text>
-<text x="100.0" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Knowledge and repos drift</text>
-<text x="66.0" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Evidence gets scattered, downstream repos redefine</text>
-<text x="66.0" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">contracts, and agents can turn a proposal or a</text>
-<text x="66.0" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">successful run into “validated” science.</text>
+<text x="100.0" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Agent plans are not observed</text>
+<text x="100.0" y="1225.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">execution</text>
+<text x="66.0" y="1253.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">A selected role or host name does not prove which</text>
+<text x="66.0" y="1273.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">instructions were loaded, which tools ran or whether</text>
+<text x="66.0" y="1292.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">evidence is independent.</text>
 <line x1="488.0" y1="1246.8" x2="526.0" y2="1246.8" stroke="#5B665F" stroke-width="2"/>
 <path d="M524.0,1240.8 L534.0,1246.8 L524.0,1252.8 Z" fill="#5B665F"/>
-<text x="560.0" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Governed corpus, graph and provenance</text>
-<text x="560.0" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Knowledge corpus + deterministic graph; agent output enters as candidate and needs</text>
-<text x="560.0" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">human review to promote; run manifests with semantic provenance; drift checklist and audit</text>
-<text x="560.0" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">log; downstream repos pin contracts.</text>
-<rect x="560.0" y="1285.0" width="54.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="569.0" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">P1–P6</text>
-<rect x="622.5" y="1285.0" width="146.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="631.5" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">knowledge/ + graph/</text>
-<rect x="776.9" y="1285.0" width="98.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="785.9" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">run_manifest</text>
-<line x1="48" y1="1357.0" x2="1232" y2="1357.0" stroke="#D5DDD8"/>
-<text x="48.0" y="1387.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E4D3A" letter-spacing="1.5">PHASED ROADMAP</text>
-<rect x="48.0" y="1403.0" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="1.5"/>
-<rect x="48.0" y="1403.0" width="368.0" height="5" rx="2" fill="#2F6B4F"/>
-<text x="66.0" y="1437.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#2F6B4F">v1 · Evidence-first baseline</text>
-<text x="66.0" y="1463.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Established forest products + explicit forest</text>
-<text x="66.0" y="1482.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">definition; area in hectares.</text>
-<line x1="424.0" y1="1451.5" x2="442.0" y2="1451.5" stroke="#5B665F" stroke-width="2"/>
-<path d="M440.0,1445.5 L450.0,1451.5 L440.0,1457.5 Z" fill="#5B665F"/>
-<rect x="456.0" y="1403.0" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#3E7F9C" stroke-width="1.5"/>
-<rect x="456.0" y="1403.0" width="368.0" height="5" rx="2" fill="#3E7F9C"/>
-<text x="474.0" y="1437.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#3E7F9C">v2 · Monthly confirmation</text>
-<text x="474.0" y="1463.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">S1/S2 monthly composites, SAR confirmation,</text>
-<text x="474.0" y="1482.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">temporal persistence.</text>
-<line x1="832.0" y1="1451.5" x2="850.0" y2="1451.5" stroke="#5B665F" stroke-width="2"/>
-<path d="M848.0,1445.5 L858.0,1451.5 L848.0,1457.5 Z" fill="#5B665F"/>
-<rect x="864.0" y="1403.0" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#7A5AA6" stroke-width="1.5"/>
-<rect x="864.0" y="1403.0" width="368.0" height="5" rx="2" fill="#7A5AA6"/>
-<text x="882.0" y="1437.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#7A5AA6">v3 · Weakly supervised monthly</text>
-<text x="882.0" y="1463.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Latent monthly state / disturbance under</text>
-<text x="882.0" y="1482.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">annual supervision, with uncertainty.</text>
-<text x="48.0" y="1534.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#5B665F">GeoFM uplift, local accuracy and model rankings are currently not measured; candidate methods stay candidates until human review promotes them.</text>
+<text x="560.0" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Portable roles and round provenance</text>
+<text x="560.0" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Proposed standing role contracts plus bounded assignments; record actual hosts, pinned</text>
+<text x="560.0" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">repositories, loaded-file hashes, evidence and checks. Human review governs scientific</text>
+<text x="560.0" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">promotion.</text>
+<rect x="560.0" y="1285.0" width="79.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0006</text>
+<rect x="647.3" y="1285.0" width="115.8" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="656.3" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">docs/agents.md</text>
+<rect x="771.2" y="1285.0" width="105.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="780.2" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">round schema</text>
+<rect x="48" y="1339.0" width="430" height="152.5" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
+<rect x="48" y="1339.0" width="5" height="152.5" rx="2" fill="#B4532A"/>
+<rect x="542" y="1339.0" width="690" height="152.5" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>
+<rect x="542" y="1339.0" width="5" height="152.5" rx="2" fill="#2F6B4F"/>
+<circle cx="77" cy="1366.0" r="12" fill="#B4532A"/>
+<text x="77.0" y="1371.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">8</text>
+<text x="100.0" y="1372.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F2A24">Knowledge and repos drift</text>
+<text x="66.0" y="1400.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">Evidence gets scattered, downstream repos redefine</text>
+<text x="66.0" y="1419.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">contracts, and agents can turn a proposal or a</text>
+<text x="66.0" y="1439.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">successful run into “validated” science.</text>
+<line x1="488.0" y1="1415.2" x2="526.0" y2="1415.2" stroke="#5B665F" stroke-width="2"/>
+<path d="M524.0,1409.2 L534.0,1415.2 L524.0,1421.2 Z" fill="#5B665F"/>
+<text x="560.0" y="1372.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Governed corpus, graph and provenance</text>
+<text x="560.0" y="1400.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Knowledge corpus + deterministic graph; agent output enters as candidate and needs</text>
+<text x="560.0" y="1419.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">human review to promote; run manifests with semantic provenance; drift checklist and audit</text>
+<text x="560.0" y="1439.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">log; downstream repos pin contracts.</text>
+<rect x="560.0" y="1453.5" width="54.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="569.0" y="1469.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">P1–P6</text>
+<rect x="622.5" y="1453.5" width="146.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="631.5" y="1469.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">knowledge/ + graph/</text>
+<rect x="776.9" y="1453.5" width="98.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="785.9" y="1469.0" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">run_manifest</text>
+<line x1="48" y1="1525.5" x2="1232" y2="1525.5" stroke="#D5DDD8"/>
+<text x="48.0" y="1555.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E4D3A" letter-spacing="1.5">PHASED ROADMAP</text>
+<rect x="48.0" y="1571.5" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="1.5"/>
+<rect x="48.0" y="1571.5" width="368.0" height="5" rx="2" fill="#2F6B4F"/>
+<text x="66.0" y="1605.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#2F6B4F">v1 · Evidence-first baseline</text>
+<text x="66.0" y="1631.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Established forest products + explicit forest</text>
+<text x="66.0" y="1651.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">definition; area in hectares.</text>
+<line x1="424.0" y1="1620.0" x2="442.0" y2="1620.0" stroke="#5B665F" stroke-width="2"/>
+<path d="M440.0,1614.0 L450.0,1620.0 L440.0,1626.0 Z" fill="#5B665F"/>
+<rect x="456.0" y="1571.5" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#3E7F9C" stroke-width="1.5"/>
+<rect x="456.0" y="1571.5" width="368.0" height="5" rx="2" fill="#3E7F9C"/>
+<text x="474.0" y="1605.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#3E7F9C">v2 · Monthly confirmation</text>
+<text x="474.0" y="1631.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">S1/S2 monthly composites, SAR confirmation,</text>
+<text x="474.0" y="1651.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">temporal persistence.</text>
+<line x1="832.0" y1="1620.0" x2="850.0" y2="1620.0" stroke="#5B665F" stroke-width="2"/>
+<path d="M848.0,1614.0 L858.0,1620.0 L848.0,1626.0 Z" fill="#5B665F"/>
+<rect x="864.0" y="1571.5" width="368.0" height="97.0" rx="10" fill="#FFFFFF" stroke="#7A5AA6" stroke-width="1.5"/>
+<rect x="864.0" y="1571.5" width="368.0" height="5" rx="2" fill="#7A5AA6"/>
+<text x="882.0" y="1605.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#7A5AA6">v3 · Weakly supervised monthly</text>
+<text x="882.0" y="1631.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Latent monthly state / disturbance under</text>
+<text x="882.0" y="1651.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">annual supervision, with uncertainty.</text>
+<text x="48.0" y="1702.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#5B665F">GeoFM uplift, local accuracy and model rankings are currently not measured; candidate methods stay candidates until human review promotes them.</text>
 </svg>

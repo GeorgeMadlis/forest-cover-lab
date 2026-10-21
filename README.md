@@ -34,7 +34,7 @@ This constraint applies to all phases of this repository.
 
 ## Overview: problems and approaches
 
-![Forest Cover Lab: seven problems in forest-cover estimation mapped to the ADRs, specs and governance mechanisms that address them, plus the v1–v3 roadmap](docs/img/problems-and-approaches.svg)
+![Forest Cover Lab: eight problems in forest-cover estimation mapped to the ADRs, specs and governance mechanisms that address them, plus the v1–v3 roadmap](docs/img/problems-and-approaches.svg)
 
 Abbreviations used here and throughout the repository are explained in
 [`GLOSSARY.md`](GLOSSARY.md).
@@ -97,11 +97,20 @@ local evaluation plan, and a recommendation on reproducible harnesses and bounde
 Guidance for downstream implementation repos is documented in
 [`docs/downstream_repos.md`](docs/downstream_repos.md).
 
-Instructions for coding and research agents (Claude Code, Codex, Copilot) are in
+Instructions for coding and research agents (ChatGPT, Claude, Claude Code, Codex) are in
 [`AGENTS.md`](AGENTS.md); `CLAUDE.md` imports it. The agents, their attributes and every
 file that defines them are listed in [`docs/agents.md`](docs/agents.md).
 
 ---
+
+## Agent roles and execution records
+
+ChatGPT, Claude, Claude Code and Codex are hosts/clients; specialist roles are portable
+responsibilities. See [AGENTS.md](AGENTS.md), [standing policy](docs/agents.md) and
+[agent_harness/](agent_harness/README.md). The architecture is proposed in
+[ADR 0006](docs/adr/0006-round-agent-harness.md), pending operator review. Task-specific
+rounds inventory selected roles and actual executions without editing standing policy.
+Lab keeps research inquiry records; operational Sentinel evidence stays downstream.
 
 ## Scientific constraints
 
@@ -151,7 +160,8 @@ forest-state labels.
 
 ```text
 governance/          Canonical principles, drift checklist, audit log
-docs/                Architecture assessment and ADRs
+agent_harness/       Reusable logical roles, round schema, templates and planning examples
+docs/                Architecture assessment, agent policy and ADRs
 docs/adr/            Architecture Decision Records — per-decision governance
 docs/img/            Figures embedded in the README (overview diagram)
 docs/downstream_repos.md

@@ -418,3 +418,11 @@ preprocessing revision, head/adaptation weights, feature lineage, split/label ID
 calibration, cutoff, environment and resource use. Do not invent unregistered graph nodes
 or claim current validators enforce these proposed fields. Such contract changes need
 their own reviewed change and, for durable choices, an ADR.
+
+## Round-bound research responsibilities (proposed)
+
+[ADR 0006](adr/0006-round-agent-harness.md) and [standing policy](agents.md) define
+portable logical specialist roles and explicit per-round provenance. Lab owns reusable
+contracts and research inquiries; operational Sentinel rounds supplement downstream run
+and investigation evidence. Tool skills and host configuration remain separate from
+scientific sources. This adds record validation, not a scheduler or model capability.

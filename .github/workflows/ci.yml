@@ -44,3 +44,6 @@ jobs:
 
       - name: Run local contract tests
         run: python -m pytest
+
+      - name: Validate local agent rounds
+        run: python agent_harness/scripts/validate_round.py --root .
