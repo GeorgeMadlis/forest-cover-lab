@@ -143,3 +143,27 @@ GeoFM follow-ups) remain open.
 candidate relationships; revision unchanged) and `python -m pytest` (55 passed).
 
 **Reviewer:** Claude repository-sync change (not empirical scientific validation).
+
+---
+
+## 2026-10-21 — README overview diagram and glossary
+
+**Trigger:** Added a new directory `docs/img/` with an overview diagram
+(`problems-and-approaches.svg`) embedded in `README.md` after the Critical Warning, and a
+root-level `GLOSSARY.md` explaining abbreviations; README repository-structure block and a
+glossary pointer updated.
+
+**Checklist result:** Pass. Mission boundary and P1–P6 unchanged. The diagram and glossary
+summarise existing ADRs 0002–0005, the v2/v3 specs, `docs/architecture.md` and governance
+rules and point back to them; they introduce no new concept, relationship, threshold,
+non-claim, schema or validation policy. The Critical Warning text is unchanged and is also
+restated in the diagram. GeoFM uplift and local accuracy remain stated as not measured.
+
+**Open findings:** None new. Earlier open findings (candidate IMPLEMENTS edges, unvalidated
+seasonal thresholds, GeoFM follow-ups) remain open.
+
+**Verification:** `python graph/build.py --check` (68 concepts; 72 validated and 67
+candidate relationships; revision unchanged), `python -m pytest` (55 passed) and
+`git diff --check` passed.
+
+**Reviewer:** Claude documentation change (not empirical scientific validation).

@@ -32,6 +32,13 @@ data-source semantics, validation rules, or reporting disclaimers.
 
 This constraint applies to all phases of this repository.
 
+## Overview: problems and approaches
+
+![Forest Cover Lab: seven problems in forest-cover estimation mapped to the ADRs, specs and governance mechanisms that address them, plus the v1–v3 roadmap](docs/img/problems-and-approaches.svg)
+
+Abbreviations used here and throughout the repository are explained in
+[`GLOSSARY.md`](GLOSSARY.md).
+
 ## Scope
 
 The repository is intentionally organized in phases.
@@ -145,6 +152,7 @@ forest-state labels.
 governance/          Canonical principles, drift checklist, audit log
 docs/                Architecture assessment and ADRs
 docs/adr/            Architecture Decision Records — per-decision governance
+docs/img/            Figures embedded in the README (overview diagram)
 docs/downstream_repos.md
                      Contract for narrower implementation repos
 research/
