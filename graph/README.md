@@ -3,7 +3,9 @@
 The authority is `knowledge/**/*.md` together with existing specs, inventories and contracts.
 `ontology.yaml` restricts entity types and identifier prefixes; `relation_types.yaml` defines
 allowed typed endpoints. JSON schemas enforce concept and downstream descriptor fields.
-No individual scenes, runs or results are accepted entity types.
+No individual scenes, agent instances, runs or results are accepted entity types.
+Candidate role/harness/skill records provide reusable research-governance discovery
+(proposed ADR 0008). Compatibility edges never assert observed execution or loading.
 
 Install the lightweight validator independently of any reference execution stack:
 

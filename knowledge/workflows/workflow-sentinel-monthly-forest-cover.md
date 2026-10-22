@@ -2,9 +2,9 @@
 id: workflow:sentinel-monthly-forest-cover
 type: workflow
 title: sentinel-monthly-forest-cover
-version: '1.1'
+version: '1.2'
 status: candidate
-updated: '2026-10-06'
+updated: '2026-10-22'
 review_after: '2027-04-06'
 sources: &id001
 - docs/downstream_repos.md
@@ -186,6 +186,15 @@ relations:
   sources: *id001
   scope: Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence
     not audited.
+- type: HAS_HARNESS_CONTRACT
+  target: harness:round-bound-research
+  status: candidate
+  sources:
+  - docs/agents.md
+  - docs/adr/0006-round-agent-harness.md
+  - research/publications/agent_harness_review_2026.md
+  scope: Candidate research-governance integration; no production method change, agent
+    execution or required orchestration asserted.
 ---
 
 # sentinel-monthly-forest-cover

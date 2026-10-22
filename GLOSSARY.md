@@ -161,3 +161,13 @@ Two abbreviations have more than one meaning in this repo — read them from con
 | RSE | *Remote Sensing of Environment* (journal). |
 | EGU | European Geosciences Union. |
 | ESSOAr | Earth and Space Science Open Archive (preprint server). |
+
+## Agent execution terminology
+
+| Term | Meaning |
+|---|---|
+| Role | Portable bounded responsibility, independent of the host/client. |
+| Native subagent | Actual delegated runtime instance, distinct from a role contract. |
+| Agent harness | Runtime support or reusable control/recording contract around model/tool work; record which is meant. |
+| Skill | Versioned instructions/resources, not a scientific observation or proof of use. |
+| Handoff | Captured artifact carrying task state between executions. |

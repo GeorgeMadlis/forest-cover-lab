@@ -207,3 +207,122 @@ def test_invalid_yaml_and_missing_manifest_return_findings(tmp_path):
     assert any('duplicate YAML key' in e for e in check(path))
     path.write_text('[')
     assert check(path)
+
+
+@pytest.fixture
+def version_11(completed):
+    path, data = completed
+    data['schema_version'] = '1.1'
+    for instance in data['instances']:
+        instance['delegation'] = {
+            'mode': 'sequential_role', 'parent_instance_id': None,
+            'question': 'Synthetic bounded question; not an execution',
+            'output_contract': 'Synthetic artifact and documented checks',
+            'permitted_writes': [],
+            'budget': {'tool_call_limit': None, 'elapsed_seconds_limit': None, 'cost_usd_limit': None},
+        }
+        for attempt in instance['actual_executions']:
+            attempt.update(
+                runtime={'client_version': None, 'model_configuration': {}, 'context_mode': 'unknown', 'workspace_mode': 'unknown', 'permission_summary': None},
+                handoffs=[], coordination_events=[],
+                independence={'source_lineage_groups': [], 'conclusion_exposure': 'unknown', 'evidence_inspected': [], 'limitations': ['Synthetic unknown lineage; no independence claim']},
+            )
+    return path, data
+
+
+def test_version_11_and_legacy_10(completed, version_11):
+    assert not findings(version_11)
+    old = yaml.safe_load(EXAMPLES[0].read_text())
+    assert old['schema_version'] == '1.0'
+    assert not check(EXAMPLES[0])
+
+
+@pytest.mark.parametrize('field', ['runtime', 'handoffs', 'independence', 'coordination_events'])
+def test_version_11_requires_capture_fields(version_11, field):
+    version_11[1]['instances'][0]['actual_executions'][0].pop(field)
+    assert findings(version_11)
+
+
+def test_version_11_requires_delegation_contract(version_11):
+    version_11[1]['instances'][0].pop('delegation')
+    assert findings(version_11)
+
+
+@pytest.mark.parametrize('parent', ['absent-instance', 'pub-01'])
+def test_parent_reference_must_resolve_to_another_instance(version_11, parent):
+    first = version_11[1]['instances'][0]
+    first['delegation']['parent_instance_id'] = first['id'] if parent == 'pub-01' else parent
+    assert findings(version_11)
+
+
+def test_parent_cycles_rejected(version_11):
+    first, second = version_11[1]['instances'][:2]
+    first['delegation']['parent_instance_id'] = second['id']
+    second['delegation']['parent_instance_id'] = first['id']
+    assert any('cyclic delegation' in e for e in findings(version_11))
+
+
+def test_native_subagent_requires_parent(version_11):
+    first, second = version_11[1]['instances'][:2]
+    first['actual_executions'] = []
+    first['selection_status'] = 'planned'
+    first['delegation']['mode'] = 'native_subagent'
+    assert findings(version_11)
+    first['delegation']['parent_instance_id'] = second['id']
+    assert not findings(version_11)
+
+
+def test_actual_native_subagent_requires_observed_parent(version_11):
+    first, second = version_11[1]['instances'][:2]
+    first['delegation'].update(mode='native_subagent', parent_instance_id=second['id'])
+    assert any('observed parent attempt' in e for e in findings(version_11))
+
+
+def test_version_11_preserves_optional_round_graph(version_11, tmp_path):
+    source = LAB / 'agent_harness/examples/road-widening/round-0001/round.yaml'
+    data = yaml.safe_load(source.read_text())
+    shutil.copytree(source.parent / 'assignments', tmp_path / 'graph-assignments')
+    data['schema_version'] = '1.1'
+    for instance in data['instances']:
+        instance['assignment'] = instance['assignment'].replace('assignments/', 'graph-assignments/')
+        instance['delegation'] = copy.deepcopy(version_11[1]['instances'][0]['delegation'])
+    assert not check(write(tmp_path / 'round.yaml', data))
+
+
+def test_runtime_unknowns_need_limits(version_11):
+    attempt = version_11[1]['instances'][0]['actual_executions'][0]
+    attempt['limitations'] = []
+    assert any('unknown runtime' in e for e in findings(version_11))
+
+
+def test_unknown_independence_and_inspected_references(version_11):
+    attempt = version_11[1]['instances'][0]['actual_executions'][0]
+    disclosure = attempt['independence']
+    disclosure['limitations'] = []
+    assert findings(version_11)
+    disclosure.update(source_lineage_groups=['synthetic-source-group'], conclusion_exposure='received', evidence_inspected=['synthetic-primary'])
+    assert findings(version_11)
+    attempt['source_refs'] = ['synthetic-primary']
+    assert not findings(version_11)
+
+
+@pytest.mark.parametrize('capture', ['selected', 'not_captured', 'missing_digest'])
+def test_handoff_requires_capture_and_digest(version_11, capture):
+    attempt = version_11[1]['instances'][0]['actual_executions'][0]
+    artifact = {'source': 'round', 'path_or_identifier': 'synthetic-handoff', 'revision': None, 'sha256': 'd' * 64, 'capture_status': 'captured'}
+    attempt['handoffs'] = [artifact]
+    assert not findings(version_11)
+    if capture == 'missing_digest':
+        artifact['sha256'] = None
+    else:
+        artifact['capture_status'] = capture
+    assert findings(version_11)
+
+
+def test_coordination_artifact_requires_digest(version_11):
+    attempt = version_11[1]['instances'][0]['actual_executions'][0]
+    event = {'kind': 'reconciliation', 'detail': 'Synthetic disagreement retained', 'artifact': None}
+    attempt['coordination_events'] = [event]
+    assert not findings(version_11)
+    event['artifact'] = {'source': 'round', 'path_or_identifier': 'synthetic-event', 'revision': None, 'sha256': None, 'capture_status': 'captured'}
+    assert findings(version_11)

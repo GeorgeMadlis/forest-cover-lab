@@ -1,9 +1,11 @@
-description: Dataset families and scientific contracts only; scenes belong to live
-  catalogues; runs and results belong to evidence bundles.
+description: Dataset families, scientific contracts and reusable research-governance
+  contracts only; scenes belong to live catalogues; agent instances, runs and results
+  belong to evidence bundles.
 excluded_entities:
 - scene
 - run
 - result
+- agent-instance
 schema_version: '1.0'
 types:
   access: access
@@ -18,3 +20,6 @@ types:
   tool: tool
   validation: validation
   workflow: workflow
+  role: role
+  harness: harness
+  skill: skill

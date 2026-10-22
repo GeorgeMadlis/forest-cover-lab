@@ -12,10 +12,14 @@ open outputs/kg-viewer-*/index.html
 The bundle contains two linked pages:
 
 - `index.html` — interactive graph. Colour = layer (purpose & assurance, science, data,
-  implementation); shape = concept type; dashed edges = candidate relationships. Filter by
+  implementation, research governance); shape = concept type; dashed edges = candidate relationships. Filter by
   concept type, relation type and validated/candidate status; switch layouts; search; click
   a concept or edge for its full record, context, sources and review metadata.
   `#node=<id>` deep-links to a focused concept.
+  The Agent contracts navigation link focuses `harness:round-bound-research`.
+  Harness, role and skill shapes identify reusable candidate contracts; their detail
+  panels show source/version, review deadline, metadata and compatibility links.
+  Runtime instances and execution history stay in external round records.
 - `catalogue.html` — sortable, filterable tables of concepts and relationships, with
   expandable context. Concept IDs link back to the graph.
 

@@ -119,6 +119,13 @@ first) or automatically up to its gates. `agent_harness/scripts/render_round_gra
 draws it as SVG and Mermaid; the validator checks it. No runner exists yet; see the
 [road-widening example graph](agent_harness/examples/road-widening/round-0001/graph.svg).
 
+The candidate [research-governance graph layer](docs/adr/0008-agent-governance-graph.md)
+makes eight standing roles, four Sentinel skills, harness constraints and supporting
+host capabilities discoverable in the offline viewer. Every new concept and relationship
+remains candidate. Round schema 1.1 adds delegation, runtime and handoff capture while
+preserving 1.0 records. No orchestration engine or behavioral benchmark is introduced;
+human review remains pending for proposed ADRs 0006–0008.
+
 The [dataset-and-tool-discovery specialist](agent_harness/roles/dataset-and-tool-discovery.md) covers FAIR-inspired source assessment, dataset/tool searches, provider link audits and cited pipeline-planning answers. The [protocol](research/data_sources/discovery_and_link_verification.md) keeps external auto-catalogue leads separate from reviewed Lab datasets and tools. Adding this role creates no automatic crawler or completed link verification.
 
 ## Scientific constraints

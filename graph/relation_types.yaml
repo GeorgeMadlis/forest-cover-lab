@@ -18,6 +18,9 @@ BOUNDED_BY:
   - application
   - method
   - workflow
+  - harness
+  - role
+  - skill
   target_types:
   - claim
 CAN:
@@ -69,6 +72,7 @@ REQUIRES_VALIDATION:
   - application
   - method
   - workflow
+  - harness
   target_types:
   - validation
 USES_METHOD:
@@ -82,3 +86,15 @@ USES_TOOL:
   - workflow
   target_types:
   - tool
+HAS_HARNESS_CONTRACT:
+  source_types: [workflow]
+  target_types: [harness]
+SUPPORTS_ROLE:
+  source_types: [harness]
+  target_types: [role]
+CAN_USE_SKILL:
+  source_types: [role, harness]
+  target_types: [skill]
+CAN_RUN_ON:
+  source_types: [harness]
+  target_types: [tool]

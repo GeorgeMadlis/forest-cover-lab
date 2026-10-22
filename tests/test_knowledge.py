@@ -26,6 +26,7 @@ def repo(tmp_path):
         "validate",
         "report",
         "governance",
+        "agent_harness",
     ]:
         shutil.copytree(
             ROOT / directory,
@@ -186,4 +187,19 @@ def test_duplicate_dataset_entity(repo):
         path.read_text().replace("id: DS-0002", "id: DS-0099")
     )
     with pytest.raises(build.KnowledgeError, match="Duplicate dataset entity"):
+        build.generate(repo)
+
+
+def test_governance_discovery_preserves_candidate_and_execution_boundaries():
+    graph = build.generate(ROOT)
+    contracts = {n['id'] for n in graph['nodes'] if n['type'] in {'role', 'harness', 'skill'}}
+    assert len(contracts) == 13
+    assert all(n['status'] == 'candidate' for n in graph['nodes'] if n['id'] in contracts)
+    assert not any(e['source'] in contracts or e['target'] in contracts for e in graph['relationships'])
+    assert any(e['source'] == 'workflow:sentinel-monthly-forest-cover' and e['target'] == 'harness:round-bound-research' and e['type'] == 'HAS_HARNESS_CONTRACT' for e in graph['candidate_relationships'])
+
+
+def test_governance_relation_endpoints_are_typed(repo):
+    edit_record(repo, lambda d: d['relations'][0].update(target='tool:codex'), 'harness:round-bound-research')
+    with pytest.raises(build.KnowledgeError, match='Invalid relationship endpoints'):
         build.generate(repo)

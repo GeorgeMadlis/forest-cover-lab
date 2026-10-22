@@ -433,3 +433,15 @@ carry, bounded agent loops, independence groups and approvals that must precede 
 attempts. Graphs are validated and rendered, not executed; a runner needs its own ADR.
 
 The portable [dataset-and-tool-discovery role](../agent_harness/roles/dataset-and-tool-discovery.md) offers provider-cited dataset/tool identification, FAIR-inspired fitness review, source-link audits and conditional pipeline recommendations under the [shared protocol](../research/data_sources/discovery_and_link_verification.md). It maintains the separation between scientific datasets, hosted distributions and software/models, and does not add a live catalogue or processing engine to the Lab graph. No candidate or URL update is approved by the role itself.
+
+## Candidate research-governance graph layer
+
+[Proposed ADR 0008](adr/0008-agent-governance-graph.md) adds reusable harness, role and
+skill contracts alongside the existing science, data and implementation concepts.
+All additions and mappings remain candidates. Eight roles, four pinned Sentinel skills,
+host delegation capabilities and two validation contracts are discoverable; no observed
+agent instances or execution results enter the graph. The viewer exposes this layer.
+Round schema 1.1 records delegation scope, observed runtime, handoffs, independence and
+coordination events while preserving historical 1.0 records. The separate
+[evaluation contract](../validate/agent_harness_evaluation.md) defines future behavioral
+comparisons, not performed experiments or scientific validation.

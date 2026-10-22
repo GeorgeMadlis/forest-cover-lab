@@ -1,5 +1,40 @@
 # Role-based, round-bound harnesses
 
+## Version 1.1 delegation and capture
+
+The new-round template uses schema 1.1; version 1.0 remains supported unchanged.
+Each new instance declares `delegation`: `mode` (sequential_role, native_subagent or
+separate_session), `parent_instance_id`, bounded `question`, `output_contract`,
+`permitted_writes` and `budget` (tool_call_limit, elapsed_seconds_limit,
+cost_usd_limit). Null budgets mean unspecified, not unlimited authorization.
+Native subagents require a parent recorded as another instance in the same round.
+Parents must resolve and form no cycles. These declarations are not execution proof.
+
+Actual 1.1 attempts additionally record:
+
+- `runtime`: client_version (nullable), model_configuration (object), context_mode
+  (fresh/inherited/summarized/unknown), workspace_mode (shared/isolated/unknown), and
+  permission_summary (nullable). Unknowns or an empty configuration require an
+  explicit attempt limitation. Never infer model settings from a role name.
+- `handoffs`: consumed artifact references using the existing file_reference fields;
+  capture_status must be captured with SHA-256. Use an empty list when none recorded.
+- `independence`: source_lineage_groups, conclusion_exposure
+  (not_received/received/unknown), evidence_inspected and limitations. Inspected
+  references also appear in source_refs; unknown lineage/exposure needs a limitation.
+- `coordination_events`: retry/interruption/cancellation/reconciliation entries with
+  detail and a captured artifact reference, or null if no artifact was retained.
+
+These fields record observed information without demanding hidden reasoning or private
+instruction content. Existing actual_executions fields still apply. Declared budgets,
+write scopes and permission summaries are not sandbox enforcement. Empty event lists
+mean none recorded. Preserve missing capture as a limitation and keep old rounds intact.
+
+[ADR 0008](../docs/adr/0008-agent-governance-graph.md) proposes candidate KG discovery
+for contracts; [evaluation](../validate/agent_harness_evaluation.md) defines checks
+without claiming completed behavioral experiments or scientific validation.
+
+## Existing roles and record boundary
+
 This directory is the **proposed standing harness** for Forest Cover Lab. `roles/` stores reusable task contracts, `templates/` seeds new rounds, `schemas/` validates their manifests, and `examples/` illustrates *planned* (not executed) investigations. It is deliberately host-agnostic.
 
 For discovery, URL maintenance and pipeline-design questions select `roles/dataset-and-tool-discovery.md` with `../research/data_sources/discovery_and_link_verification.md`. Treat `eudr-dmi-gil` auto-catalogue rows as external unverified seeds, not Lab source IDs or authorized writes. Keep data-source and software-tool assessments in their distinct research tracks. Actual provider checks and answers are captured in the round, not inferred from role selection.
