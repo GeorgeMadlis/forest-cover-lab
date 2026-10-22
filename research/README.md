@@ -23,7 +23,7 @@ schemas, validation plans, and reporting contracts. The downstream contract is d
 | `publications/` | P1 | Literature review: papers, technical reports, practitioner blogs |
 | `data_sources/` | P2 | Data and context suitability: satellite, in situ, fusion, adjacent EO products |
 | `code_sources/` | P3 + P4 | Code discovery and reverse engineering: external implementations |
-| `packages/` | — | Implementation tooling for this repo's own processing pipeline |
+| `packages/` | — | Reusable tooling for downstream workflows and optional reference implementations |
 
 ---
 
@@ -51,6 +51,10 @@ integrity, flood, fire, climate, and pressure layers when they help interpret fo
 outputs. Kept separate from `packages/` — a data source is what you pull from; a package is
 what you run it through.
 
+For source or access questions, select the [dataset/tool discovery role](../agent_harness/roles/dataset-and-tool-discovery.md)
+and its [discovery/link protocol](data_sources/discovery_and_link_verification.md).
+Keep unverified catalogue leads, reviewed Lab dataset records and software assessments distinct.
+
 ### `code_sources/` — Code Discovery and Reverse Engineering
 
 Inventory of external codebases (P3) and written reverse engineering artifacts that surface
@@ -59,9 +63,10 @@ catalogued with or without a linked publication.
 
 ### `packages/` — Implementation Tooling
 
-Comparison of software packages and platforms used in this repo's own processing pipeline
-(GEE, GDAL, Rasterio, eo-learn, etc.). Scope is limited to tools for running the pipeline,
-not datasets or external research implementations.
+Comparison of software packages and platforms for downstream workflows and optional
+reference implementations. Production prefers open, local, cloud-neutral tools under
+ADR 0005; GEE is optional research/reference access. Dataset suitability and external
+scientific code analysis remain separate tracks. The Lab does not run operational pipelines.
 
 ---
 

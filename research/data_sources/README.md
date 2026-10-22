@@ -12,6 +12,9 @@ None required. This track can be entered without completing the literature revie
 the code sources track.
 
 Optionally consumes:
+
+- [eudr-dmi-gil auto catalogue](https://github.com/GeorgeMadlis/eudr-dmi-gil/blob/main/data_db/dataset_catalogue_auto.csv) as a cross-repo **unverified** lead inventory, retaining its row IDs and source version.
+- [Fields of The World](https://fieldsofthe.world/), [Source Cooperative](https://docs.source.coop/) and [Earthmover](https://www.earthmover.io/) for labeled/predicted agriculture features, hosted data discovery and data-access tooling respectively.
 - `research/publications/publications_inventory.csv` — papers may reference data sources
   not yet catalogued here; add them when discovered.
 - `research/methodology/research_guide.md` — search protocol applies when surveying
@@ -24,6 +27,7 @@ Optionally consumes:
 - `context_products.md` — guidance for biodiversity, oceans, energy, integrity, floods,
   and other adjacent products
 - `sources_notes.md` — qualitative notes per data source
+- `discovery_and_link_verification.md` — FAIR-inspired provider discovery, URL audit and question-answer protocol
 - Findings feed ADRs in `docs/adr/`, phase specifications in `specs/`, and downstream
   repository contracts in `docs/downstream_repos.md`
 
@@ -37,6 +41,7 @@ Optionally consumes:
 | `suitability_rubric.md` | Scoring criteria for v1, v2, v3 suitability |
 | `context_products.md` | Scope and usage rules for adjacent EO context products |
 | `sources_notes.md` | Qualitative per-source notes (format as one section per source) |
+| `discovery_and_link_verification.md` | Discovery, link checks and source-backed dataset/tool handoffs |
 
 ## Evidence roles
 
@@ -68,13 +73,19 @@ forest-cover mission.
 | Floods and water | flood extent, surface water seasonality, wetlands, inundation |
 | Other pressure/context | fire, climate, agriculture, settlements, roads, mining, concessions |
 
+## Discovery and maintenance role
+
+The [dataset/tool discovery specialist](../../agent_harness/roles/dataset-and-tool-discovery.md) supports scoped web/provider searches, link verification and evidence-backed pipeline questions. Use the [discovery protocol](discovery_and_link_verification.md) to separate products, access services and tools, assess FAIR dimensions and produce reviewable link deltas. New sources remain `to_review` until human review; software/platform comparisons belong in `research/packages/`. No existing link has been verified solely by adding this role.
+
 ## Workflow
 
-1. Add a row to `inventory.csv` with `status = to_review`.
-2. Reference a `search_scope_id` from `research/methodology/search_scopes.csv` where
-   practical.
+1. Declare a search scope in `research/methodology/search_scopes.csv` before adding
+   an inventory entry.
+2. Add a row to `inventory.csv` with `status = to_review` and its `search_scope_id`.
 3. Fill all columns, including `evidence_role`, `domain`, and `forest_relevance`.
-4. Set `status = reviewed` and fill the three suitability columns.
+4. Fill the three suitability columns; set `status = reviewed` only after human review.
+   Inventory review does not validate scientific graph claims; those require the separate
+   [knowledge-promotion gate](../../governance/knowledge_promotion.md).
 5. Add a qualitative section to `sources_notes.md` if needed.
 6. If suitability changes an ADR recommendation, open an ADR update.
 

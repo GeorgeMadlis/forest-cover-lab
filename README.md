@@ -112,6 +112,8 @@ responsibilities. See [AGENTS.md](AGENTS.md), [standing policy](docs/agents.md) 
 rounds inventory selected roles and actual executions without editing standing policy.
 Lab keeps research inquiry records; operational Sentinel evidence stays downstream.
 
+The [dataset-and-tool-discovery specialist](agent_harness/roles/dataset-and-tool-discovery.md) covers FAIR-inspired source assessment, dataset/tool searches, provider link audits and cited pipeline-planning answers. The [protocol](research/data_sources/discovery_and_link_verification.md) keeps external auto-catalogue leads separate from reviewed Lab datasets and tools. Adding this role creates no automatic crawler or completed link verification.
+
 ## Scientific constraints
 
 ### Forest definition must be explicit

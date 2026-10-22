@@ -16,6 +16,8 @@ Two abbreviations have more than one meaning in this repo — read them from con
 | Term | Meaning |
 |---|---|
 | ADR | Architecture Decision Record — a durable, numbered decision in `docs/adr/` (e.g. ADR 0004 on monthly targets). Accepted ADRs change only by a superseding ADR. |
+| FAIR | Findable, Accessible, Interoperable and Reusable — a framework for data stewardship. In this repository FAIR-inspired checks are evidence annotations, not a formal certificate or a substitute for scientific suitability. |
+| OGC | Open Geospatial Consortium — publisher of interoperable geospatial interface standards. |
 | P1–P6 | The six canonical principles in `governance/principles.md`: P1 Research Protocol and Evidence Capture, P2 Data and Context Product Suitability, P3 External Source Code Discovery and Analysis, P4 Scientific Reverse Engineering of Source Code, P5 Independent and Composable Workstreams, P6 Architecture Drift Control. |
 | v1 / v2 / v3 | Roadmap phases: v1 evidence-first forest baseline, v2 monthly confirmation from Sentinel time series, v3 weakly supervised monthly estimation. Specs live in `specs/`. |
 | B0, B1, F1–F4 | Proposed experiment arms in `docs/architecture.md`: B0 current NDVI/SAR rules, B1 local model on raw features, F1 frozen GeoFM + local head, F2 controlled adaptation, F3 two-branch fusion or ensemble, F4 stacked meta-model. |

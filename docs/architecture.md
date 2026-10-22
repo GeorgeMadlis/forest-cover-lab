@@ -426,3 +426,5 @@ portable logical specialist roles and explicit per-round provenance. Lab owns re
 contracts and research inquiries; operational Sentinel rounds supplement downstream run
 and investigation evidence. Tool skills and host configuration remain separate from
 scientific sources. This adds record validation, not a scheduler or model capability.
+
+The portable [dataset-and-tool-discovery role](../agent_harness/roles/dataset-and-tool-discovery.md) offers provider-cited dataset/tool identification, FAIR-inspired fitness review, source-link audits and conditional pipeline recommendations under the [shared protocol](../research/data_sources/discovery_and_link_verification.md). It maintains the separation between scientific datasets, hosted distributions and software/models, and does not add a live catalogue or processing engine to the Lab graph. No candidate or URL update is approved by the role itself.

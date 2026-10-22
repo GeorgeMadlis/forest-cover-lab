@@ -310,3 +310,70 @@ Unrelated local edits remain excluded. This record supersedes the initial integr
 missing-overview limitation; the upstream diagram contract is now enforced.
 
 **Reviewer:** Codex integration/architecture checks; no scientific approval asserted.
+
+---
+
+## 2026-10-22 — Dataset and tool discovery subagent addition
+
+**Trigger:** User-requested standing role for FAIR-inspired dataset/tool discovery, link health and evidence-backed pipeline-Q&A. Added a portable role, a source/link protocol and pointers across agent, data-source, tooling, research, downstream and architecture documentation. Stable role-index tests and drift-checklist requirements were extended.
+
+**Checklist review:** Codex reviewed all 39 items in `governance/drift_checklist.md`:
+38 satisfied structurally; the existing P2 inventory breadth item remains open because
+there is no in situ dataset row (GEDI is spaceborne lidar). Mission, P1 search scopes,
+independent P2/P3/P4 research tracks, P5 composability and P6 audit/promotion boundaries
+are preserved. The external `eudr-dmi-gil` catalogue remains a read-only, unverified seed;
+its IDs are not Lab `DS-` IDs. Dataset, distribution, portal, reference, model and tool
+records stay distinct. Reconciled the data-track search-scope order and human-review
+gate, the rubric's optional GEE access examples with ADR 0005, and `research/README.md`'s
+outdated in-Lab pipeline description. No inventory or scientific concept was changed.
+The existing overview already covers portable roles and round provenance; scope,
+phases, ADRs, constraints and diagram content remain unchanged, so regeneration was
+unnecessary and the generator's freshness check passed. FAIR/OGC glossary entries added.
+
+**Reconciliation:** Applied the checksum-verified archive outside the repository after
+review and a successful `python3 /tmp/forest-cover-discovery-integration/dataset-tool-discovery-subagent/apply_to_forest_cover_lab.py --repo /Users/server/projects/forest-cover-lab --dry-run`,
+then ran it without `--dry-run`. Work started from
+`804ec26300118e30ef563e06bd59296d5823e70a` on `feature/dataset-tool-discovery`.
+The first test run reported 16 failed / 96 passed: one missing standard role contract
+marker and 15 failures caused by a stale graph snapshot; the graph check also failed.
+Added the required input/output markers. Contrary to the package's expectation,
+`docs/downstream_repos.md` is a graph input, so `.venv/bin/python graph/build.py`
+regenerated `graph/generated/knowledge.json` and the two illustrative config graph pins
+were updated. Exact comparison against the base confirms identical nodes, validated
+relationships and candidate relationships; only an input hash and revision changed.
+New graph revision: `950e1405aacb2d6459745d7f2e0674890249752ebc952b58ad34bbc7e8e5e146`.
+Consumers adopting the merged Lab revision must re-pin their full Lab commit and graph
+revision and run their own checks. No downstream file or historical evidence was edited.
+
+**Verification:** Commands below ran from `/Users/server/projects/forest-cover-lab`
+using its existing environment unless specified. Final observed results:
+
+- `.venv/bin/python -m pytest --tb=short`: **112 passed**, 0 failed in 4.47 s.
+- `.venv/bin/python agent_harness/scripts/validate_round.py --root .`: **2 planned
+  manifests passed**, 0 failed; structure only, not proof of execution.
+- `.venv/bin/python graph/build.py --check --descriptor configs/downstream.sentinel-monthly.example.json`:
+  **PASS**, 68 concepts, 72 validated and 67 candidate relationships; includes graph freshness.
+- `.venv/bin/python docs/img/build_overview_diagram.py --check`: **PASS**, SVG current.
+- `.venv/bin/python /tmp/forest-cover-discovery-integration/check_markdown_links.py`:
+  **PASS**, 153 tracked/new Markdown files, 53 relative file targets, 0 missing targets.
+  This temporary static checker excludes fenced code, external URLs and fragment validation;
+  it does not make HTTP requests.
+- `git diff --check`: **PASS** after removing the overlay's extra EOF blank line.
+- From the Sentinel checkout, `.venv/bin/python scripts/validate_agent_rounds.py --lab /Users/server/projects/forest-cover-lab`:
+  **PASS**, 0 manifests recorded; no assertion about historical investigations.
+- SHA-256 comparison: all six unrelated local files preserved; historical audit content
+  preserved byte-for-byte. Only this appended audit entry was revised.
+
+**Open findings:** No live URL audit or discovery-role execution was performed; no external
+catalogue was modified, downloaded or imported. Product-specific FAIR/licensing claims
+remain unverified leads requiring scoped provider evidence. The field-boundary versus
+new-road smoke scenario is a future assignment example in the protocol, not a completed
+answer or scientific test. The existing P2 in situ inventory gap needs a separately scoped
+source assessment; do not invent an entry to satisfy a structural checklist. The research
+guide addition needs issue discussion before merge under `CONTRIBUTING.md`. ADR 0006,
+this role addition and scientific promotion retain their human-review gates. Earlier
+scientific gaps remain; no scheduler, crawler, model execution or promotion was added.
+
+**Reviewer:** Codex integration and structural review only; human/operator review pending.
+Passing checks do not validate scientific candidates. Commit and review-PR publication
+are user-authorized; merge is not authorized.

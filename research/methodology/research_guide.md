@@ -56,6 +56,10 @@ entered. Inventories should reference the relevant `search_scope_id` when practi
 | GEE Dataset Catalog | Data provenance, product specifications (not algorithm discovery) |
 | Hansen / GLAD lab (UMD) | GFC updates, GLAD alerts methodology |
 
+## Discovering datasets, catalogue services and processing tools
+
+For forest-cover/disturbance and roads, buildings, agriculture and other supporting classes, search producer metadata, providers and tool release documentation. Begin as appropriate with [Fields of The World](https://fieldsofthe.world/), [Source Cooperative](https://docs.source.coop/), [Earthmover](https://www.earthmover.io/), national mapping agencies, Copernicus, STAC/OGC catalogues and scholarly sources. The [eudr-dmi-gil auto catalogue](https://github.com/GeorgeMadlis/eudr-dmi-gil/blob/main/data_db/dataset_catalogue_auto.csv) is only a seed: verify its descriptions, licensing and URLs with original producers. Record query strings, dates, failed searches and stop conditions. For the FAIR-inspired checklist and link fields see [dataset/tool discovery](../data_sources/discovery_and_link_verification.md). Dataset and tool tracks are independent.
+
 ## Finding adjacent Earth-observation context products
 
 Adjacent products are searched when they help interpret, validate, or bound forest-cover

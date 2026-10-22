@@ -35,12 +35,14 @@ Use qualitative levels consistently:
 - `medium`
 - `high`
 
+The [dataset/tool discovery specialist](../../agent_harness/roles/dataset-and-tool-discovery.md) can propose APIs, STAC/OGC discovery services, data readers, model toolchains and cloud-array services. See the [shared protocol](../data_sources/discovery_and_link_verification.md) for source evidence and access constraints. Register **tools/software** here, not as duplicate scientific datasets. Discovery alone does not approve production use.
+
 ## Workflow
 
 1. Add a new row to `packages_matrix.csv` with `status = to_review`.
 2. Fill all comparison columns.
 3. Add a qualitative note section to `packages_notes.md`.
-4. Set `status = reviewed` and `recommended_role` to `default`, `fallback`, `research-only`, `candidate`, or `reject`.
+4. After human review, set `status = reviewed` and `recommended_role` to `default`, `fallback`, `research-only`, `candidate`, or `reject`. Tool review does not promote scientific concepts or authorize pipeline execution.
 5. Update `platform_decision.md` if the recommendation set changes.
 
 Current execution policy is ADR 0005. Reusable, documented tool operations are indexed in
