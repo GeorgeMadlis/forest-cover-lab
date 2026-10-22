@@ -135,16 +135,18 @@
 <text x="66.0" y="1292.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#5B665F">evidence is independent.</text>
 <line x1="488.0" y1="1246.8" x2="526.0" y2="1246.8" stroke="#5B665F" stroke-width="2"/>
 <path d="M524.0,1240.8 L534.0,1246.8 L524.0,1252.8 Z" fill="#5B665F"/>
-<text x="560.0" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Portable roles and round provenance</text>
-<text x="560.0" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Proposed standing role contracts plus bounded assignments; record actual hosts, pinned</text>
-<text x="560.0" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">repositories, loaded-file hashes, evidence and checks. Human review governs scientific</text>
-<text x="560.0" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">promotion.</text>
+<text x="560.0" y="1203.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2F6B4F">Discoverable roles and round provenance</text>
+<text x="560.0" y="1231.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">Candidate role/harness/skill graph contracts and bounded assignments; record actual hosts,</text>
+<text x="560.0" y="1251.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">pinned repositories, loaded-file hashes, evidence and checks. Human review governs</text>
+<text x="560.0" y="1270.5" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1F2A24">scientific promotion.</text>
 <rect x="560.0" y="1285.0" width="79.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
 <text x="569.0" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0006</text>
-<rect x="647.3" y="1285.0" width="115.8" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="656.3" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">docs/agents.md</text>
-<rect x="771.2" y="1285.0" width="105.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
-<text x="780.2" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">round schema</text>
+<rect x="647.3" y="1285.0" width="79.3" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="656.3" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">ADR 0008</text>
+<rect x="734.7" y="1285.0" width="115.8" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="743.7" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">docs/agents.md</text>
+<rect x="858.5" y="1285.0" width="105.5" height="22" rx="11" fill="#FFFFFF" stroke="#A9CDB8"/>
+<text x="867.5" y="1300.5" font-family="'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#2F6B4F">round schema</text>
 <rect x="48" y="1339.0" width="430" height="152.5" rx="10" fill="#FBF1EC" stroke="#E3B9A4"/>
 <rect x="48" y="1339.0" width="5" height="152.5" rx="2" fill="#B4532A"/>
 <rect x="542" y="1339.0" width="690" height="152.5" rx="10" fill="#EDF5F0" stroke="#A9CDB8"/>

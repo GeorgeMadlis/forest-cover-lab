@@ -377,3 +377,102 @@ scientific gaps remain; no scheduler, crawler, model execution or promotion was 
 **Reviewer:** Codex integration and structural review only; human/operator review pending.
 Passing checks do not validate scientific candidates. Commit and review-PR publication
 are user-authorized; merge is not authorized.
+
+
+## 2026-10-22 — Candidate agent-governance graph and offline viewer
+
+**Trigger and scope:** User authorized implementation of the preceding recommendations
+and an updated KG viewer under outputs. Codex performed integration and structural review;
+no subagents, scientific specialist executions, behavioral model trials, commits, PRs or
+promotion were performed. Work began from Lab `d67e08354d748f1bd9423af1953de31244671f53` and Sentinel
+`bacbea70cf3badb1c137285f827b3570f84c0c22`. The initial Lab tree contained pyproject.toml and five unrelated
+untracked files; all six retain their captured pre-change SHA-256 values. Source consultation
+preceded SS-0003 registration in the preceding chat; the scope was registered before this
+inventory batch. The review explicitly states that chronology without backfilling it.
+
+**Change:** Added SS-0003 / PUB-0013–PUB-0018, a candidate primary-source assessment and
+proposed ADR 0007. Added 20 candidate concepts (eight roles, four pinned Sentinel skills,
+one harness, two hosts, one capability, two validations and two non-claims) and 37 candidate
+relationships. All 72 existing validated and 67 existing candidate relationships are
+unchanged; existing non-workflow concept records are identical. The workflow record's
+version/date and one candidate governance link changed; scientific method declarations did
+not. The graph now has 88 concepts, 72 validated and 104 candidate relationships.
+Round schema 1.1 adds explicit delegation/runtime/handoff/independence/event capture and
+retains 1.0 compatibility. Historical rounds, runs and review bundles were not rewritten.
+Updated standing policy, README, glossary, architecture and generated overview together.
+The viewer has a Research governance layer, distinct shapes and Agent contracts entry.
+
+**Drift checklist review:** Reviewed governance/drift_checklist.md against the changed
+files and existing track contracts. Mission boundary remains forest-cover estimation and
+Lab governance; no competing mission, production processing or observation archive was
+added. P1 scope/inventory classification and source-transfer limits are recorded; earlier
+unscoped consultation remains an explicit process limitation. P2 dataset/tool separation,
+context roles, discovery indexing and external-catalogue boundaries are preserved; the
+existing absence of an in-situ category row remains an open inventory gap. P3/P4 code
+inventories and reverse-engineering boundaries are preserved; no code-source assessment
+or new source-code discovery is claimed. P5 track independence is preserved: governance
+contracts are optional and do not require delegation. P6 README/overview/glossary, source
+index, proposed ADR and both append-only audits are updated. Human/operator and scientific
+review remain pending; structural passes do not promote candidates.
+
+**Observed checks and exact commands:** From the Lab checkout with its existing environment:
+
+- `.venv/bin/python graph/build.py` and `.venv/bin/python graph/update_examples.py`:
+  regenerated the graph and illustrative config pins. Final revision `359109d4c2801c71b6cb37026cd0a9b7a1c42a6db5a085f880ecd6919a133062`.
+- `.venv/bin/python -m pytest --tb=short`: **132 passed**, 0 failed (7.16 s).
+- `.venv/bin/python agent_harness/scripts/validate_round.py --root .`: **2 planned
+  example manifests passed**; no execution or scientific validation implied.
+- `.venv/bin/python graph/build.py --check --descriptor configs/downstream.sentinel-monthly.example.json`:
+  **PASS**, including graph freshness and the illustrative descriptor.
+- `.venv/bin/python docs/img/build_overview_diagram.py` then
+  `.venv/bin/python docs/img/build_overview_diagram.py --check`: **PASS**.
+- `git diff --check`: **PASS** after normalizing the newly appended CSV rows to LF.
+- `node --check viewer/templates/common.js`, `node --check viewer/templates/graph.js`
+  and `node --check viewer/templates/catalogue.js`: **PASS**.
+- `.venv/bin/python viewer/export.py`: exported `outputs/kg-viewer-359109d4c280` and ZIP;
+  the bundle declares actual HEAD and dirty state, with fresh graph and file checksums.
+- `node /tmp/lab_kg_browser_smoke.cjs`: **PASS** against the final bundle using the
+  already cached puppeteer-core and local Chromium. Checked offline deep-link, governance
+  layer, role navigation and catalogue role/skill/harness filters; zero page errors;
+  external page requests blocked. Sandbox startup initially failed at a macOS Mach-port
+  permission boundary; the same local test passed with reviewed escalation. Screenshot
+  `/tmp/lab-kg-governance-viewer.png` was visually inspected on the earlier equivalent
+  presentation export; the final bundle passed the same interactions.
+- Temporary Python comparison: existing relationships/non-workflow concepts and six
+  unrelated files preserved; relative Markdown file links resolve (HTTP/fragment
+  availability not re-audited). Tests cover exported-file hashes and deterministic ZIPs.
+- Optional `.venv/bin/python -m ruff check ...` could not run: ruff is not installed
+  in the existing Lab environment. No lint success is claimed.
+
+From the Sentinel checkout:
+
+- `.venv/bin/python scripts/validate_agent_rounds.py --lab /Users/server/projects/forest-cover-lab`:
+  **PASS**, zero operational manifests recorded; not validation of historical reviews.
+- `.venv/bin/python -m unittest discover -v`: **42 tests run; 38 pass, 4 errors**.
+  Each error is a graph/provenance snapshot mismatch with the stale production pin.
+  The standalone descriptor check also fails with that explicit reason.
+- `.venv/bin/python ../forest-cover-lab/graph/build.py --check --descriptor workflow.yaml`:
+  **FAIL**, downstream descriptor has a stale graph revision. A temporary Python
+  baseline check loaded `git -C ../forest-cover-lab show HEAD:graph/generated/knowledge.json`
+  and confirmed the same mismatch before these edits: Lab baseline
+  `950e1405aacb2d6459745d7f2e0674890249752ebc952b58ad34bbc7e8e5e146`,
+  downstream pin `3e6dc320bd9f59a483d605d100614005eaa1beb35139edcd1d7d37f04914380a`.
+- `.venv/bin/python scripts/create_synthetic_fixture.py --directory /tmp/lab-agent-kg-demo.xT1WlV`
+  followed by `.venv/bin/python scripts/run_pipeline.py --manifest /tmp/lab-agent-kg-demo.xT1WlV/workflow.yaml --forest-def /tmp/lab-agent-kg-demo.xT1WlV/forest.yaml --aoi-geojson /tmp/lab-agent-kg-demo.xT1WlV/aoi.geojson`:
+  **PASS**, synthetic local pipeline, no EO downloads or model inference.
+
+**Output SHA-256 values:**
+
+- `graph/generated/knowledge.json`: `811a2ac5cd4d00f649c62a2cffccc9d3e1f058a4b0eef7875f0e2faa669ef991`.
+- `outputs/kg-viewer-359109d4c280/manifest.json`: `a688a9f06c793469727bd56dfca5e4795b904f3b56ed6e903bb0cbb1d92d8941`.
+- `outputs/kg-viewer-359109d4c280.zip`: `40a7923c1b958681ab195eaf10db1ec2548ac51833b4f4a3b514da8270c10b41`.
+
+**Open findings and next adoption step:** ADR 0006 and ADR 0007, host compatibility,
+behavioral evaluation and all new graph knowledge remain pending human review. No host
+adapter or orchestrator was implemented, and no model/agent independence is inferred.
+After committing/reviewing the Lab change, consumers must pin the resulting full commit
+and graph revision, review the upstream diff and re-run their tests/demo. Production pins
+and old evidence were deliberately not rewritten to describe an uncommitted graph as a
+committed snapshot. The Sentinel audit records the same compatibility limitation.
+
+**Reviewer:** Codex structural integration review only; human/operator approval pending.

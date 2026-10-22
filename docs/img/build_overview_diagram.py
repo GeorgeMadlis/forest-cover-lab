@@ -134,12 +134,13 @@ ROWS = [
         "problem": "Agent plans are not observed execution",
         "problem_text": "A selected role or host name does not prove which instructions "
         "were loaded, which tools ran or whether evidence is independent.",
-        "approach": "Portable roles and round provenance",
-        "approach_text": "Proposed standing role contracts plus bounded assignments; "
+        "approach": "Discoverable roles and round provenance",
+        "approach_text": "Candidate role/harness/skill graph contracts and bounded assignments; "
         "record actual hosts, pinned repositories, loaded-file hashes, evidence and "
         "checks. Human review governs scientific promotion.",
         "tags": [
             ("ADR 0006", "docs/adr/0006-*.md"),
+            ("ADR 0008", "docs/adr/0007-*.md"),
             ("docs/agents.md", "docs/agents.md"),
             ("round schema", "agent_harness/schemas/round.schema.json"),
         ],

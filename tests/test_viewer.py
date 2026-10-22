@@ -2,6 +2,8 @@ import hashlib
 import importlib.util
 import json
 import re
+import shutil
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -73,3 +75,29 @@ def test_stale_graph_requires_explicit_opt_in(tmp_path):
 
 def test_script_embedding_cannot_close_script_element():
     assert "</script>" not in viewer.script_json({"context": "</script><b>"})
+
+
+def test_governance_vocabulary_and_deep_link(tmp_path):
+    node = shutil.which('node')
+    if not node:
+        pytest.skip('Node is required to exercise the browser vocabulary')
+    bundle = viewer.export(out_dir=tmp_path, make_zip=False)
+    script = r'''
+const assert = require('node:assert/strict');
+global.window = {KG_BUNDLE: {}, matchMedia: () => ({addEventListener() {}})};
+global.document = {documentElement: {getAttribute() {return null;}}};
+require(process.argv[1]);
+const kg = window.KGV;
+const shapes = new Set();
+for (const type of ['harness', 'role', 'skill']) {
+  assert.equal(kg.layerFor(type).key, 'governance');
+  shapes.add(JSON.stringify(kg.shapeFor(type)));
+  assert.match(kg.shapeIcon(type), /polygon/);
+}
+assert.equal(shapes.size, 3);
+'''
+    result = subprocess.run([node, '-e', script, str(bundle / 'common.js')], capture_output=True, text=True)
+    assert result.returncode == 0, result.stdout + result.stderr
+    data = embedded(bundle)
+    assert any(n['id'] == 'harness:round-bound-research' for n in data['graph']['nodes'])
+    assert 'index.html#node=harness%3Around-bound-research' in (bundle / 'common.js').read_text()

@@ -62,6 +62,27 @@ def check(path: Path, lab_root: Path = LAB) -> list[str]:
     ids = [i["id"] for i in data["instances"]]
     if len(set(ids)) != len(ids):
         errors.append("duplicate instance IDs")
+    parents = {}
+    for instance in data["instances"]:
+        delegation = instance.get("delegation")
+        if delegation is None:
+            continue
+        parent = delegation["parent_instance_id"]
+        name = instance["id"]
+        parents[name] = parent
+        if parent is not None and (parent not in ids or parent == name):
+            errors.append(f"{name}: delegation parent must be another round instance")
+        if delegation["mode"] == "native_subagent" and parent is None:
+            errors.append(f"{name}: native subagent requires a recorded parent")
+    for name in parents:
+        seen = set()
+        current = name
+        while current in parents and current is not None:
+            if current in seen:
+                errors.append(f"{name}: cyclic delegation")
+                break
+            seen.add(current)
+            current = parents[current]
     has_actual = any(i["actual_executions"] for i in data["instances"])
     if data["status"] == "planned" and has_actual:
         errors.append("planned round contains actual executions")
@@ -74,6 +95,11 @@ def check(path: Path, lab_root: Path = LAB) -> list[str]:
             errors.append(f"{name}: missing or unsafe role: {instance['role']}")
         attempts = instance["actual_executions"]
         selection = instance["selection_status"]
+        delegation = instance.get("delegation", {})
+        if delegation.get("mode") == "native_subagent" and attempts:
+            parent = next((i for i in data["instances"] if i["id"] == delegation["parent_instance_id"]), None)
+            if parent is not None and not parent["actual_executions"]:
+                errors.append(f"{name}: actual native subagent requires an observed parent attempt")
         if selection in {"started", "completed", "blocked"} and not attempts:
             errors.append(f"{name}: status requires an observed attempt")
         if selection == "completed" and not any(a["status"] == "completed" for a in attempts):
@@ -85,6 +111,27 @@ def check(path: Path, lab_root: Path = LAB) -> list[str]:
             errors.append(f"{name}: duplicate attempt IDs")
         for attempt in attempts:
             label = f"{name}/{attempt['attempt_id']}"
+            runtime = attempt.get("runtime")
+            if runtime and (
+                not runtime["client_version"]
+                or not runtime["model_configuration"]
+                or not runtime["permission_summary"]
+                or "unknown" in (runtime["context_mode"], runtime["workspace_mode"])
+            ) and not attempt["limitations"]:
+                errors.append(f"{label}: unknown runtime details require a limitation")
+            for ref in attempt.get("handoffs", []):
+                if ref["capture_status"] != "captured" or not ref["sha256"]:
+                    errors.append(f"{label}: handoff requires captured artifact and digest")
+            for event in attempt.get("coordination_events", []):
+                ref = event["artifact"]
+                if ref is not None and (ref["capture_status"] != "captured" or not ref["sha256"]):
+                    errors.append(f"{label}: coordination artifact requires capture and digest")
+            independence = attempt.get("independence")
+            if independence:
+                if (not independence["source_lineage_groups"] or independence["conclusion_exposure"] == "unknown") and not independence["limitations"]:
+                    errors.append(f"{label}: unknown independence requires a limitation")
+                if not set(independence["evidence_inspected"]).issubset(attempt["source_refs"]):
+                    errors.append(f"{label}: inspected evidence must be included in source_refs")
             if attempt["status"] != "running" and not attempt["ended_utc"]:
                 errors.append(f"{label}: terminal attempt missing end time")
             if attempt["ended_utc"] and datetime.fromisoformat(attempt["ended_utc"].replace('Z', '+00:00')) < datetime.fromisoformat(attempt["started_utc"].replace('Z', '+00:00')):

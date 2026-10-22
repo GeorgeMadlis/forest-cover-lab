@@ -127,7 +127,10 @@
         "capability",
         "workflow",
         "validation",
-        "claim"
+        "claim",
+        "role",
+        "harness",
+        "skill"
       ]
     },
     "updated": {

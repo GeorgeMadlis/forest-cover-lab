@@ -154,6 +154,222 @@
       "type": "REQUIRES_OBSERVATION"
     },
     {
+      "scope": "Explicit non-claim; human review remains required.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-agreement-is-not-independent-evidence",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Explicit non-claim; human review remains required.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Proposed host compatibility; no automatic orchestration or adapter execution demonstrated.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "tool:claude-code",
+      "type": "CAN_RUN_ON"
+    },
+    {
+      "scope": "Proposed host compatibility; no automatic orchestration or adapter execution demonstrated.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "tool:codex",
+      "type": "CAN_RUN_ON"
+    },
+    {
+      "scope": "Candidate instructional resource; actual use must be evidenced by a round.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "skill:corroborate-sentinel-change",
+      "type": "CAN_USE_SKILL"
+    },
+    {
+      "scope": "Candidate instructional resource; actual use must be evidenced by a round.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "skill:inspect-sentinel-change",
+      "type": "CAN_USE_SKILL"
+    },
+    {
+      "scope": "Candidate instructional resource; actual use must be evidenced by a round.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "skill:report-sentinel-change",
+      "type": "CAN_USE_SKILL"
+    },
+    {
+      "scope": "Candidate instructional resource; actual use must be evidenced by a round.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "skill:research-sentinel-change",
+      "type": "CAN_USE_SKILL"
+    },
+    {
+      "scope": "Proposed governance/evaluation requirement; neither completed checks nor scientific validity asserted.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "validation:agent-execution-record",
+      "type": "REQUIRES_VALIDATION"
+    },
+    {
+      "scope": "Proposed governance/evaluation requirement; neither completed checks nor scientific validity asserted.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "validation:agent-harness-behavior",
+      "type": "REQUIRES_VALIDATION"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "role:dataset-and-tool-discovery",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "role:discrepancy-analysis",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "role:independent-challenge",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "role:literature-and-media",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "role:national-geospatial-evidence",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "role:official-infrastructure-records",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "role:publication-method-reconstruction",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "role:remote-sensing-quantification",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
       "source": "method:annual-baseline-loss-comparison",
       "sources": [
         "specs/v1_forest_baseline.md"
@@ -334,6 +550,218 @@
       "type": "ADDRESSED_BY"
     },
     {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:dataset-and-tool-discovery",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:discrepancy-analysis",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:independent-challenge",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:literature-and-media",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Proposed supporting skill; selection and actual loading are recorded per execution, with source scope checked.",
+      "source": "role:literature-and-media",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "skill:research-sentinel-change",
+      "type": "CAN_USE_SKILL"
+    },
+    {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:national-geospatial-evidence",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Proposed supporting skill; selection and actual loading are recorded per execution, with source scope checked.",
+      "source": "role:national-geospatial-evidence",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "skill:corroborate-sentinel-change",
+      "type": "CAN_USE_SKILL"
+    },
+    {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:official-infrastructure-records",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Proposed supporting skill; selection and actual loading are recorded per execution, with source scope checked.",
+      "source": "role:official-infrastructure-records",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "skill:corroborate-sentinel-change",
+      "type": "CAN_USE_SKILL"
+    },
+    {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:publication-method-reconstruction",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:remote-sensing-quantification",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Proposed supporting skill; selection and actual loading are recorded per execution, with source scope checked.",
+      "source": "role:remote-sensing-quantification",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "skill:inspect-sentinel-change",
+      "type": "CAN_USE_SKILL"
+    },
+    {
+      "scope": "Skill execution cannot approve scientific knowledge.",
+      "source": "skill:corroborate-sentinel-change",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Skill execution cannot approve scientific knowledge.",
+      "source": "skill:inspect-sentinel-change",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Skill execution cannot approve scientific knowledge.",
+      "source": "skill:report-sentinel-change",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Skill execution cannot approve scientific knowledge.",
+      "source": "skill:research-sentinel-change",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Documented delegation facility; availability and semantics vary by client/version and effective permissions.",
+      "source": "tool:claude-code",
+      "sources": [
+        "https://code.claude.com/docs/en/sub-agents"
+      ],
+      "status": "candidate",
+      "target": "capability:subagent-delegation",
+      "type": "CAN"
+    },
+    {
+      "scope": "Documented delegation facility; availability and semantics vary by client/version and effective permissions.",
+      "source": "tool:codex",
+      "sources": [
+        "https://learn.chatgpt.com/docs/agent-configuration/subagents"
+      ],
+      "status": "candidate",
+      "target": "capability:subagent-delegation",
+      "type": "CAN"
+    },
+    {
       "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
       "source": "workflow:sentinel-monthly-forest-cover",
       "sources": [
@@ -352,6 +780,18 @@
       "status": "candidate",
       "target": "DS-0003",
       "type": "CONSUMES"
+    },
+    {
+      "scope": "Candidate research-governance integration; no production method change, agent execution or required orchestration asserted.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "harness:round-bound-research",
+      "type": "HAS_HARNESS_CONTRACT"
     },
     {
       "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
@@ -635,13 +1075,30 @@
     }
   ],
   "input_hashes": {
+    "agent_harness/README.md": "4a21aa75ff6204985fdeb405b6f9627bb04fd0e9a2fce80b5dfeca8945090c5b",
+    "agent_harness/roles/dataset-and-tool-discovery.md": "259b6d41a8d3962087b31ce49fb1994855d3d3554c55bd367e8adf55ccb82ac1",
+    "agent_harness/roles/discrepancy-analysis.md": "07cdf1487b7c332cd68b26d069d23879b66181ba191bb91b36d3b2e13440a081",
+    "agent_harness/roles/independent-challenge.md": "67a4e382cc888045d420e1a5973da718851772f62958d4cbc87824494d330fa5",
+    "agent_harness/roles/literature-and-media.md": "cbd5a201f7a8bba503c3ac2f4b3e175dfcca4ca3f4d253e5243e11bdbd804bf3",
+    "agent_harness/roles/national-geospatial-evidence.md": "146f230a7f80ca5f56659db0a8c66409fbf12931295571b94e7294b80b7533a8",
+    "agent_harness/roles/official-infrastructure-records.md": "a826ed59a4a7cdb9bae2bead34681a58715d1b26da380eaee11807cf3a19b3ce",
+    "agent_harness/roles/publication-method-reconstruction.md": "b4f918f6e1c4a966893e4a8df7281e42caa8fbd2d29d6b2ab1a673eee0069552",
+    "agent_harness/roles/remote-sensing-quantification.md": "645a06490784a0a4e4f8fc4b0366971756e5da95768f9938df314a9e2d5b79e8",
+    "agent_harness/schemas/round.schema.json": "012465c5dc7ceb92fe5f1f4baa6ad759b1281996063f309f16f6ef1e3bb12373",
+    "agent_harness/scripts/validate_round.py": "992163685ebe6285c16de454c22c0514fe6107ce05becfb21c87879c92d08699",
+    "agent_harness/templates/assignment.md": "137b929428066b9b865b4c776d4d41c1807eae025597165a3e40c83113cd6d88",
+    "agent_harness/templates/round.yaml": "5e8a74b00bde8e3d3fb03ce639bf92643a7b60a87b56c30ad024e2fe4301c66e",
     "docs/adr/0005-semantic-architecture-and-backends.md": "b3922961a6aede7c4849c30eeddaa275a1a3f13622026ef8294b883f22153d29",
+    "docs/adr/0006-round-agent-harness.md": "a17daaa0811a8db2852bb42956d70181cbe7568f6ac390d75fb219739bea0950",
+    "docs/adr/0008-agent-governance-graph.md": "fabab46731d050167a1a755f0b1676fb18eb0c0cb3853893da30090d4beb183c",
+    "docs/agents.md": "5274d90c9258d2ebea49210b6904d2b0f37ff3a443d2272ed6dfca2de2100676",
     "docs/downstream_repos.md": "0513c9e27d0d361c90854fc00a9ee3e3f31728743bf91aa5286c24bc5a6d7a86",
-    "graph/README.md": "3632b1a08a564b244631e2393da2b6e1f365fa289299a4fb88b40423cac48602",
+    "governance/knowledge_promotion.md": "e7320143280412d6fb3ba0b92a9fd088311b49c253150984b11fe3ddc3052e16",
+    "graph/README.md": "cc3dd16f9cf374ee83a056d48b926ed2263557f5065afe33e8c46a497c8ddecf",
     "graph/build.py": "b5ae1fd08adfe3211d624000a3db2c829beacb7fc5618dac376b1d1cc6dd9f16",
-    "graph/ontology.yaml": "77647ac9fdd671a8ee662b1c3913335c27e90ae4fb9d6ed5d67ef61f73f56d7a",
-    "graph/relation_types.yaml": "46e1f4e1012d80c4ba0b0292f10f6c616c3f904d6594cb7061eed56e1735ae31",
-    "graph/schemas/concept.schema.json": "cfd32a06ad52614e742585ca096c0429a2395c6fa19223f552775d40c6eda4cd",
+    "graph/ontology.yaml": "12f0f8be4f41ca11d28e6a26de3edcb37c10d03d2171e94873a1a271bd36c94b",
+    "graph/relation_types.yaml": "2efbdac64f87f48dfa3064e872ea1f77278d55c1aff4abb8ab182d3cc09337d2",
+    "graph/schemas/concept.schema.json": "9028ab81cc12ad2c0325b41872640fe63334170abe9ecfc1823a93e26f375f37",
     "graph/schemas/downstream.schema.json": "c895639fa6dafb0c2ca22c49c19493403697e8f5be75e79eb9289f5083f9d2e7",
     "graph/update_examples.py": "f838b48f4a5c1af83e66bf187254d452d3b311528790144b796d0801e3486e71",
     "knowledge/access/access-gee-asset.md": "afcf5979e02059c03bb6d4da644e18e027608b715c3c45f96650a204277c1d36",
@@ -663,18 +1120,22 @@
     "knowledge/capabilities/capability-spatial-filtering.md": "7cd186757a2ff0fbb255812f3066ccce6065f0a3583b94ca345d2dcacb47f75a",
     "knowledge/capabilities/capability-spatial-search.md": "74a93742260c4ee794a5ef1de3adaf0fd4dd866e40b4767c8c27eead175f6b9a",
     "knowledge/capabilities/capability-sql-aggregation.md": "61f19f92c1fbbec68ead74e1404a339b78c44b4c6e6f74475e2864925853f4ee",
+    "knowledge/capabilities/capability-subagent-delegation.md": "ac89d6bf831cd3dfbbd80de2b77d15d94404cb8d443ade975530e435106312c2",
     "knowledge/capabilities/capability-temporal-search.md": "78d874ba44eaf5340f4e05920a561efcdb72deb6ae0c859bf7efd20d0bc9ee5e",
     "knowledge/capabilities/capability-translate.md": "b964ee821a64e5455875f2668921ad9a74510b96de2fc87e5f603ec29ae5197e",
     "knowledge/capabilities/capability-vector-io.md": "188f333f5a40d4ccafdb33450430f135bcd17f8367f9ca30823abce47b972e83",
     "knowledge/capabilities/capability-virtual-raster.md": "b6caae81595442de6c190ba6765b93797e99dc9a34b76619ff87a178306d57ee",
     "knowledge/capabilities/capability-warp.md": "6cdecc6a178e291d04dbcd4922a6a29da51f67a0348032451b727be246e06549",
     "knowledge/capabilities/capability-windowed-io.md": "cf9e34fde0b400aa0606a05ffabeadde997c394cbbac90a003d00c884aace034",
+    "knowledge/claims/claim-agent-agreement-is-not-independent-evidence.md": "951fb950d42b55397b47ac983e67bf4928a44e907eb4ccfb8bbbdf86e5772e59",
+    "knowledge/claims/claim-agent-output-is-candidate.md": "00762cc7fd4d7869da9fb41452888ad63477c925551d54093eba68df7af32a58",
     "knowledge/claims/claim-monthly-non-truth.md": "6e1d0246dc5ace5caa2defca0feb9436e8102ec194d1ae3d68023e00793c1754",
     "knowledge/datasets/DS-0001.md": "8fa5e36bfa7d89c26a19333a3bd25f4111e8aae17e892c682c6a6a61325406eb",
     "knowledge/datasets/DS-0002.md": "8f0f0782484406ecd74d4e8538185b364e57af6b3950ecd97390da9b218d3fa4",
     "knowledge/datasets/DS-0003.md": "a163e52620373d68a17403e07b6059e540b7499961b0273a2dd63237e814d65d",
     "knowledge/datasets/DS-0006.md": "2a634afb7bfdedf4cb594fbca4acf85d794f2bc3b0a02b65b509359a35962cf3",
     "knowledge/datasets/DS-0007.md": "b247b1cac2d5b6436b772ed00c65e1768b3a68d1da7ecc32aca31c2639e83087",
+    "knowledge/harnesses/harness-round-bound-research.md": "1ee3e05ac881afffa2778773567380e1d76fb00b0d2b4550bdaee972fcbd4e41",
     "knowledge/measurements/measurement-annual-loss-year.md": "e79e8c3b11005825762aa6d2364d8c38ee2e3854f6c96bf04fbb794742687fbb",
     "knowledge/measurements/measurement-canopy-cover.md": "df7218e6d8ea0e7d09e658ded209910855516af3e18e8ad44cd991a7773dccb7",
     "knowledge/measurements/measurement-canopy-height.md": "e70852c3f8300eece9a0be71d850d30a8562e9464cbd5edd3b5a128d3b524a50",
@@ -699,6 +1160,20 @@
     "knowledge/questions/question-annual-forest-loss-screening.md": "cafcbdf34397fc15571753d56c45b8055a115aea139ab57a1989afc60d5e43a7",
     "knowledge/questions/question-monthly-forest-disturbance-monitoring.md": "716143046743d7de80156bd69a15819d1e510df6011c4ed1ebb5276cbed81e0b",
     "knowledge/questions/question-seasonal-forest-change-monitoring.md": "705db8184635ac37f8d81074cd24b2a4d12ad4affffc811e885a1546c155f3a1",
+    "knowledge/roles/role-dataset-and-tool-discovery.md": "fa3330385c84a1f573db9a7d450fb980f93b089cbcaf7c4dec026e86800c3ddb",
+    "knowledge/roles/role-discrepancy-analysis.md": "d9b5193376105531f36f4892cc50862201a260f869b63bab81d56e9dc24a119f",
+    "knowledge/roles/role-independent-challenge.md": "ed1f1d58829580d3f096898b5745d79edb543bc6171aaea0f7129bb6c313db92",
+    "knowledge/roles/role-literature-and-media.md": "668c5fc23ed27a8f449d72f42af15e3621aa3c17376afab78713b0996468d6d7",
+    "knowledge/roles/role-national-geospatial-evidence.md": "ddc004ccabbc8915ff22a27f76fc68ff93b01061a3f8b50ebcadf0677cb7da8c",
+    "knowledge/roles/role-official-infrastructure-records.md": "f2e5797466e938f773021f9002fc2d932b8ef4fa2e17076c29b854aa8a1d53ba",
+    "knowledge/roles/role-publication-method-reconstruction.md": "5da9a020c3f2dd570f59587dc6a97aa895e8565ef4fe46a8d4ce78cc83e0618a",
+    "knowledge/roles/role-remote-sensing-quantification.md": "fb20dc03a1113f7ea6435bc90c06e5387f2746501693a393ec18bd483c00bdc4",
+    "knowledge/skills/skill-corroborate-sentinel-change.md": "637ab09935c7df97cd117848249ee3ec03c4826140ca8602d8eb6abb0dd2f242",
+    "knowledge/skills/skill-inspect-sentinel-change.md": "b4015535adda1d73d9e29f97bc6fd184126e07ef742c5e04ca1a5c74c9bc863d",
+    "knowledge/skills/skill-report-sentinel-change.md": "f8e7eaf596edc5e63f9ea828b658155fc1301d11ab912386576f044a14913e77",
+    "knowledge/skills/skill-research-sentinel-change.md": "f803353175609cd2d86e34267ccdac0daf6d6b9a8b1bea0a6ae92ce44eb67b48",
+    "knowledge/tools/tool-claude-code.md": "3763a073e1bf24bd88c764b6047dc866b5b581f608be757fe8aac1dd62f0c87b",
+    "knowledge/tools/tool-codex.md": "0b490b94c5b65a104a1849ae273254e548322c306a3015652f18cb6e457e856f",
     "knowledge/tools/tool-dask.md": "c9429b5ac700497847dfa42d614217deb330426ad02c17fc812b9d5866b650b9",
     "knowledge/tools/tool-duckdb-spatial.md": "592e102cdce491c11ae844ef2ba832d73f5f6f784620c3732fc5b15d365051cd",
     "knowledge/tools/tool-gdal.md": "0371c2a96584c6a90844c3f14fc3a508955e6976bc5d705cb70701574f998f43",
@@ -710,13 +1185,17 @@
     "knowledge/tools/tool-shapely.md": "410908ef9c7ef928b13c722a7d3d70d1258e83bc926b7f94430d620cdcf97723",
     "knowledge/tools/tool-stac-client.md": "4b8addca1cfd83788b14ec07b2b75a6d7d50b8b42dcd4797e41ce7b50440ff81",
     "knowledge/tools/tool-xarray.md": "d5558d813d8bf2c0776e2a910612464528574d704494d2d052d20d352ed3302d",
+    "knowledge/validation/validation-agent-execution-record.md": "94acbee051f8519ccc5b4d2aa1a9d6e40e213a490bb5ef252c1c2df767f0bf55",
+    "knowledge/validation/validation-agent-harness-behavior.md": "dd7061df16609ffc401f03cd1a135d50a82027de7f105291b192a7a137d7194e",
     "knowledge/validation/validation-forest-evidence.md": "81ab3c2db172f804128f809a6bc7fe60392948664effa1ff99f898cfa5c41311",
-    "knowledge/workflows/workflow-sentinel-monthly-forest-cover.md": "9152f6254c8baf30ef2643d5d312045e27b5e425441910287f0601a2bfbe9fd1",
+    "knowledge/workflows/workflow-sentinel-monthly-forest-cover.md": "768a984aefbfd9dddffdd3779040df35c61ee06782ca0ee61a845199d1315789",
     "report/reporting_contract.md": "b429136f1fe0a88de1f418a68394c38918bfe4d95a94d423dadc9c0a11dd187a",
     "research/data_sources/inventory.csv": "d517d9ad00c4b08af5ad24283a8764abbae6c07a18134c25b17ae14ad4814681",
     "research/data_sources/sources_notes.md": "cd0cbb8cd7bae4164ae581ca3b58d4d1da7a3bfabe4e0a0ee75cea4089851ac6",
+    "research/publications/agent_harness_review_2026.md": "c524bd0036edb94953a52a3eca2f1c4958942337d037071ba1e7b70d8287c9d8",
     "specs/v1_forest_baseline.md": "c1abdf986b9627ce5542b3715fbbed1ac4be4048bf578affeec653e6127fa03d",
     "specs/v2_monthly_confirmation.md": "e9c7e91a927720065c0dea4b81a4c0194caba07ebd58c8c88e1c287629ccff82",
+    "validate/agent_harness_evaluation.md": "01c04acf820ffe4904c3c2ba88f905b1d0b9fa35465496a7780b9ee04b8b2285",
     "validate/validation_plan.md": "9443dfc8b96bc5dcf290f9fce3749d1011a5b61a16340cdb358d02c1de02055d"
   },
   "nodes": [
@@ -1057,6 +1536,23 @@
       "version": "1.0"
     },
     {
+      "context": "# Bounded subagent delegation\n\nCreate a bounded assistant task with a separate context and collect its result. Task independence, inherited context, tool access and workspace sharing are runtime-specific. This software operation supplies no scientific validity or automatic authority.",
+      "id": "capability:subagent-delegation",
+      "path": "knowledge/capabilities/capability-subagent-delegation.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+        "https://developers.openai.com/api/docs/guides/responses-multi-agent",
+        "https://code.claude.com/docs/en/sub-agents",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Bounded subagent delegation",
+      "type": "capability",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
       "context": "# Temporal search\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.",
       "id": "capability:temporal-search",
       "path": "knowledge/capabilities/capability-temporal-search.md",
@@ -1141,6 +1637,40 @@
       "version": "1.0"
     },
     {
+      "context": "# Agent agreement does not establish evidence independence\n\nSeparate agents, providers or contexts do not establish independent source lineage or scientific confirmation. Compare source acquisition and derivation groups, disclose conclusion exposure and retain contradictions and inconclusive findings. Sensor agreement does not establish cause.",
+      "id": "claim:agent-agreement-is-not-independent-evidence",
+      "path": "knowledge/claims/claim-agent-agreement-is-not-independent-evidence.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md",
+        "agent_harness/roles/independent-challenge.md"
+      ],
+      "status": "candidate",
+      "title": "Agent agreement does not establish evidence independence",
+      "type": "claim",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Agent output requires reviewed promotion\n\nAgent extraction and interpretation enter as candidates. Passing structural checks, a successful run or an evaluator agent cannot promote knowledge. Human review records an attributable decision and evidence basis. Disturbance candidates are not legal deforestation, confirmed forest state or causal loss labels. Hansen annual loss is not monthly ground truth.",
+      "id": "claim:agent-output-is-candidate",
+      "path": "knowledge/claims/claim-agent-output-is-candidate.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md",
+        "governance/knowledge_promotion.md"
+      ],
+      "status": "candidate",
+      "title": "Agent output requires reviewed promotion",
+      "type": "claim",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
       "context": "# Monthly non-claims\n\nHansen annual loss is not monthly ground truth. Annual agreement does not prove monthly correctness. Single-month anomalies do not prove loss or its cause. Monthly products are not legal deforestation ground truth.",
       "id": "claim:monthly-non-truth",
       "path": "knowledge/claims/claim-monthly-non-truth.md",
@@ -1152,6 +1682,38 @@
       "title": "Monthly non-claims",
       "type": "claim",
       "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# Round-bound forest-cover research harness\n\nReusable research-governance contract under proposed ADR 0006. Select bounded roles and skills, freeze instructions, record actual execution, reconcile disagreements and request human review. This is distinct from a GeoFM processing harness. It installs no scheduler, delegation engine, model service or scientific validation. Operational rounds and results remain downstream.",
+      "id": "harness:round-bound-research",
+      "parameters": {
+        "contract_status": "proposed ADR 0006; human review pending",
+        "default_orchestration": "optional; no automatic delegation",
+        "execution_records": "downstream reviews; Lab research inquiries",
+        "round_schema": "agent_harness/schemas/round.schema.json",
+        "schema_versions": [
+          "1.0",
+          "1.1"
+        ]
+      },
+      "path": "knowledge/harnesses/harness-round-bound-research.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md",
+        "agent_harness/schemas/round.schema.json",
+        "validate/agent_harness_evaluation.md",
+        "docs/adr/0008-agent-governance-graph.md",
+        "agent_harness/README.md",
+        "agent_harness/templates/round.yaml",
+        "agent_harness/templates/assignment.md"
+      ],
+      "status": "candidate",
+      "title": "Round-bound forest-cover research harness",
+      "type": "harness",
+      "updated": "2026-10-22",
       "version": "1.0"
     },
     {
@@ -1527,6 +2089,292 @@
       "version": "1.0"
     },
     {
+      "context": "# Dataset and tool discovery\n\nDiscover, verify and explain datasets and their associated discovery, access and processing tools for forest-cover estimation, forest disturbance screening and land-surface classification (e.g. roads, agricultural fields, buildings, water, settlements). Provide cited, conditional advice to other agents and people planning processing pipelines. This is a **portable logical subagent role**, not a continuously running crawler, production pipeline or scientific authority.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:dataset-and-tool-discovery",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/dataset-and-tool-discovery.md"
+      },
+      "path": "knowledge/roles/role-dataset-and-tool-discovery.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "agent_harness/roles/dataset-and-tool-discovery.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Dataset and tool discovery",
+      "type": "role",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Discrepancy analysis\n\nExplain differences between calculated forest-removal area and published figures through a transparent decomposition instead of selecting one preferred number.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:discrepancy-analysis",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/discrepancy-analysis.md"
+      },
+      "path": "knowledge/roles/role-discrepancy-analysis.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "agent_harness/roles/discrepancy-analysis.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Discrepancy analysis",
+      "type": "role",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Independent challenge\n\nSeek flaws and alternative explanations in a completed specialist chain without silently inheriting its conclusions.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:independent-challenge",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/independent-challenge.md"
+      },
+      "path": "knowledge/roles/role-independent-challenge.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "agent_harness/roles/independent-challenge.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Independent challenge",
+      "type": "role",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Literature and media\n\nLocate peer-reviewed research, official technical reports, local journalism, community reports and disconfirming material relevant to the claim; distinguish mechanism evidence from location-specific observation.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:literature-and-media",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/literature-and-media.md"
+      },
+      "path": "knowledge/roles/role-literature-and-media.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "agent_harness/roles/literature-and-media.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Literature and media",
+      "type": "role",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# National geospatial evidence\n\nFind and evaluate national geospatial databases for site-specific corroboration, with first-class attention to historical state and provenance.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:national-geospatial-evidence",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/national-geospatial-evidence.md"
+      },
+      "path": "knowledge/roles/role-national-geospatial-evidence.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "agent_harness/roles/national-geospatial-evidence.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "National geospatial evidence",
+      "type": "role",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Official infrastructure records\n\nTest whether a spatial change is explained by planned, permitted, constructed or modified infrastructure, without equating these stages.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:official-infrastructure-records",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/official-infrastructure-records.md"
+      },
+      "path": "knowledge/roles/role-official-infrastructure-records.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "agent_harness/roles/official-infrastructure-records.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Official infrastructure records",
+      "type": "role",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Publication method reconstruction\n\nReconstruct exactly what a published area/statistical result measured, including its denominator and accounting rules, before judging it against a new calculation.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:publication-method-reconstruction",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/publication-method-reconstruction.md"
+      },
+      "path": "knowledge/roles/role-publication-method-reconstruction.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "agent_harness/roles/publication-method-reconstruction.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Publication method reconstruction",
+      "type": "role",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Remote sensing quantification\n\nTurn an explicit AOI, observation cutoff, forest definition and data inventory into georeferenced, quantified *candidate changes* with uncertainty and diagnostics. This role does not determine the cause, land tenure or legality.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:remote-sensing-quantification",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/remote-sensing-quantification.md"
+      },
+      "path": "knowledge/roles/role-remote-sensing-quantification.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "agent_harness/roles/remote-sensing-quantification.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Remote sensing quantification",
+      "type": "role",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Corroborate sentinel change\n\nTask-specific Sentinel instructions and supporting resources. The commit-pinned source defines the scope; other hosts require the content to be supplied explicitly. Availability is not an observed load or proof of completed analysis. Instructions/configuration are not scientific observations.",
+      "id": "skill:corroborate-sentinel-change",
+      "parameters": {
+        "contract_status": "candidate mapping; human review pending",
+        "source_commit": "bacbea70cf3badb1c137285f827b3570f84c0c22",
+        "source_repository": "sentinel-monthly-forest-cover"
+      },
+      "path": "knowledge/skills/skill-corroborate-sentinel-change.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "https://github.com/GeorgeMadlis/sentinel-monthly-forest-cover/blob/bacbea70cf3badb1c137285f827b3570f84c0c22/.codex/skills/corroborate-sentinel-change/SKILL.md",
+        "docs/agents.md"
+      ],
+      "status": "candidate",
+      "title": "Corroborate sentinel change",
+      "type": "skill",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Inspect sentinel change\n\nTask-specific Sentinel instructions and supporting resources. The commit-pinned source defines the scope; other hosts require the content to be supplied explicitly. Availability is not an observed load or proof of completed analysis. Instructions/configuration are not scientific observations.",
+      "id": "skill:inspect-sentinel-change",
+      "parameters": {
+        "contract_status": "candidate mapping; human review pending",
+        "source_commit": "bacbea70cf3badb1c137285f827b3570f84c0c22",
+        "source_repository": "sentinel-monthly-forest-cover"
+      },
+      "path": "knowledge/skills/skill-inspect-sentinel-change.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "https://github.com/GeorgeMadlis/sentinel-monthly-forest-cover/blob/bacbea70cf3badb1c137285f827b3570f84c0c22/.codex/skills/inspect-sentinel-change/SKILL.md",
+        "docs/agents.md"
+      ],
+      "status": "candidate",
+      "title": "Inspect sentinel change",
+      "type": "skill",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Report sentinel change\n\nTask-specific Sentinel instructions and supporting resources. The commit-pinned source defines the scope; other hosts require the content to be supplied explicitly. Availability is not an observed load or proof of completed analysis. Instructions/configuration are not scientific observations.",
+      "id": "skill:report-sentinel-change",
+      "parameters": {
+        "contract_status": "candidate mapping; human review pending",
+        "source_commit": "bacbea70cf3badb1c137285f827b3570f84c0c22",
+        "source_repository": "sentinel-monthly-forest-cover"
+      },
+      "path": "knowledge/skills/skill-report-sentinel-change.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "https://github.com/GeorgeMadlis/sentinel-monthly-forest-cover/blob/bacbea70cf3badb1c137285f827b3570f84c0c22/.codex/skills/report-sentinel-change/SKILL.md",
+        "docs/agents.md"
+      ],
+      "status": "candidate",
+      "title": "Report sentinel change",
+      "type": "skill",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Research sentinel change\n\nTask-specific Sentinel instructions and supporting resources. The commit-pinned source defines the scope; other hosts require the content to be supplied explicitly. Availability is not an observed load or proof of completed analysis. Instructions/configuration are not scientific observations.",
+      "id": "skill:research-sentinel-change",
+      "parameters": {
+        "contract_status": "candidate mapping; human review pending",
+        "source_commit": "bacbea70cf3badb1c137285f827b3570f84c0c22",
+        "source_repository": "sentinel-monthly-forest-cover"
+      },
+      "path": "knowledge/skills/skill-research-sentinel-change.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "https://github.com/GeorgeMadlis/sentinel-monthly-forest-cover/blob/bacbea70cf3badb1c137285f827b3570f84c0c22/.codex/skills/research-sentinel-change/SKILL.md",
+        "docs/agents.md"
+      ],
+      "status": "candidate",
+      "title": "Research sentinel change",
+      "type": "skill",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Claude Code\n\nHost/client software for bounded tool use and delegated assistance. Candidate capability transcription from official documentation, not evidence of installation, access, execution or an implemented Lab adapter. Record actual client version, context, permissions and model configuration in the round.",
+      "id": "tool:claude-code",
+      "path": "knowledge/tools/tool-claude-code.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "https://code.claude.com/docs/en/sub-agents",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Claude Code",
+      "type": "tool",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Codex\n\nHost/client software for bounded tool use and delegated assistance. Candidate capability transcription from official documentation, not evidence of installation, access, execution or an implemented Lab adapter. Record actual client version, context, permissions and model configuration in the round.",
+      "id": "tool:codex",
+      "path": "knowledge/tools/tool-codex.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Codex",
+      "type": "tool",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
       "context": "# Dask\n\nCapabilities describe API-level operations, not scientific correctness. Pin tool versions in runs. Provider/extension support and preprocessing must be checked by the implementation; catalogue filters depend on server conformance.",
       "id": "tool:dask",
       "path": "knowledge/tools/tool-dask.md",
@@ -1681,6 +2529,39 @@
       "version": "1.0"
     },
     {
+      "context": "# Agent execution record validation\n\nRequire versioned round structure, repository pins, observed instruction loads, file/output hashes and explicit limitations. Version 1.1 additionally records delegation contracts, runtime context, handoffs, independence disclosures and coordination events. Unknown details remain unknown. The validator cannot prove actual execution, digest authenticity, human identity or scientific validity.",
+      "id": "validation:agent-execution-record",
+      "path": "knowledge/validation/validation-agent-execution-record.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "validate/agent_harness_evaluation.md",
+        "agent_harness/schemas/round.schema.json",
+        "research/publications/agent_harness_review_2026.md",
+        "agent_harness/scripts/validate_round.py"
+      ],
+      "status": "candidate",
+      "title": "Agent execution record validation",
+      "type": "validation",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Agent harness behavioral evaluation\n\nCompare workflow-only, single-assistant and delegated modes on fixed missing-data, conflicting-date, shared-lineage, provider-failure and misleading-source scenarios. Evaluate final outcomes, citations, abstention, unsupported claims, provenance, cost and reviewer burden across repeated trials. No behavioral trials have been performed; forest-map accuracy requires separate scientific validation.",
+      "id": "validation:agent-harness-behavior",
+      "path": "knowledge/validation/validation-agent-harness-behavior.md",
+      "review_after": "2027-01-22",
+      "sources": [
+        "validate/agent_harness_evaluation.md",
+        "agent_harness/schemas/round.schema.json",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "title": "Agent harness behavioral evaluation",
+      "type": "validation",
+      "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
       "context": "# Forest evidence validation\n\nDeclare geometry, area method in hectares, thresholds and datamask; apply temporal plausibility review and external triangulation as required by the phase. Review limitations, disagreement and sparse observations.",
       "id": "validation:forest-evidence",
       "path": "knowledge/validation/validation-forest-evidence.md",
@@ -1705,8 +2586,8 @@
       "status": "candidate",
       "title": "sentinel-monthly-forest-cover",
       "type": "workflow",
-      "updated": "2026-10-06",
-      "version": "1.1"
+      "updated": "2026-10-22",
+      "version": "1.2"
     }
   ],
   "relationships": [
@@ -2719,6 +3600,6 @@
       "type": "CAN"
     }
   ],
-  "revision": "950e1405aacb2d6459745d7f2e0674890249752ebc952b58ad34bbc7e8e5e146",
+  "revision": "2a4093d8b1c83d6bf8b5e47f88df3be1643aeb751a9994532b062ce677bc35e1",
   "schema_version": "1.0"
 }

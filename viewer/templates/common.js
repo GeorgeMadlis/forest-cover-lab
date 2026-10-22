@@ -4,7 +4,7 @@
 
   const bundle = window.KG_BUNDLE;
 
-  // Colour encodes the conceptual layer (four reference-palette slots in fixed
+  // Colour encodes the conceptual layer (five palette slots in fixed
   // order); shape encodes the concept type. Types added to the ontology later
   // fall into "other" with a circle until they are given a place here.
   const LAYERS = [
@@ -15,6 +15,8 @@
     { key: "data", label: "Data", slot: "--layer-3", types: ["dataset", "access"] },
     { key: "implementation", label: "Implementation", slot: "--layer-4",
       types: ["workflow", "tool", "capability"] },
+    { key: "governance", label: "Research governance", slot: "--layer-5",
+      types: ["harness", "role", "skill"] },
   ];
   const OTHER = { key: "other", label: "Other", slot: "--layer-other", types: [] };
 
@@ -49,6 +51,9 @@
     workflow: { polygon: regular(5, -Math.PI / 2) },
     tool: { roundRect: true },
     capability: { polygon: [-0.5, -0.8, 1, -0.8, 0.5, 0.8, -1, 0.8] },
+    harness: { polygon: regular(10, Math.PI / 10) },
+    role: { polygon: [-1, -1, 1, -1, 1, 0.35, 0, 1, -1, 0.35] },
+    skill: { polygon: [-1, -1, 0.5, -1, 1, -0.5, 1, 1, -1, 1] },
   };
   const FALLBACK_SHAPE = { ellipse: true };
 
@@ -180,6 +185,7 @@
       <nav aria-label="Pages">
         <a href="index.html" ${active === "graph" ? 'aria-current="page"' : ""}>Graph</a>
         <a href="catalogue.html" ${active === "catalogue" ? 'aria-current="page"' : ""}>Catalogue</a>
+        <a href="index.html#node=harness%3Around-bound-research">Agent contracts</a>
       </nav>
       <span class="snapshot" title="Graph revision ${esc(meta.graph_revision)}">
         Revision <code>${esc(meta.graph_revision.slice(0, 12))}</code> ·

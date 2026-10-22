@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VIEWER = Path(__file__).resolve().parent
-EXPORTER_VERSION = "1.0"
+EXPORTER_VERSION = "1.1"
 # Fixed member timestamp keeps the zip byte-identical for an identical bundle.
 ZIP_DATE = (1980, 1, 1, 0, 0, 0)
 

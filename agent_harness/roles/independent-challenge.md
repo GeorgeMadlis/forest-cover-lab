@@ -9,3 +9,9 @@
 **Outputs:** claim-by-claim `supported / contradicted / indeterminate / non-comparable`, substantive counterexamples, unresolved material gaps, tests performed, limitations and proposed next round. No self-approval.
 
 **Stop/escalate:** missing primary evidence, insufficient independent labels or an unrepeatable calculation. Return unresolved rather than an invented consensus.
+
+**Independence disclosure:** record source-lineage groups, which evidence was inspected
+directly and whether the initial conclusion was received before assessment. Separate
+contexts, sessions or model providers do not establish independent observations.
+Retain contradictory and inconclusive findings. Use schema 1.1's independence fields
+for new rounds; never invent them for historical executions.

@@ -17,7 +17,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0"
+      "enum": [
+        "1.0",
+        "1.1"
+      ]
     },
     "round_id": {
       "type": "string",
@@ -248,6 +251,9 @@
             "round_only"
           ],
           "default": "standing"
+        },
+        "delegation": {
+          "$ref": "#/$defs/delegation"
         }
       }
     },
@@ -355,8 +361,257 @@
             "type": "string",
             "pattern": "^[0-9a-f]{64}$"
           }
+        },
+        "runtime": {
+          "$ref": "#/$defs/runtime"
+        },
+        "handoffs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/file_reference"
+          }
+        },
+        "independence": {
+          "$ref": "#/$defs/independence"
+        },
+        "coordination_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coordination_event"
+          }
+        }
+      }
+    },
+    "delegation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "sequential_role",
+            "native_subagent",
+            "separate_session"
+          ]
+        },
+        "parent_instance_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_contract": {
+          "type": "string",
+          "minLength": 1
+        },
+        "permitted_writes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tool_call_limit": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "elapsed_seconds_limit": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "cost_usd_limit": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            }
+          },
+          "required": [
+            "tool_call_limit",
+            "elapsed_seconds_limit",
+            "cost_usd_limit"
+          ]
+        }
+      },
+      "required": [
+        "mode",
+        "parent_instance_id",
+        "question",
+        "output_contract",
+        "permitted_writes",
+        "budget"
+      ]
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "client_version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "model_configuration": {
+          "type": "object"
+        },
+        "context_mode": {
+          "enum": [
+            "fresh",
+            "inherited",
+            "summarized",
+            "unknown"
+          ]
+        },
+        "workspace_mode": {
+          "enum": [
+            "shared",
+            "isolated",
+            "unknown"
+          ]
+        },
+        "permission_summary": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "required": [
+        "client_version",
+        "model_configuration",
+        "context_mode",
+        "workspace_mode",
+        "permission_summary"
+      ]
+    },
+    "independence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_lineage_groups": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "conclusion_exposure": {
+          "enum": [
+            "not_received",
+            "received",
+            "unknown"
+          ]
+        },
+        "evidence_inspected": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "source_lineage_groups",
+        "conclusion_exposure",
+        "evidence_inspected",
+        "limitations"
+      ]
+    },
+    "coordination_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "retry",
+            "interruption",
+            "cancellation",
+            "reconciliation"
+          ]
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/file_reference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "detail",
+        "artifact"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "instances": {
+            "items": {
+              "required": [
+                "delegation"
+              ],
+              "properties": {
+                "actual_executions": {
+                  "items": {
+                    "required": [
+                      "runtime",
+                      "handoffs",
+                      "independence",
+                      "coordination_events"
+                    ]
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
-  }
+  ]
 }

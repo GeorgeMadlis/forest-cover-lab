@@ -20,6 +20,9 @@ The enforced fields are defined by `graph/schemas/concept.schema.json`.
 | Executable workflow | Versioned downstream implementation, possibly partial | workflows |
 | Validation | Required evidence checks | validation |
 | Claim | Bounded interpretation/non-claim | claims |
+| Harness | Reusable research-governance and recording contract; no execution engine | harnesses |
+| Role | Portable bounded responsibility; no runtime instance | roles |
+| Skill | Versioned instructional resource; no scientific observation | skills |
 
 IDs use typed prefixes (e.g. `method:ndvi-anomaly`) except existing dataset IDs (`DS-0002`).
 Never recycle an identifier for a different scientific meaning. Concepts have a version,
@@ -44,3 +47,9 @@ Navigation starts with applications, then questions/methods and observations, th
 datasets/access and capabilities. `graph/generated/knowledge.json` indexes all concepts with
 context and source paths. Use only `relationships` for authoritative discovery; display
 `candidate_relationships` separately. Neither stream includes a complete EO archive.
+
+The candidate research-governance layer is proposed in ADR 0008 and supports the
+ADR 0006 round architecture. Hosts use ordinary tool records; actual agent instances,
+delegations, model configurations, messages, handoffs and results remain in round
+evidence. `SUPPORTS_ROLE`, `CAN_USE_SKILL` and `CAN_RUN_ON` express declared options,
+not proof of use or an enforced permission boundary. No agent output promotes itself.

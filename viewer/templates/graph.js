@@ -386,13 +386,14 @@
     const inc = edges.filter((e) => e.target === n.id);
     const layer = layerFor(n.type);
     const params = n.parameters && Object.keys(n.parameters).length
-      ? `<h2>Parameters</h2><pre class="json">${esc(JSON.stringify(n.parameters, null, 2))}</pre>`
+      ? `<h2>${layer.key === "governance" ? "Contract metadata" : "Parameters"}</h2><pre class="json">${esc(JSON.stringify(n.parameters, null, 2))}</pre>`
       : "";
     details.innerHTML = `
       <div class="tagline">${shapeIcon(n.type, 16)} <span>${esc(n.type)} · ${esc(layer.label)}</span>
         <span class="pill">${esc(n.status)}</span></div>
       <h2 class="title">${esc(n.title)}</h2>
       <code>${esc(n.id)}</code>
+      ${layer.key === "governance" ? '<p class="hint">Reusable contract only. Availability does not prove delegation, instruction loading or execution. Human review remains pending for candidate records.</p>' : ""}
       <dl class="meta">
         <dt>Version</dt><dd>${esc(n.version)}</dd>
         <dt>Updated</dt><dd>${esc(n.updated)}</dd>

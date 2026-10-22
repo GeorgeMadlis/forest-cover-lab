@@ -11,6 +11,7 @@
   --layer-2: #eb6834;
   --layer-3: #1baf7a;
   --layer-4: #eda100;
+  --layer-5: #9254b8;
   --layer-other: #8a8984;
   --edge: #8f8d87;
   --edge-candidate: #b3b1aa;
@@ -32,6 +33,7 @@
     --layer-2: #d95926;
     --layer-3: #199e70;
     --layer-4: #c98500;
+  --layer-5: #b47ed7;
     --layer-other: #77766f;
     --edge: #7d7c75;
     --edge-candidate: #5c5b55;
@@ -53,6 +55,7 @@
   --layer-2: #d95926;
   --layer-3: #199e70;
   --layer-4: #c98500;
+  --layer-5: #b47ed7;
   --layer-other: #77766f;
   --edge: #7d7c75;
   --edge-candidate: #5c5b55;

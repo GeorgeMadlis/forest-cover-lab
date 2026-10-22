@@ -24,7 +24,7 @@ The graph/OKF-oriented corpus helps discover candidates and relationships, not e
 | Claude Code | Code and research execution with access to both repositories | Reads `CLAUDE.md` -> `AGENTS.md`; can be handed round-specific role and assignment files |
 | Codex | Code and research execution with access to both repositories | Reads `AGENTS.md`; can be handed round-specific role and assignment files |
 
-Access here is an **operator-declared capability**, not an assertion that every service, MCP connector, browser, filesystem path or credential was available in every execution. Record actual tool use in the round. No model/version/tool permissions are globally pinned. A *subagent* is a bounded **responsibility**; it can run in a genuine delegated-agent facility or in an explicitly separate task/session of any general agent. Do not claim automatic orchestration or independent validation when neither occurred.
+Access here is an **operator-declared capability**, not an assertion that every service, MCP connector, browser, filesystem path or credential was available in every execution. Record actual tool use in the round. No model/version/tool permissions are globally pinned. A *role* is a bounded responsibility; a native *subagent* is an actual delegated runtime instance. A role can also be performed sequentially or in a separate session. Record which occurred. Do not claim automatic orchestration or independent validation when neither occurred.
 
 ## 3. Subagent catalogue
 
@@ -89,6 +89,15 @@ The Sentinel repo already supplies four reusable Codex skills under `.codex/skil
 
 Change this file or the reusable role catalogue only when the agent architecture, canonical responsibility, or stable contract changes. Round-specific source choices, prompts, subagent composition and task parameters live in rounds, not in this file. Apply `governance/drift_checklist.md` and append to `governance/audit_log.md` after structural changes. No subagent may promote itself or its results to validated knowledge.
 
+## Candidate graph discovery and schema 1.1
+
+Proposed ADR 0008 exposes standing roles, the round harness and existing Sentinel
+skills as candidate graph contracts. Discovery never proves execution or grants
+permissions. Round schema 1.1 adds declared delegation scope/budget and observed
+runtime, handoff, independence and coordination-event capture. Existing 1.0 records
+remain valid; do not backfill them. The evaluation contract distinguishes structural
+checks from future behavioral trials and scientific review. See `agent_harness/README.md`.
+
 ## Standing file index
 
 The following are mandatory stable contracts (round-specific files are **not** added to this list):
@@ -102,6 +111,9 @@ The following are mandatory stable contracts (round-specific files are **not** a
 - `agent_harness/templates/round.yaml` — new-round manifest seed
 - `agent_harness/templates/assignment.md` — new-role assignment seed
 - `agent_harness/scripts/validate_round.py` — cross-repository round validation CLI
+- `validate/agent_harness_evaluation.md` — candidate structural and behavioral evaluation contract
+- `docs/adr/0008-agent-governance-graph.md` — proposed graph integration and boundaries
+- `research/publications/agent_harness_review_2026.md` — scoped primary-source assessment
 
 Any other stable, client-specific configuration that is subsequently added (such as
 a `.claude/agents/` or `.codex/` skill) must be indexed here, while

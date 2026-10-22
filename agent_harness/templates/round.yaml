@@ -1,4 +1,4 @@
-schema_version: "1.0"
+schema_version: "1.1"
 round_id: "ROUND-PLACEHOLDER"
 kind: research
 status: planned  # planned | active | reviewed | superseded
@@ -19,6 +19,16 @@ instances:
     host_planned: codex
     selection_status: planned
     assignment: "assignments/specialist-01.md"
+    delegation:  # declared contract; execution attempts record observed runtime
+      mode: sequential_role  # sequential_role | native_subagent | separate_session
+      parent_instance_id: null  # native_subagent requires another round instance
+      question: "REPLACE: bounded delegated question"
+      output_contract: "REPLACE: required artifact and acceptance criteria"
+      permitted_writes: []  # declared scope; not an enforced permission boundary
+      budget:
+        tool_call_limit: null  # null = unspecified; no default budget inferred
+        elapsed_seconds_limit: null
+        cost_usd_limit: null
     harness_sources: []  # selected files, NOT observed loads
     actual_executions: [] # append execution attempts with observed loaded_harness
 human_review:
