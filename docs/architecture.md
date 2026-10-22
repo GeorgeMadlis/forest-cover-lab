@@ -427,4 +427,9 @@ contracts and research inquiries; operational Sentinel rounds supplement downstr
 and investigation evidence. Tool skills and host configuration remain separate from
 scientific sources. This adds record validation, not a scheduler or model capability.
 
+[ADR 0007](adr/0007-round-agent-graphs.md) (proposed) adds an optional agent graph to a
+round: typed nodes (input, agent, script, human gate), edges naming the artifacts they
+carry, bounded agent loops, independence groups and approvals that must precede recorded
+attempts. Graphs are validated and rendered, not executed; a runner needs its own ADR.
+
 The portable [dataset-and-tool-discovery role](../agent_harness/roles/dataset-and-tool-discovery.md) offers provider-cited dataset/tool identification, FAIR-inspired fitness review, source-link audits and conditional pipeline recommendations under the [shared protocol](../research/data_sources/discovery_and_link_verification.md). It maintains the separation between scientific datasets, hosted distributions and software/models, and does not add a live catalogue or processing engine to the Lab graph. No candidate or URL update is approved by the role itself.

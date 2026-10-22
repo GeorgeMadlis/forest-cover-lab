@@ -7,9 +7,13 @@ from datetime import datetime
 import json
 from pathlib import Path
 import re
+import sys
 
 import jsonschema
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from round_graph import graph_errors  # noqa: E402  (sibling module; works from any checkout)
 
 LAB = Path(__file__).resolve().parents[2]
 FULL_SHA = re.compile(r"^[0-9a-f]{40}$")
@@ -124,6 +128,8 @@ def check(path: Path, lab_root: Path = LAB) -> list[str]:
                 errors.append(f"executed/active round missing pinned {key} commit SHA")
         if not DIGEST.fullmatch(data["repos"]["lab_graph_revision"] or ""):
             errors.append("executed/active round missing Lab graph revision SHA-256")
+    if "graph" in data:
+        errors.extend(graph_errors(data))
     review = data["human_review"]
     if data["status"] == "reviewed" or review["status"] != "pending":
         if review["status"] == "pending" or not all(review[k] and review[k].strip() for k in ("reviewer", "decision", "basis")):

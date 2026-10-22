@@ -47,3 +47,6 @@ jobs:
 
       - name: Validate local agent rounds
         run: python agent_harness/scripts/validate_round.py --root .
+
+      - name: Check agent-graph images are current
+        run: python agent_harness/scripts/render_round_graph.py --root . --check

@@ -113,6 +113,15 @@ Validate Lab examples/inquiries with:
 python agent_harness/scripts/validate_round.py --root .
 ```
 
+A round may declare an explicit agent graph (ADR 0007, proposed). Before proposing to run
+agents for a sufficiently specified question, write the graph into the round, render it
+and present the image for approval; never record an attempt that precedes the approvals
+the graph requires. Rendered images must be current:
+
+```sh
+python agent_harness/scripts/render_round_graph.py --root . --check
+```
+
 ## Conventions
 
 - Conventional Commits: `feat:`, `fix:`, `docs:`, `chore:`, `research:`.
