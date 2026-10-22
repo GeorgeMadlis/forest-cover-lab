@@ -3,8 +3,15 @@
 Each data source is assessed for phase-by-phase suitability against the v1, v2, and v3
 roadmap goals. Use the levels below in `inventory.csv`.
 
+The [discovery and link-audit protocol](discovery_and_link_verification.md) defines FAIR-inspired metadata, provider-lineage and endpoint checks. These complement, but never replace, scientific task suitability, license review or an actual AOI test.
+
 Suitability is not the same as relevance. A context product can be highly relevant to
 interpretation while still being `not_applicable` as a direct v1/v2 forest-cover input.
+
+Access examples below describe potential provider routes, not a production dependency or
+current availability guarantee. Under [ADR 0005](../../docs/adr/0005-semantic-architecture-and-backends.md),
+prefer open, local, cloud-neutral access and processing; GEE remains optional research/reference
+access. Verify the selected endpoint, edition, license and AOI/date coverage separately.
 
 ---
 

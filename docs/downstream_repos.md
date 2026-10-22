@@ -39,6 +39,10 @@ different rule, propose or document that divergence here first.
 | `gedi-validation-lab` | `DS-0006` GEDI, optional `DS-0002` Sentinel-2, `DS-0003` Sentinel-1, forest baseline products | validation plan, data-source roles, forest definition ADR, report non-claims |
 | `hansen-baseline-forest-cover` | `DS-0001` Hansen GFC, optional `DS-0007` JRC TMF and `DS-0008` PRODES for comparison | v1 spec, forest definition ADR, area computation ADR, manifest schema |
 
+## Dataset/tool discovery handoff
+
+The Lab [dataset/tool discovery role](../agent_harness/roles/dataset-and-tool-discovery.md) can answer source questions and propose source/endpoint/version-specific retrieval recipes, including explicit licenses, limitations and link-check evidence. Its [protocol](../research/data_sources/discovery_and_link_verification.md) differentiates scientific products, host catalogues, models and APIs. Downstream agents should consume reviewed `DS-` IDs and test actual AOI/date assets independently. The Lab does not store operational scenes or execute discovery recommendations. Modifying `eudr-dmi-gil` or a downstream repo requires its own authorized change; do not silently transfer an auto-generated row into accepted Lab knowledge.
+
 ## Data-source reuse
 
 Data-source entries are reusable evidence objects. A source can be used by multiple

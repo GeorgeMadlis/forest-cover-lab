@@ -51,6 +51,11 @@ the change that introduced the divergence.
 - [ ] Does the data sources track README state what it assumes, what it produces, and which
       other tracks it optionally consumes?
 
+- [ ] Is the dataset/tool discovery role indexed and its provider link verification
+      evidence kept separate from both Lab-reviewed datasets and tool assessments?
+- [ ] Are external catalogues explicitly treated as candidate seeds, and are link
+      replacements and knowledge promotion independently reviewed?
+
 ---
 
 ## P3 — Source Code Discovery and Analysis

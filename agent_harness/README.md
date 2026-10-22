@@ -2,6 +2,8 @@
 
 This directory is the **proposed standing harness** for Forest Cover Lab. `roles/` stores reusable task contracts, `templates/` seeds new rounds, `schemas/` validates their manifests, and `examples/` illustrates *planned* (not executed) investigations. It is deliberately host-agnostic.
 
+For discovery, URL maintenance and pipeline-design questions select `roles/dataset-and-tool-discovery.md` with `../research/data_sources/discovery_and_link_verification.md`. Treat `eudr-dmi-gil` auto-catalogue rows as external unverified seeds, not Lab source IDs or authorized writes. Keep data-source and software-tool assessments in their distinct research tracks. Actual provider checks and answers are captured in the round, not inferred from role selection.
+
 Select only the needed roles. Give each one a task-specific assignment and source boundary. Record actual host, loaded files, permissions and resulting evidence in the round; do not infer execution from a planned assignment. When used with a downstream Sentinel review, the actual round should be created under that review and refer to Lab role definitions by pinned Lab revision.
 
 **Quick path:** copy `templates/round.yaml` and `templates/assignment.md`; replace placeholders; validate round YAML with `python agent_harness/scripts/validate_round.py <path-to-round.yaml>`; as work proceeds append `actual_executions` with observed configuration, source hashes and artifact checksums. Promote nothing automatically.

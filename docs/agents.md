@@ -32,11 +32,14 @@ Access here is an **operator-declared capability**, not an assertion that every 
 |---|---|
 | `agent_harness/roles/remote-sensing-quantification.md` | Georeferenced candidates, precise area calculations and sensitivity evidence |
 | `agent_harness/roles/national-geospatial-evidence.md` | Dated national mapping/orthophoto data and source-lineage assessment |
+| `agent_harness/roles/dataset-and-tool-discovery.md` | Dataset/tool search, FAIR-inspired evaluation, provider-link auditing and cited pipeline advice |
 | `agent_harness/roles/official-infrastructure-records.md` | Authoritative construction/planning/road records and their temporal scope |
 | `agent_harness/roles/literature-and-media.md` | Search-reproducible independent papers, journalism and alternative hypotheses |
 | `agent_harness/roles/publication-method-reconstruction.md` | Reconstructed definitions, accounting objects and computable published methods |
 | `agent_harness/roles/discrepancy-analysis.md` | Numerical discrepancy decomposition; residuals and competing interpretation ledger |
 | `agent_harness/roles/independent-challenge.md` | Attempts to falsify conclusions, detect shared data lineage and enumerate unresolved tests |
+
+The discovery role follows `research/data_sources/discovery_and_link_verification.md`. It can answer human or agent queries, assess new products/tools and verify scoped catalogue URLs. The external `eudr-dmi-gil` auto-catalogue is a read-only discovery seed until independently authorized. A role definition does not start a crawler, verify any link, execute an ingestion pipeline or promote evidence.
 
 Roles are reusable defaults, **not** a requirement to invoke all roles. Tasks may generate additional role files in a round's local `assignments/`, with the instance explicitly declaring `role_scope: round_only`, or propose a broadly useful role for later review. Round-specific files may narrow or supplement a role contract but cannot override `AGENTS.md`, accepted ADRs, source/measurement semantics, the no-overclaim rules, or the human knowledge-promotion gate.
 
@@ -94,6 +97,7 @@ The following are mandatory stable contracts (round-specific files are **not** a
 - `CLAUDE.md` — existing Claude Code entry point
 - `docs/agents.md` — this standing policy
 - `agent_harness/README.md` — roles, selection and layout guide
+- `research/data_sources/discovery_and_link_verification.md` — dataset/tool discovery, FAIR and link-health protocol
 - `agent_harness/schemas/round.schema.json` — round data contract
 - `agent_harness/templates/round.yaml` — new-round manifest seed
 - `agent_harness/templates/assignment.md` — new-role assignment seed

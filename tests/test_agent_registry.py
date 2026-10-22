@@ -11,6 +11,7 @@ STANDING = [
     'AGENTS.md', 'CLAUDE.md', 'docs/agents.md', 'agent_harness/README.md',
     'agent_harness/schemas/round.schema.json', 'agent_harness/templates/assignment.md',
     'agent_harness/templates/round.yaml', 'agent_harness/scripts/validate_round.py',
+    'research/data_sources/discovery_and_link_verification.md',
 ]
 
 
@@ -42,6 +43,17 @@ def test_all_role_contracts_are_listed():
     assert roles
     for role in roles:
         assert f'`{role.relative_to(ROOT).as_posix()}`' in DOC
+
+
+def test_dataset_tool_discovery_role_is_indexed():
+    role = ROOT / 'agent_harness/roles/dataset-and-tool-discovery.md'
+    guide = ROOT / 'research/data_sources/discovery_and_link_verification.md'
+    assert role.exists() and guide.exists()
+    assert f'`{role.relative_to(ROOT).as_posix()}`' in DOC
+    assert f'`{guide.relative_to(ROOT).as_posix()}`' in DOC
+    content = role.read_text().lower()
+    for topic in ('fair', 'license', 'link', 'catalogue', 'pipeline', 'to_review'):
+        assert topic in content, topic
 
 
 def test_host_inventory_and_no_copilot():
