@@ -16,6 +16,9 @@ sources:
 - agent_harness/README.md
 - agent_harness/templates/round.yaml
 - agent_harness/templates/assignment.md
+- docs/adr/0007-round-agent-graphs.md
+- agent_harness/scripts/round_graph.py
+- agent_harness/scripts/render_round_graph.py
 relations:
 - type: SUPPORTS_ROLE
   target: role:dataset-and-tool-discovery
@@ -178,3 +181,5 @@ parameters:
 # Round-bound forest-cover research harness
 
 Reusable research-governance contract under proposed ADR 0006. Select bounded roles and skills, freeze instructions, record actual execution, reconcile disagreements and request human review. This is distinct from a GeoFM processing harness. It installs no scheduler, delegation engine, model service or scientific validation. Operational rounds and results remain downstream.
+
+An optional per-round agent graph (proposed ADR 0007) describes concrete instances, artifact handoffs, bounded loops and human gates. It is distinct from the reusable knowledge graph and implements no execution runner. Both the 1.0 graph block and 1.1 runtime capture remain supported.

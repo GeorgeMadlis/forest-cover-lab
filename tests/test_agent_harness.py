@@ -278,6 +278,17 @@ def test_actual_native_subagent_requires_observed_parent(version_11):
     assert any('observed parent attempt' in e for e in findings(version_11))
 
 
+def test_version_11_preserves_optional_round_graph(version_11, tmp_path):
+    source = LAB / 'agent_harness/examples/road-widening/round-0001/round.yaml'
+    data = yaml.safe_load(source.read_text())
+    shutil.copytree(source.parent / 'assignments', tmp_path / 'graph-assignments')
+    data['schema_version'] = '1.1'
+    for instance in data['instances']:
+        instance['assignment'] = instance['assignment'].replace('assignments/', 'graph-assignments/')
+        instance['delegation'] = copy.deepcopy(version_11[1]['instances'][0]['delegation'])
+    assert not check(write(tmp_path / 'round.yaml', data))
+
+
 def test_runtime_unknowns_need_limits(version_11):
     attempt = version_11[1]['instances'][0]['actual_executions'][0]
     attempt['limitations'] = []

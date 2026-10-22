@@ -1075,7 +1075,7 @@
     }
   ],
   "input_hashes": {
-    "agent_harness/README.md": "4a21aa75ff6204985fdeb405b6f9627bb04fd0e9a2fce80b5dfeca8945090c5b",
+    "agent_harness/README.md": "2f92d8823bdb7e499baaf16df43d3bcc24efeb1ea1db624d617bda6121908f55",
     "agent_harness/roles/dataset-and-tool-discovery.md": "259b6d41a8d3962087b31ce49fb1994855d3d3554c55bd367e8adf55ccb82ac1",
     "agent_harness/roles/discrepancy-analysis.md": "07cdf1487b7c332cd68b26d069d23879b66181ba191bb91b36d3b2e13440a081",
     "agent_harness/roles/independent-challenge.md": "67a4e382cc888045d420e1a5973da718851772f62958d4cbc87824494d330fa5",
@@ -1084,14 +1084,17 @@
     "agent_harness/roles/official-infrastructure-records.md": "a826ed59a4a7cdb9bae2bead34681a58715d1b26da380eaee11807cf3a19b3ce",
     "agent_harness/roles/publication-method-reconstruction.md": "b4f918f6e1c4a966893e4a8df7281e42caa8fbd2d29d6b2ab1a673eee0069552",
     "agent_harness/roles/remote-sensing-quantification.md": "645a06490784a0a4e4f8fc4b0366971756e5da95768f9938df314a9e2d5b79e8",
-    "agent_harness/schemas/round.schema.json": "012465c5dc7ceb92fe5f1f4baa6ad759b1281996063f309f16f6ef1e3bb12373",
-    "agent_harness/scripts/validate_round.py": "992163685ebe6285c16de454c22c0514fe6107ce05becfb21c87879c92d08699",
+    "agent_harness/schemas/round.schema.json": "1c9b9981c9517a823d5f1546257f24b66869b4eac4b56e4734365f82a5b4f1dd",
+    "agent_harness/scripts/render_round_graph.py": "7e053e3e7a75cce16de1cf08a41d412f59d9e83d5e985d0cbb9332e20c09ba22",
+    "agent_harness/scripts/round_graph.py": "51eb1ab6875d43c72219187e094a5aa2cde85b530a1bb0c1022f4e89769c4988",
+    "agent_harness/scripts/validate_round.py": "c50a0e2ec70bf619c29eb58b42bde784a0ff7efac5354c7672c302558ddb2ab6",
     "agent_harness/templates/assignment.md": "137b929428066b9b865b4c776d4d41c1807eae025597165a3e40c83113cd6d88",
-    "agent_harness/templates/round.yaml": "5e8a74b00bde8e3d3fb03ce639bf92643a7b60a87b56c30ad024e2fe4301c66e",
+    "agent_harness/templates/round.yaml": "4404ade9bfa8a6ac35ac1a2a7e0fdf7d2d6770e488310949489b961afef285a5",
     "docs/adr/0005-semantic-architecture-and-backends.md": "b3922961a6aede7c4849c30eeddaa275a1a3f13622026ef8294b883f22153d29",
     "docs/adr/0006-round-agent-harness.md": "a17daaa0811a8db2852bb42956d70181cbe7568f6ac390d75fb219739bea0950",
+    "docs/adr/0007-round-agent-graphs.md": "d30b63bc9bda8508b6c4e96c793a064997973b03dae2d78db35a69bb4c8a2824",
     "docs/adr/0008-agent-governance-graph.md": "fabab46731d050167a1a755f0b1676fb18eb0c0cb3853893da30090d4beb183c",
-    "docs/agents.md": "5274d90c9258d2ebea49210b6904d2b0f37ff3a443d2272ed6dfca2de2100676",
+    "docs/agents.md": "bc98c873e5f52aaaf6236d21c976c87f81115d1cead52f3d1f237bf40531481f",
     "docs/downstream_repos.md": "0513c9e27d0d361c90854fc00a9ee3e3f31728743bf91aa5286c24bc5a6d7a86",
     "governance/knowledge_promotion.md": "e7320143280412d6fb3ba0b92a9fd088311b49c253150984b11fe3ddc3052e16",
     "graph/README.md": "cc3dd16f9cf374ee83a056d48b926ed2263557f5065afe33e8c46a497c8ddecf",
@@ -1135,7 +1138,7 @@
     "knowledge/datasets/DS-0003.md": "a163e52620373d68a17403e07b6059e540b7499961b0273a2dd63237e814d65d",
     "knowledge/datasets/DS-0006.md": "2a634afb7bfdedf4cb594fbca4acf85d794f2bc3b0a02b65b509359a35962cf3",
     "knowledge/datasets/DS-0007.md": "b247b1cac2d5b6436b772ed00c65e1768b3a68d1da7ecc32aca31c2639e83087",
-    "knowledge/harnesses/harness-round-bound-research.md": "1ee3e05ac881afffa2778773567380e1d76fb00b0d2b4550bdaee972fcbd4e41",
+    "knowledge/harnesses/harness-round-bound-research.md": "13aed22c1ebf1f48a5f731e721c83723e49e792f2ae1ed20ff7dbbe7f073ee86",
     "knowledge/measurements/measurement-annual-loss-year.md": "e79e8c3b11005825762aa6d2364d8c38ee2e3854f6c96bf04fbb794742687fbb",
     "knowledge/measurements/measurement-canopy-cover.md": "df7218e6d8ea0e7d09e658ded209910855516af3e18e8ad44cd991a7773dccb7",
     "knowledge/measurements/measurement-canopy-height.md": "e70852c3f8300eece9a0be71d850d30a8562e9464cbd5edd3b5a128d3b524a50",
@@ -1685,7 +1688,7 @@
       "version": "1.0"
     },
     {
-      "context": "# Round-bound forest-cover research harness\n\nReusable research-governance contract under proposed ADR 0006. Select bounded roles and skills, freeze instructions, record actual execution, reconcile disagreements and request human review. This is distinct from a GeoFM processing harness. It installs no scheduler, delegation engine, model service or scientific validation. Operational rounds and results remain downstream.",
+      "context": "# Round-bound forest-cover research harness\n\nReusable research-governance contract under proposed ADR 0006. Select bounded roles and skills, freeze instructions, record actual execution, reconcile disagreements and request human review. This is distinct from a GeoFM processing harness. It installs no scheduler, delegation engine, model service or scientific validation. Operational rounds and results remain downstream.\n\nAn optional per-round agent graph (proposed ADR 0007) describes concrete instances, artifact handoffs, bounded loops and human gates. It is distinct from the reusable knowledge graph and implements no execution runner. Both the 1.0 graph block and 1.1 runtime capture remain supported.",
       "id": "harness:round-bound-research",
       "parameters": {
         "contract_status": "proposed ADR 0006; human review pending",
@@ -1708,7 +1711,10 @@
         "docs/adr/0008-agent-governance-graph.md",
         "agent_harness/README.md",
         "agent_harness/templates/round.yaml",
-        "agent_harness/templates/assignment.md"
+        "agent_harness/templates/assignment.md",
+        "docs/adr/0007-round-agent-graphs.md",
+        "agent_harness/scripts/round_graph.py",
+        "agent_harness/scripts/render_round_graph.py"
       ],
       "status": "candidate",
       "title": "Round-bound forest-cover research harness",
@@ -3600,6 +3606,6 @@
       "type": "CAN"
     }
   ],
-  "revision": "2a4093d8b1c83d6bf8b5e47f88df3be1643aeb751a9994532b062ce677bc35e1",
+  "revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7",
   "schema_version": "1.0"
 }

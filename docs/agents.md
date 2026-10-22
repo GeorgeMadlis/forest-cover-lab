@@ -60,6 +60,25 @@ Each agent instance distinguishes:
 
 Pin both repos by full commit SHA and the Lab graph revision (SHA-256) when a round is executed. For each loaded file record repository, commit/ref, path and SHA-256 (or a content-addressed captured copy); for external private project instructions record a stable identifier and digest **if permitted** or explicitly mark `not_captured`. Never copy secrets, personal documents or private prompts into a public repository. Changes to the pinned repository instructions require a new round. Append retries against the same baseline as new attempts; do not silently overwrite earlier evidence.
 
+### Agent graph (optional, ADR 0007)
+
+A round may add a `graph` block that makes the plan explicit before anything runs:
+`input`, `agent` (one instance each, optional bounded `loop`), `script` and human `gate`
+nodes; `edges` that name the artifacts they `carries`; `independence_groups` with no path
+between members; `mode: stepwise` (each agent node needs an approved, hashed `step_plan`
+before its first attempt) or `mode: auto` (only declared gates stop the chain); and a graph
+`approval` whose `planning_record_id` a run manifest can cite. Every used instance must
+appear in the graph, every sink must be a human gate and every recorded attempt must
+follow the approvals it depends on. Draw and check with:
+
+```sh
+python agent_harness/scripts/render_round_graph.py <round.yaml>   # writes graph.svg + graph.mmd
+python agent_harness/scripts/render_round_graph.py --root . --check
+```
+
+Images are records of the manifest, not evidence that a host followed it. Chat hosts
+(`chatgpt`, `claude`) are marked as manual hand-off. No runner exists yet.
+
 ## 5. Workflow and independent checks
 
 1. **Frame:** specify AOI, temporal window, forest definition/denominator, exact question, hypotheses and counter-hypotheses; choose which role outputs are required. A question about *road widening* is not synonymous with new-road construction; a forest-removal estimate is not necessarily forest-cover net change.
@@ -83,7 +102,7 @@ A new round can use previous results as *inputs* without inheriting their author
 
 The Sentinel repo already supplies four reusable Codex skills under `.codex/skills/`: `inspect-sentinel-change`, `research-sentinel-change`, `corroborate-sentinel-change`, `report-sentinel-change`. They are available tool-specific harness material, not evidence that all four were invoked in a future round. Link and hash those skills in a round when used. For Claude/ChatGPT/other runtimes, supply the relevant content explicitly rather than assuming a Codex skill auto-loads.
 
-`tests/test_agent_registry.py` validates the stable registry. It should validate standing roles and schemas while a separate `tests/test_agent_harness.py` validates example and real round manifests and references. New round-scoped files **must not** require manual additions to this stable document. The round manifest is their inventory.
+`tests/test_agent_registry.py` validates the stable registry. It should validate standing roles and schemas while a separate `tests/test_agent_harness.py` validates example and real round manifests and references, and `tests/test_agent_graph.py` validates agent-graph blocks and the freshness of their committed images. New round-scoped files **must not** require manual additions to this stable document. The round manifest is their inventory.
 
 ## 8. Governance of this policy
 
@@ -115,6 +134,9 @@ The following are mandatory stable contracts (round-specific files are **not** a
 - `docs/adr/0008-agent-governance-graph.md` — proposed graph integration and boundaries
 - `research/publications/agent_harness_review_2026.md` — scoped primary-source assessment
 
+- `agent_harness/scripts/round_graph.py` — agent-graph checks shared by validator and renderer (ADR 0007)
+- `agent_harness/scripts/render_round_graph.py` — agent-graph SVG/Mermaid renderer (ADR 0007)
+
 Any other stable, client-specific configuration that is subsequently added (such as
 a `.claude/agents/` or `.codex/` skill) must be indexed here, while
 `reviews/.../rounds/...` and `research/inquiries/.../rounds/...` are indexed
@@ -131,6 +153,7 @@ integration and are now preserved and indexed here.
 - `docs/architecture.md`
 - `docs/adr/`
 - `docs/adr/0006-round-agent-harness.md`
+- `docs/adr/0007-round-agent-graphs.md`
 - `GLOSSARY.md`
 - `docs/img/build_overview_diagram.py`
 - `docs/img/problems-and-approaches.svg`
@@ -156,6 +179,7 @@ integration and are now preserved and indexed here.
 - `tests/`
 - `tests/test_agent_registry.py`
 - `tests/test_agent_harness.py`
+- `tests/test_agent_graph.py`
 - `.github/workflows/ci.yml`
 - `.pre-commit-config.yaml`
 - `agent_harness/`

@@ -11,6 +11,7 @@ STANDING = [
     'AGENTS.md', 'CLAUDE.md', 'docs/agents.md', 'agent_harness/README.md',
     'agent_harness/schemas/round.schema.json', 'agent_harness/templates/assignment.md',
     'agent_harness/templates/round.yaml', 'agent_harness/scripts/validate_round.py',
+    'agent_harness/scripts/round_graph.py', 'agent_harness/scripts/render_round_graph.py',
     'research/data_sources/discovery_and_link_verification.md',
 ]
 
