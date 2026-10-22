@@ -377,3 +377,50 @@ scientific gaps remain; no scheduler, crawler, model execution or promotion was 
 **Reviewer:** Codex integration and structural review only; human/operator review pending.
 Passing checks do not validate scientific candidates. Commit and review-PR publication
 are user-authorized; merge is not authorized.
+
+## 2026-10-22 — Explicit agent graphs for rounds (ADR 0007, first PR)
+
+**Trigger:** Operator requested that, once a question is specified in enough detail, the
+first step is an explicit plan: the chosen agents, what each passes to the next, whether
+the chain runs automatically or step by step with each step approved first, and an image
+of that graph. Agreed scope for this first change: schema, validator and renderer only;
+no runner. New ADR 0007 (Proposed); new `agent_harness/scripts/round_graph.py` and
+`agent_harness/scripts/render_round_graph.py`; optional `graph` block in
+`agent_harness/schemas/round.schema.json` (schema version unchanged); graph checks wired
+into `validate_round.py`; planned graph and generated `graph.svg`/`graph.mmd` for the
+road-widening example; commented graph block in the round template; registry, README,
+architecture, AGENTS.md, CI and overview diagram updated.
+
+**Checklist review:** Claude Code ran `governance/drift_checklist.md` (now 40 items; one P6
+item added for graph validity and image freshness). The change touches only P6 and the
+agent-harness contracts; mission boundary, P1–P5 research tracks, inventories, knowledge
+corpus and graph inputs are unchanged, so those items carry forward from the previous
+entry. 39 items satisfied; the P2 in situ inventory breadth item remains open (unchanged).
+README text and the overview diagram cite ADR 0007; the diagram was regenerated with its
+generator and its freshness check passes. No new abbreviation needed a glossary entry.
+
+**Verification:** Commands run from the repository root on branch `feature/round-graph`
+(base `bf7ca70`):
+
+- `python -m pytest`: **151 passed** (112 existing + 39 new in `tests/test_agent_graph.py`)
+  under Python 3.13; the same 151 passed under Python 3.11 (the CI version).
+- `python graph/build.py --check --descriptor configs/downstream.sentinel-monthly.example.json`:
+  **PASS**, revision unchanged `950e1405aacb2d6459745d7f2e0674890249752ebc952b58ad34bbc7e8e5e146`;
+  no graph input was edited, so downstream descriptors need no re-pin.
+- `python agent_harness/scripts/validate_round.py --root .`: **2 planned manifests passed**
+  (one with a graph, one without); structure only.
+- `python agent_harness/scripts/render_round_graph.py --root . --check`: **PASS**, 1 graph.
+- `python docs/img/build_overview_diagram.py --check`: **PASS**.
+- The uncommented template graph block validated against a scratch copy of the template.
+- `git diff --check`: **PASS**.
+
+**Open findings:** Graph approvals, step plans and independence are record declarations;
+the validator cannot prove a human approved, a plan was read, a host honoured the graph or
+that independent agents used independent data or models. Script nodes have no execution
+record yet. No runner, host adapter, model call or download exists; execution needs its
+own ADR. The road-widening graph is a planning example: graph and gates `pending`, no
+attempts, artifact names are required outputs rather than files. ADR 0006 and ADR 0007
+both await operator review.
+
+**Reviewer:** Claude Code structural review only; human/operator review pending. Merge is
+not authorized by this entry.

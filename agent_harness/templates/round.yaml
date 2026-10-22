@@ -21,6 +21,32 @@ instances:
     assignment: "assignments/specialist-01.md"
     harness_sources: []  # selected files, NOT observed loads
     actual_executions: [] # append execution attempts with observed loaded_harness
+# Optional agent graph (ADR 0007). Uncomment, list every used instance as an agent node,
+# then draw/check it: python agent_harness/scripts/render_round_graph.py <this file>
+# graph:
+#   mode: stepwise          # stepwise: each agent node needs an approved step_plan first; auto: gates only
+#   approval:               # the graph is a plan; approve it before any attempt is recorded
+#     proposed_by: "REPLACE: human or AI planner (host/session reference)"
+#     planning_record_id: "ROUND-PLACEHOLDER/graph"
+#     status: pending
+#     approver: null
+#     decided_utc: null
+#     basis: null
+#   nodes:
+#     - {id: frame, kind: input, outputs: [aoi.geojson]}
+#     - id: specialist-01
+#       kind: agent
+#       instance: specialist-01
+#       loop: {max_iterations: 2, until: "assignment acceptance tests pass"}
+#       outputs: [claims.csv]
+#     - id: human-review
+#       kind: gate
+#       approver: human
+#       approval: {status: pending, approver: null, decided_utc: null, basis: null}
+#   edges:
+#     - {from: frame, to: specialist-01, carries: [aoi.geojson]}
+#     - {from: specialist-01, to: human-review, carries: [claims.csv]}
+#   independence_groups: []
 human_review:
   status: pending
   reviewer: null

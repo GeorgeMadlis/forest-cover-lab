@@ -147,6 +147,9 @@
           ]
         }
       }
+    },
+    "graph": {
+      "$ref": "#/$defs/graph"
     }
   },
   "$defs": {
@@ -355,6 +358,436 @@
             "type": "string",
             "pattern": "^[0-9a-f]{64}$"
           }
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "approver",
+        "decided_utc",
+        "basis"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "approver": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decided_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "graph": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "approval",
+        "nodes",
+        "edges"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "stepwise",
+            "auto"
+          ]
+        },
+        "approval": {
+          "$ref": "#/$defs/graph_approval"
+        },
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/graph_node"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/graph_edge"
+          }
+        },
+        "independence_groups": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "graph_node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "kind": {
+          "enum": [
+            "input",
+            "agent",
+            "script",
+            "gate"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instance": {
+          "type": "string"
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approver": {
+          "enum": [
+            "human"
+          ]
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        },
+        "outputs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "loop": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "max_iterations",
+            "until"
+          ],
+          "properties": {
+            "max_iterations": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "until": {
+              "type": "string",
+              "minLength": 3
+            }
+          }
+        },
+        "step_plan": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "plan_ref",
+            "plan_sha256",
+            "approval"
+          ],
+          "properties": {
+            "plan_ref": {
+              "type": "string"
+            },
+            "plan_sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "approval": {
+              "$ref": "#/$defs/approval"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "agent"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "instance",
+              "outputs"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "command"
+                  ]
+                },
+                {
+                  "required": [
+                    "approver"
+                  ]
+                },
+                {
+                  "required": [
+                    "approval"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "script"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "command",
+              "outputs"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "instance"
+                  ]
+                },
+                {
+                  "required": [
+                    "loop"
+                  ]
+                },
+                {
+                  "required": [
+                    "approver"
+                  ]
+                },
+                {
+                  "required": [
+                    "approval"
+                  ]
+                },
+                {
+                  "required": [
+                    "step_plan"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "input"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "outputs"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "instance"
+                  ]
+                },
+                {
+                  "required": [
+                    "command"
+                  ]
+                },
+                {
+                  "required": [
+                    "loop"
+                  ]
+                },
+                {
+                  "required": [
+                    "approver"
+                  ]
+                },
+                {
+                  "required": [
+                    "approval"
+                  ]
+                },
+                {
+                  "required": [
+                    "step_plan"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "gate"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "approver",
+              "approval"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "instance"
+                  ]
+                },
+                {
+                  "required": [
+                    "command"
+                  ]
+                },
+                {
+                  "required": [
+                    "outputs"
+                  ]
+                },
+                {
+                  "required": [
+                    "loop"
+                  ]
+                },
+                {
+                  "required": [
+                    "step_plan"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "graph_edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "to",
+        "carries"
+      ],
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "carries": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "lineage": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "graph_approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proposed_by",
+        "planning_record_id",
+        "status",
+        "approver",
+        "decided_utc",
+        "basis"
+      ],
+      "properties": {
+        "proposed_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "planning_record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "approver": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decided_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "basis": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
       }
     }

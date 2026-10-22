@@ -10,6 +10,8 @@ Select only the needed roles. Give each one a task-specific assignment and sourc
 
 Existing Sentinel `.codex/skills/` files are relevant components of a Codex harness and can be referenced by revision/digest in `harness_sources` and `actual_executions[].loaded_harness`. A plain role contract is not a machine-executable tool declaration; adapters are optional and must be recorded if used.
 
+**Agent graph (optional, ADR 0007):** add a `graph` block to `round.yaml` to state which agents exist, what each edge carries, where human gates sit, each agent's loop bound, independence groups, and whether the chain runs `stepwise` (each step plan approved first) or `auto` (up to the next gate). The graph itself carries an approval and a `planning_record_id`. Draw and check it with `python agent_harness/scripts/render_round_graph.py <round.yaml>` (writes `graph.svg` and `graph.mmd` beside the manifest; refuses invalid manifests; `--check` for staleness). See the [road-widening example](examples/road-widening/round-0001/graph.svg). Drawing a graph runs nothing; there is no runner yet.
+
 See [record validation and path rules](../docs/agents.md) and ADR 0006. `role` resolves
 against Lab unless `role_scope: round_only` selects a round-local file. Assignments
 always resolve against the manifest directory. Paths must remain within those roots.

@@ -107,6 +107,75 @@ instances:
     sha256: null
     capture_status: selected
   actual_executions: []
+graph:
+  # PLANNED GRAPH ONLY: not approved, not executed. Artifact names are the outputs each
+  # assignment must produce; no file exists yet.
+  mode: stepwise
+  approval:
+    proposed_by: Claude (chat) planning example for ADR 0007; not an observed planner run
+    planning_record_id: example-road-widening-round-0001/graph
+    status: pending
+    approver: null
+    decided_utc: null
+    basis: null
+  nodes:
+  - id: frame
+    kind: input
+    label: Question frame
+    outputs: [aoi.geojson, observation_windows.yaml]
+  - id: eo-01
+    kind: agent
+    instance: eo-01
+    loop:
+      max_iterations: 3
+      until: assignment acceptance tests pass, or a stop/escalation rule fires
+    outputs: [candidate_changes.gpkg, area_sensitivity.csv, eo_claims.csv]
+  - id: geo-01
+    kind: agent
+    instance: geo-01
+    outputs: [orthophoto_lineage.csv, geo_claims.csv]
+  - id: works-01
+    kind: agent
+    instance: works-01
+    outputs: [works_records.csv, works_claims.csv]
+  - id: sources-01
+    kind: agent
+    instance: sources-01
+    outputs: [source_ledger.csv, sources_claims.csv]
+  - id: accept-outputs
+    kind: gate
+    label: Accept specialist outputs
+    approver: human
+    approval: {status: pending, approver: null, decided_utc: null, basis: null}
+  - id: reconcile
+    kind: script
+    label: Reconcile claims
+    command: 'PLANNED: deterministic claim-ID join over the four claim tables; no script exists yet'
+    outputs: [claim_ledger.csv, disagreements.csv]
+  - id: critic-01
+    kind: agent
+    instance: critic-01
+    outputs: [challenge_report.md]
+  - id: human-review
+    kind: gate
+    label: Human review
+    approver: human
+    approval: {status: pending, approver: null, decided_utc: null, basis: null}
+  edges:
+  - {from: frame, to: eo-01, carries: [aoi.geojson, observation_windows.yaml]}
+  - {from: frame, to: geo-01, carries: [aoi.geojson, observation_windows.yaml]}
+  - {from: frame, to: works-01, carries: [aoi.geojson, observation_windows.yaml]}
+  - {from: frame, to: sources-01, carries: [aoi.geojson, observation_windows.yaml]}
+  - {from: eo-01, to: accept-outputs, carries: [candidate_changes.gpkg, area_sensitivity.csv, eo_claims.csv], lineage: [DS-0002, DS-0003]}
+  - {from: geo-01, to: accept-outputs, carries: [orthophoto_lineage.csv, geo_claims.csv]}
+  - {from: works-01, to: accept-outputs, carries: [works_records.csv, works_claims.csv]}
+  - {from: sources-01, to: accept-outputs, carries: [source_ledger.csv, sources_claims.csv]}
+  - {from: accept-outputs, to: reconcile, carries: [eo_claims.csv, geo_claims.csv, works_claims.csv, sources_claims.csv]}
+  - {from: reconcile, to: critic-01, carries: [claim_ledger.csv, disagreements.csv]}
+  - {from: critic-01, to: human-review, carries: [challenge_report.md]}
+  - {from: reconcile, to: human-review, carries: [claim_ledger.csv, disagreements.csv]}
+  independence_groups:
+  - [eo-01, geo-01, works-01, sources-01]
 human_review:
   status: pending
   reviewer: null
