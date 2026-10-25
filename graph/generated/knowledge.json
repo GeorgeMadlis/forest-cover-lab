@@ -302,6 +302,17 @@
       "source": "harness:round-bound-research",
       "sources": [
         "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md"
+      ],
+      "status": "candidate",
+      "target": "role:evidence-synthesis",
+      "type": "SUPPORTS_ROLE"
+    },
+    {
+      "scope": "Optional standing responsibility; does not mandate invocation or assert execution.",
+      "source": "harness:round-bound-research",
+      "sources": [
+        "docs/agents.md",
         "docs/adr/0006-round-agent-harness.md",
         "research/publications/agent_harness_review_2026.md"
       ],
@@ -568,6 +579,28 @@
         "docs/agents.md",
         "docs/adr/0006-round-agent-harness.md",
         "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-output-is-candidate",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Summarising agreeing outputs does not make them independent corroboration.",
+      "source": "role:evidence-synthesis",
+      "sources": [
+        "agent_harness/roles/evidence-synthesis.md",
+        "docs/agents.md"
+      ],
+      "status": "candidate",
+      "target": "claim:agent-agreement-is-not-independent-evidence",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "scope": "Responsibility grants no knowledge-promotion authority.",
+      "source": "role:evidence-synthesis",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md"
       ],
       "status": "candidate",
       "target": "claim:agent-output-is-candidate",
@@ -1078,6 +1111,7 @@
     "agent_harness/README.md": "2f92d8823bdb7e499baaf16df43d3bcc24efeb1ea1db624d617bda6121908f55",
     "agent_harness/roles/dataset-and-tool-discovery.md": "259b6d41a8d3962087b31ce49fb1994855d3d3554c55bd367e8adf55ccb82ac1",
     "agent_harness/roles/discrepancy-analysis.md": "07cdf1487b7c332cd68b26d069d23879b66181ba191bb91b36d3b2e13440a081",
+    "agent_harness/roles/evidence-synthesis.md": "d7821930bcb85064d51b0360029fdec4bb2a7d75d7a8d2face222dcfce59f531",
     "agent_harness/roles/independent-challenge.md": "67a4e382cc888045d420e1a5973da718851772f62958d4cbc87824494d330fa5",
     "agent_harness/roles/literature-and-media.md": "cbd5a201f7a8bba503c3ac2f4b3e175dfcca4ca3f4d253e5243e11bdbd804bf3",
     "agent_harness/roles/national-geospatial-evidence.md": "146f230a7f80ca5f56659db0a8c66409fbf12931295571b94e7294b80b7533a8",
@@ -1094,7 +1128,7 @@
     "docs/adr/0006-round-agent-harness.md": "a17daaa0811a8db2852bb42956d70181cbe7568f6ac390d75fb219739bea0950",
     "docs/adr/0007-round-agent-graphs.md": "d30b63bc9bda8508b6c4e96c793a064997973b03dae2d78db35a69bb4c8a2824",
     "docs/adr/0008-agent-governance-graph.md": "fabab46731d050167a1a755f0b1676fb18eb0c0cb3853893da30090d4beb183c",
-    "docs/agents.md": "bc98c873e5f52aaaf6236d21c976c87f81115d1cead52f3d1f237bf40531481f",
+    "docs/agents.md": "c71de1f55d7ef4b563d38d65860f987e3ba605412ef4520034ed1dd9895f254d",
     "docs/downstream_repos.md": "0513c9e27d0d361c90854fc00a9ee3e3f31728743bf91aa5286c24bc5a6d7a86",
     "governance/knowledge_promotion.md": "e7320143280412d6fb3ba0b92a9fd088311b49c253150984b11fe3ddc3052e16",
     "graph/README.md": "cc3dd16f9cf374ee83a056d48b926ed2263557f5065afe33e8c46a497c8ddecf",
@@ -1138,7 +1172,7 @@
     "knowledge/datasets/DS-0003.md": "a163e52620373d68a17403e07b6059e540b7499961b0273a2dd63237e814d65d",
     "knowledge/datasets/DS-0006.md": "2a634afb7bfdedf4cb594fbca4acf85d794f2bc3b0a02b65b509359a35962cf3",
     "knowledge/datasets/DS-0007.md": "b247b1cac2d5b6436b772ed00c65e1768b3a68d1da7ecc32aca31c2639e83087",
-    "knowledge/harnesses/harness-round-bound-research.md": "13aed22c1ebf1f48a5f731e721c83723e49e792f2ae1ed20ff7dbbe7f073ee86",
+    "knowledge/harnesses/harness-round-bound-research.md": "d5f0a373d06d45f705ff96fac5c88f6fec042954790d68bbed76fb0122f998de",
     "knowledge/measurements/measurement-annual-loss-year.md": "e79e8c3b11005825762aa6d2364d8c38ee2e3854f6c96bf04fbb794742687fbb",
     "knowledge/measurements/measurement-canopy-cover.md": "df7218e6d8ea0e7d09e658ded209910855516af3e18e8ad44cd991a7773dccb7",
     "knowledge/measurements/measurement-canopy-height.md": "e70852c3f8300eece9a0be71d850d30a8562e9464cbd5edd3b5a128d3b524a50",
@@ -1165,6 +1199,7 @@
     "knowledge/questions/question-seasonal-forest-change-monitoring.md": "705db8184635ac37f8d81074cd24b2a4d12ad4affffc811e885a1546c155f3a1",
     "knowledge/roles/role-dataset-and-tool-discovery.md": "fa3330385c84a1f573db9a7d450fb980f93b089cbcaf7c4dec026e86800c3ddb",
     "knowledge/roles/role-discrepancy-analysis.md": "d9b5193376105531f36f4892cc50862201a260f869b63bab81d56e9dc24a119f",
+    "knowledge/roles/role-evidence-synthesis.md": "f4561296b7676b8bea676fa581a477def51cdb98680b4177b01fbaaea6a12619",
     "knowledge/roles/role-independent-challenge.md": "ed1f1d58829580d3f096898b5745d79edb543bc6171aaea0f7129bb6c313db92",
     "knowledge/roles/role-literature-and-media.md": "668c5fc23ed27a8f449d72f42af15e3621aa3c17376afab78713b0996468d6d7",
     "knowledge/roles/role-national-geospatial-evidence.md": "ddc004ccabbc8915ff22a27f76fc68ff93b01061a3f8b50ebcadf0677cb7da8c",
@@ -2136,6 +2171,27 @@
       "title": "Discrepancy analysis",
       "type": "role",
       "updated": "2026-10-22",
+      "version": "1.0"
+    },
+    {
+      "context": "# Evidence synthesis\n\nScan, analyse and summarise the recorded outputs of other round instances, retask them with bounded addenda when evidence is missing, and write one source-cited report for human review.\n\nThis portable responsibility may be performed sequentially, in a separate session or by a native subagent. It is not an agent instance, permission boundary or evidence of execution. It reads all branch outputs and is therefore not an independent challenge. The cited role file defines inputs, outputs and stop conditions.",
+      "id": "role:evidence-synthesis",
+      "parameters": {
+        "contract_status": "proposed; human review pending",
+        "execution_evidence": "round records only",
+        "role_contract": "agent_harness/roles/evidence-synthesis.md"
+      },
+      "path": "knowledge/roles/role-evidence-synthesis.md",
+      "review_after": "2027-01-25",
+      "sources": [
+        "agent_harness/roles/evidence-synthesis.md",
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md"
+      ],
+      "status": "candidate",
+      "title": "Evidence synthesis",
+      "type": "role",
+      "updated": "2026-10-25",
       "version": "1.0"
     },
     {
@@ -3606,6 +3662,6 @@
       "type": "CAN"
     }
   ],
-  "revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7",
+  "revision": "0823f19ce072dae77f67c0b1b20b036da6e0a37aad6767a60ec82ada082360b8",
   "schema_version": "1.0"
 }
