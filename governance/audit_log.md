@@ -551,3 +551,16 @@ Final reconciliation checks: 172 tests passed (7.85 s); graph/example descriptor
 round-graph image freshness and whitespace checks passed. Temporary comparison
 confirmed existing scientific relationships and all six unrelated local files remain
 unchanged. These are structural results, not scientific validation.
+
+
+## 2026-10-25 — Proposed standing role: evidence-synthesis
+
+**Trigger:** Operator asked to propose an `evidence-synthesis` standing role so future rounds can select it, and to list it in the docs/agents.md subagent catalogue. Basis: the round-only role `synthesis-01` in sentinel-monthly-forest-cover `reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0003` (merged in Sentinel PR #5), which the operator reported worked well. That round outcome is downstream execution evidence, not Lab validation.
+
+**Change:** Added `agent_harness/roles/evidence-synthesis.md` and its catalogue row in docs/agents.md section 3; candidate concept `knowledge/roles/role-evidence-synthesis.md` (BOUNDED_BY agent-output-is-candidate and agent-agreement-is-not-independent-evidence); a candidate SUPPORTS_ROLE relation from `harness:round-bound-research`; README and docs/architecture.md now say nine standing roles. Regenerated graph/generated/knowledge.json (revision 0823f19ce072dae77f67c0b1b20b036da6e0a37aad6767a60ec82ada082360b8) and example snapshots with graph/update_examples.py; the governance-contract count test moves from 13 to 14.
+
+**Drift checklist:** Mission boundary unchanged; the role grants no promotion authority and is disclosed as non-independent (P1/P2 evidence and lineage separation kept). No forest definition, threshold, dataset role or method semantics added (P3/P4). Execution evidence stays downstream (P5). Registry index, role-listing test, graph freshness, round validation and round-graph image checks pass (P6). Earlier audit entries are unchanged.
+
+**Checks:** pytest: 172 passed; `graph/build.py --check` current; `validate_round.py --root .` PASS; `render_round_graph.py --root . --check` PASS; whitespace check clean. Downstream: Sentinel `workflow.yaml` must re-pin `forest_cover_lab_revision` and `graph_revision` after merge (separate compatibility PR).
+
+**Reviewer:** Claude Code structural proposal; human/operator review and ADR 0006 acceptance pending. Unrelated local edits (pyproject.toml and five untracked research/workspace files) preserved and not committed.

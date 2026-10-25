@@ -120,7 +120,7 @@ draws it as SVG and Mermaid; the validator checks it. No runner exists yet; see 
 [road-widening example graph](agent_harness/examples/road-widening/round-0001/graph.svg).
 
 The candidate [research-governance graph layer](docs/adr/0008-agent-governance-graph.md)
-makes eight standing roles, four Sentinel skills, harness constraints and supporting
+makes nine standing roles, four Sentinel skills, harness constraints and supporting
 host capabilities discoverable in the offline viewer. Every new concept and relationship
 remains candidate. Round schema 1.1 adds delegation, runtime and handoff capture while
 preserving 1.0 records. No orchestration engine or behavioral benchmark is introduced;

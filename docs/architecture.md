@@ -438,7 +438,7 @@ The portable [dataset-and-tool-discovery role](../agent_harness/roles/dataset-an
 
 [Proposed ADR 0008](adr/0008-agent-governance-graph.md) adds reusable harness, role and
 skill contracts alongside the existing science, data and implementation concepts.
-All additions and mappings remain candidates. Eight roles, four pinned Sentinel skills,
+All additions and mappings remain candidates. Nine roles, four pinned Sentinel skills,
 host delegation capabilities and two validation contracts are discoverable; no observed
 agent instances or execution results enter the graph. The viewer exposes this layer.
 Round schema 1.1 records delegation scope, observed runtime, handoffs, independence and
