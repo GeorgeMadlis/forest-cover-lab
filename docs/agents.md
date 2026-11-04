@@ -38,6 +38,7 @@ Access here is an **operator-declared capability**, not an assertion that every 
 | `agent_harness/roles/publication-method-reconstruction.md` | Reconstructed definitions, accounting objects and computable published methods |
 | `agent_harness/roles/discrepancy-analysis.md` | Numerical discrepancy decomposition; residuals and competing interpretation ledger |
 | `agent_harness/roles/independent-challenge.md` | Attempts to falsify conclusions, detect shared data lineage and enumerate unresolved tests |
+| `agent_harness/roles/evidence-synthesis.md` | Cross-instance analysis and summary, bounded retask addenda, and a source-cited (optionally offline) report with claim statuses and limitations |
 
 The discovery role follows `research/data_sources/discovery_and_link_verification.md`. It can answer human or agent queries, assess new products/tools and verify scoped catalogue URLs. The external `eudr-dmi-gil` auto-catalogue is a read-only discovery seed until independently authorized. A role definition does not start a crawler, verify any link, execute an ingestion pipeline or promote evidence.
 

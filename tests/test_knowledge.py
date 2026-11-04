@@ -193,7 +193,7 @@ def test_duplicate_dataset_entity(repo):
 def test_governance_discovery_preserves_candidate_and_execution_boundaries():
     graph = build.generate(ROOT)
     contracts = {n['id'] for n in graph['nodes'] if n['type'] in {'role', 'harness', 'skill'}}
-    assert len(contracts) == 13
+    assert len(contracts) == 14
     assert all(n['status'] == 'candidate' for n in graph['nodes'] if n['id'] in contracts)
     assert not any(e['source'] in contracts or e['target'] in contracts for e in graph['relationships'])
     assert any(e['source'] == 'workflow:sentinel-monthly-forest-cover' and e['target'] == 'harness:round-bound-research' and e['type'] == 'HAS_HARNESS_CONTRACT' for e in graph['candidate_relationships'])

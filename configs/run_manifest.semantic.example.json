@@ -84,8 +84,8 @@
       "DS-0002"
     ],
     "knowledge_snapshot": {
-      "forest_cover_lab_revision": "5073acc11dc5076960b74e3e00f276ede71745a2",
-      "graph_revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7"
+      "forest_cover_lab_revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+      "graph_revision": "0823f19ce072dae77f67c0b1b20b036da6e0a37aad6767a60ec82ada082360b8"
     },
     "methods": [
       {

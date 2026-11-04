@@ -37,6 +37,13 @@ relations:
   - research/publications/agent_harness_review_2026.md
   scope: Optional standing responsibility; does not mandate invocation or assert execution.
 - type: SUPPORTS_ROLE
+  target: role:evidence-synthesis
+  status: candidate
+  sources:
+  - docs/agents.md
+  - docs/adr/0006-round-agent-harness.md
+  scope: Optional standing responsibility; does not mandate invocation or assert execution.
+- type: SUPPORTS_ROLE
   target: role:independent-challenge
   status: candidate
   sources:
