@@ -551,3 +551,26 @@ Final reconciliation checks: 172 tests passed (7.85 s); graph/example descriptor
 round-graph image freshness and whitespace checks passed. Temporary comparison
 confirmed existing scientific relationships and all six unrelated local files remain
 unchanged. These are structural results, not scientific validation.
+
+## 2026-11-04 — Contextual evidence response archive
+
+**Trigger:** Add `research/contextual_evidence_responses/` to preserve the operator-requested
+Prompt 00 reply and provide a location for later replies. The archived reply is historical
+candidate analysis, not a round manifest, a source inventory, a scientific finding, or an
+approved decision. It records the original workstation paths and inspection limitations.
+
+**Drift checklist:** Reviewed the mission boundary and P1–P6 against this documentation-only
+addition. The existing research tracks, their scope and inventory rules, forest mission,
+downstream execution boundary, accepted ADRs and promotion controls are unchanged. No
+inventory entry, source ID, threshold, standing agent instruction, graph input or canonical
+claim was added. The README and overview scope are unchanged. Existing findings and pending
+human review in earlier audit entries remain open; this archive does not resolve them.
+
+**Verification:** `.venv/bin/python graph/build.py --check` passed with graph revision
+`f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7`;
+`.venv/bin/python -m pytest -p no:cacheprovider` passed 172 tests;
+`.venv/bin/python agent_harness/scripts/validate_round.py --root .` and
+`.venv/bin/python agent_harness/scripts/render_round_graph.py --root . --check` passed.
+These checks establish structural consistency, not scientific validation.
+
+**Reviewer:** Codex structural review; human scientific review remains pending.
